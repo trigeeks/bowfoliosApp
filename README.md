@@ -14,7 +14,7 @@ Here are the links of self-development repos:
 
 Yuhan: https://github.com/yuhanj/bowfolio-yuhan
 
-Tianhui: 
+Tianhui: https://github.com/tianhuizhou/bowfolios-SwiftUI
 
 Weirong: https://github.com/heweiron/myBowfolio
 
