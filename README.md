@@ -16,7 +16,7 @@ Yuhan: https://github.com/yuhanj/bowfolio-yuhan
 
 Tianhui: 
 
-Weirong: 
+Weirong: https://github.com/heweiron/myBowfolio
 
 ### Week3: Co-development
 
