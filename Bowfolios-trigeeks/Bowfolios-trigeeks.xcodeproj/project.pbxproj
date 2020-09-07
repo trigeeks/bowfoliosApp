@@ -3,18 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		455220E42505B29C0030E36E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E32505B29C0030E36E /* AppDelegate.swift */; };
 		455220E62505B29C0030E36E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E52505B29C0030E36E /* SceneDelegate.swift */; };
-		455220E82505B29C0030E36E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E72505B29C0030E36E /* ContentView.swift */; };
+		455220E82505B29C0030E36E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E72505B29C0030E36E /* RootView.swift */; };
 		455220EA2505B2A20030E36E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455220E92505B2A20030E36E /* Assets.xcassets */; };
 		455220ED2505B2A20030E36E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455220EC2505B2A20030E36E /* Preview Assets.xcassets */; };
 		455220F02505B2A20030E36E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455220EE2505B2A20030E36E /* LaunchScreen.storyboard */; };
 		455220F82505B2E90030E36E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 455220F72505B2E90030E36E /* GoogleService-Info.plist */; };
 		57B3012B5B6E0FFBE0D5421C /* Pods_Bowfolios_trigeeks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9D39E67C852C7FF3B3FED4 /* Pods_Bowfolios_trigeeks.framework */; };
+		C5CC617F2506C0110053845A /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC617E2506C0110053845A /* SessionStore.swift */; };
+		C5CC61822506C1F20053845A /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC61812506C1F20053845A /* AuthView.swift */; };
+		C5CC61842506C2600053845A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC61832506C2600053845A /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +25,7 @@
 		455220E02505B29C0030E36E /* Bowfolios-trigeeks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bowfolios-trigeeks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		455220E32505B29C0030E36E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		455220E52505B29C0030E36E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		455220E72505B29C0030E36E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		455220E72505B29C0030E36E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		455220E92505B2A20030E36E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		455220EC2505B2A20030E36E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		455220EF2505B2A20030E36E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -30,6 +33,9 @@
 		455220F72505B2E90030E36E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		496F035E81181B3080E6C5E1 /* Pods-Bowfolios-trigeeks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bowfolios-trigeeks.release.xcconfig"; path = "Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks.release.xcconfig"; sourceTree = "<group>"; };
 		71D5D44F6411608C3497CDCA /* Pods-Bowfolios-trigeeks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bowfolios-trigeeks.debug.xcconfig"; path = "Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks.debug.xcconfig"; sourceTree = "<group>"; };
+		C5CC617E2506C0110053845A /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		C5CC61812506C1F20053845A /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		C5CC61832506C2600053845A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +73,8 @@
 			children = (
 				455220E32505B29C0030E36E /* AppDelegate.swift */,
 				455220E52505B29C0030E36E /* SceneDelegate.swift */,
-				455220E72505B29C0030E36E /* ContentView.swift */,
+				C5CC617D2506BFAE0053845A /* Model */,
+				C5CC61802506C06A0053845A /* Views */,
 				455220E92505B2A20030E36E /* Assets.xcassets */,
 				455220EE2505B2A20030E36E /* LaunchScreen.storyboard */,
 				455220F12505B2A20030E36E /* Info.plist */,
@@ -91,7 +98,6 @@
 				71D5D44F6411608C3497CDCA /* Pods-Bowfolios-trigeeks.debug.xcconfig */,
 				496F035E81181B3080E6C5E1 /* Pods-Bowfolios-trigeeks.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -101,6 +107,24 @@
 				2F9D39E67C852C7FF3B3FED4 /* Pods_Bowfolios_trigeeks.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C5CC617D2506BFAE0053845A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C5CC617E2506C0110053845A /* SessionStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C5CC61802506C06A0053845A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				455220E72505B29C0030E36E /* RootView.swift */,
+				C5CC61812506C1F20053845A /* AuthView.swift */,
+				C5CC61832506C2600053845A /* HomeView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,8 +244,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				455220E42505B29C0030E36E /* AppDelegate.swift in Sources */,
+				C5CC61822506C1F20053845A /* AuthView.swift in Sources */,
 				455220E62505B29C0030E36E /* SceneDelegate.swift in Sources */,
-				455220E82505B29C0030E36E /* ContentView.swift in Sources */,
+				C5CC61842506C2600053845A /* HomeView.swift in Sources */,
+				C5CC617F2506C0110053845A /* SessionStore.swift in Sources */,
+				455220E82505B29C0030E36E /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
