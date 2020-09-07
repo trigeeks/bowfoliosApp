@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		455220E42505B29C0030E36E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E32505B29C0030E36E /* AppDelegate.swift */; };
+		455220E62505B29C0030E36E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E52505B29C0030E36E /* SceneDelegate.swift */; };
+		455220E82505B29C0030E36E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E72505B29C0030E36E /* ContentView.swift */; };
+		455220EA2505B2A20030E36E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455220E92505B2A20030E36E /* Assets.xcassets */; };
+		455220ED2505B2A20030E36E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455220EC2505B2A20030E36E /* Preview Assets.xcassets */; };
+		455220F02505B2A20030E36E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455220EE2505B2A20030E36E /* LaunchScreen.storyboard */; };
+		455220F82505B2E90030E36E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 455220F72505B2E90030E36E /* GoogleService-Info.plist */; };
+		57B3012B5B6E0FFBE0D5421C /* Pods_Bowfolios_trigeeks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9D39E67C852C7FF3B3FED4 /* Pods_Bowfolios_trigeeks.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2F9D39E67C852C7FF3B3FED4 /* Pods_Bowfolios_trigeeks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bowfolios_trigeeks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		455220E02505B29C0030E36E /* Bowfolios-trigeeks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bowfolios-trigeeks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		455220E32505B29C0030E36E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		455220E52505B29C0030E36E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		455220E72505B29C0030E36E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		455220E92505B2A20030E36E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		455220EC2505B2A20030E36E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		455220EF2505B2A20030E36E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		455220F12505B2A20030E36E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		455220F72505B2E90030E36E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		496F035E81181B3080E6C5E1 /* Pods-Bowfolios-trigeeks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bowfolios-trigeeks.release.xcconfig"; path = "Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks.release.xcconfig"; sourceTree = "<group>"; };
+		71D5D44F6411608C3497CDCA /* Pods-Bowfolios-trigeeks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bowfolios-trigeeks.debug.xcconfig"; path = "Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		455220DD2505B29C0030E36E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57B3012B5B6E0FFBE0D5421C /* Pods_Bowfolios_trigeeks.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		455220D72505B29C0030E36E = {
+			isa = PBXGroup;
+			children = (
+				455220E22505B29C0030E36E /* Bowfolios-trigeeks */,
+				455220E12505B29C0030E36E /* Products */,
+				63517302BA8EE3B1DCAF7FD1 /* Pods */,
+				B8EA135A3F2E616217C91383 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		455220E12505B29C0030E36E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				455220E02505B29C0030E36E /* Bowfolios-trigeeks.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		455220E22505B29C0030E36E /* Bowfolios-trigeeks */ = {
+			isa = PBXGroup;
+			children = (
+				455220E32505B29C0030E36E /* AppDelegate.swift */,
+				455220E52505B29C0030E36E /* SceneDelegate.swift */,
+				455220E72505B29C0030E36E /* ContentView.swift */,
+				455220E92505B2A20030E36E /* Assets.xcassets */,
+				455220EE2505B2A20030E36E /* LaunchScreen.storyboard */,
+				455220F12505B2A20030E36E /* Info.plist */,
+				455220F72505B2E90030E36E /* GoogleService-Info.plist */,
+				455220EB2505B2A20030E36E /* Preview Content */,
+			);
+			path = "Bowfolios-trigeeks";
+			sourceTree = "<group>";
+		};
+		455220EB2505B2A20030E36E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				455220EC2505B2A20030E36E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		63517302BA8EE3B1DCAF7FD1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				71D5D44F6411608C3497CDCA /* Pods-Bowfolios-trigeeks.debug.xcconfig */,
+				496F035E81181B3080E6C5E1 /* Pods-Bowfolios-trigeeks.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B8EA135A3F2E616217C91383 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F9D39E67C852C7FF3B3FED4 /* Pods_Bowfolios_trigeeks.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		455220DF2505B29C0030E36E /* Bowfolios-trigeeks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 455220F42505B2A20030E36E /* Build configuration list for PBXNativeTarget "Bowfolios-trigeeks" */;
+			buildPhases = (
+				76213613A148FA3EDA3A90D0 /* [CP] Check Pods Manifest.lock */,
+				455220DC2505B29C0030E36E /* Sources */,
+				455220DD2505B29C0030E36E /* Frameworks */,
+				455220DE2505B29C0030E36E /* Resources */,
+				FB68090A5883435B585A66C9 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bowfolios-trigeeks";
+			productName = "Bowfolios-trigeeks";
+			productReference = 455220E02505B29C0030E36E /* Bowfolios-trigeeks.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		455220D82505B29C0030E36E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1170;
+				LastUpgradeCheck = 1170;
+				ORGANIZATIONNAME = trigeeks;
+				TargetAttributes = {
+					455220DF2505B29C0030E36E = {
+						CreatedOnToolsVersion = 11.7;
+					};
+				};
+			};
+			buildConfigurationList = 455220DB2505B29C0030E36E /* Build configuration list for PBXProject "Bowfolios-trigeeks" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 455220D72505B29C0030E36E;
+			productRefGroup = 455220E12505B29C0030E36E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				455220DF2505B29C0030E36E /* Bowfolios-trigeeks */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		455220DE2505B29C0030E36E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				455220F02505B2A20030E36E /* LaunchScreen.storyboard in Resources */,
+				455220F82505B2E90030E36E /* GoogleService-Info.plist in Resources */,
+				455220ED2505B2A20030E36E /* Preview Assets.xcassets in Resources */,
+				455220EA2505B2A20030E36E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		76213613A148FA3EDA3A90D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bowfolios-trigeeks-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB68090A5883435B585A66C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		455220DC2505B29C0030E36E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				455220E42505B29C0030E36E /* AppDelegate.swift in Sources */,
+				455220E62505B29C0030E36E /* SceneDelegate.swift in Sources */,
+				455220E82505B29C0030E36E /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		455220EE2505B2A20030E36E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				455220EF2505B2A20030E36E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		455220F22505B2A20030E36E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		455220F32505B2A20030E36E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		455220F52505B2A20030E36E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71D5D44F6411608C3497CDCA /* Pods-Bowfolios-trigeeks.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Bowfolios-trigeeks/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Bowfolios-trigeeks/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "trigeeks.Bowfolios-trigeeks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		455220F62505B2A20030E36E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 496F035E81181B3080E6C5E1 /* Pods-Bowfolios-trigeeks.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Bowfolios-trigeeks/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Bowfolios-trigeeks/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "trigeeks.Bowfolios-trigeeks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		455220DB2505B29C0030E36E /* Build configuration list for PBXProject "Bowfolios-trigeeks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				455220F22505B2A20030E36E /* Debug */,
+				455220F32505B2A20030E36E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		455220F42505B2A20030E36E /* Build configuration list for PBXNativeTarget "Bowfolios-trigeeks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				455220F52505B2A20030E36E /* Debug */,
+				455220F62505B2A20030E36E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 455220D82505B29C0030E36E /* Project object */;
+}
