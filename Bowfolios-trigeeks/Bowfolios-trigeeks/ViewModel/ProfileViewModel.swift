@@ -25,11 +25,11 @@ class ProfileViewModel: ObservableObject {
             }
             
             self.profiles = documents.compactMap { (queryDocumentSnapshot) -> Profile? in
-               return try? queryDocumentSnapshot.data(as: Profile.self)
-
+                return try? queryDocumentSnapshot.data(as: Profile.self)
+                
             }
             print(self.profiles)
-            print("Done for fetching data")
+            print("Done for fetching profile data")
         }
     }
     
@@ -39,7 +39,7 @@ class ProfileViewModel: ObservableObject {
         
         print("updated!")
         
-        }
+    }
     
     
     // update profile when users use EditProfile View
@@ -60,13 +60,13 @@ class ProfileViewModel: ObservableObject {
                 print((error?.localizedDescription)!)
                 self.loadImageFromStorage(profile: profile)
             } else {
-            //self.project.picture = "\(url!)"
-            self.db.collection("profiles").document(profile.email).updateData(["picture" : "\(url!)"])
+                //self.project.picture = "\(url!)"
+                self.db.collection("profiles").document(profile.email).updateData(["picture" : "\(url!)"])
             }
             
-
+            
         }
-
+        
     }
     
     

@@ -13,6 +13,7 @@ import Pages
 struct HomeView: View {
     
     @EnvironmentObject var session: SessionStore
+    @ObservedObject var projects = ProjectViewModel()
     @ObservedObject var profiles = ProfileViewModel()
     @State var selected = 0
     @State var isExpand = false
@@ -51,6 +52,7 @@ struct HomeView: View {
         } // end of ZStack
             .onAppear {
                 self.profiles.fetchData()
+                self.projects.fetchData()
         }
     }
 }

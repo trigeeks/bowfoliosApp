@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		397566C12507B38C0074F90E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397566C02507B38C0074F90E /* Project.swift */; };
+		397566C32507BBC50074F90E /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397566C22507BBC50074F90E /* ProjectViewModel.swift */; };
 		455220E42505B29C0030E36E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E32505B29C0030E36E /* AppDelegate.swift */; };
 		455220E62505B29C0030E36E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E52505B29C0030E36E /* SceneDelegate.swift */; };
 		455220E82505B29C0030E36E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E72505B29C0030E36E /* RootView.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		2F9D39E67C852C7FF3B3FED4 /* Pods_Bowfolios_trigeeks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bowfolios_trigeeks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		397566C02507B38C0074F90E /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		397566C22507BBC50074F90E /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		455220E02505B29C0030E36E /* Bowfolios-trigeeks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bowfolios-trigeeks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		455220E32505B29C0030E36E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		455220E52505B29C0030E36E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				C53773E925079BB8009ACCC3 /* ProfileViewModel.swift */,
+				397566C22507BBC50074F90E /* ProjectViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				C5CC617F2506C0110053845A /* SessionStore.swift in Sources */,
 				455220E82505B29C0030E36E /* RootView.swift in Sources */,
 				397566C12507B38C0074F90E /* Project.swift in Sources */,
+				397566C32507BBC50074F90E /* ProjectViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
