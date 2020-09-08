@@ -150,19 +150,75 @@ struct SignUpView: View {
 
 struct AuthView: View {
     
+    // array that store views
+    // put into Pagesview
+    let views = [ AnyView( // first view
+        ZStack {
+            HStack {
+                Image("editProfile")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                Image("profileView")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                
+            }
+            Text("  Making your profile  ").fontWeight(.semibold).font(.system(size: 38)).background(Color.black.opacity(0.3)).rotationEffect(Angle(degrees: 20)).foregroundColor(.white)
+    }),
+                  AnyView( // second view
+                    ZStack {
+                        HStack {
+                            Image("interestView")
+                                .resizable().aspectRatio(contentMode: .fit)
+                            Image("filterView")
+                                .resizable().aspectRatio(contentMode: .fit)
+                        }
+                        Text("  Adding your projects  ").fontWeight(.semibold).font(.system(size: 38)).background(Color.black.opacity(0.3)).rotationEffect(Angle(degrees: -20)).foregroundColor(.white)
+                  }),
+                  AnyView(
+                    ZStack {
+                        HStack {
+                            Image("addProject")
+                                .resizable().aspectRatio(contentMode: .fit)
+                            Image("editProfile")
+                                .resizable().aspectRatio(contentMode: .fit)
+                        }
+                        Text("connect to people with shared interests!").fontWeight(.semibold).font(.system(size: 38)).multilineTextAlignment(.center).background(Color.black.opacity(0.3)).foregroundColor(.white)
+                  }) ]
     var body: some View {
         NavigationView{
-            
-            VStack {
+
+            VStack(spacing: 20) {
+                Spacer()
                 Image("logo")
+                PagesView(views).frame(height: 250)
+                
+                // Title
+                VStack {
+                    Text("Welcome To Bowfolios")
+                        .font(.largeTitle).fontWeight(.heavy).multilineTextAlignment(.center)
+                    Text("Profiles, projects, and interest areas for the UH Community")
+                        .font(.subheadline)
+                        .multilineTextAlignment(.center)
+                }.padding()
+                
                 NavigationLink(destination: SignInView()) {
-                    Text("SIGN IN")
+                    Text("GET START").fontWeight(.semibold)
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(height: 50)
                         .foregroundColor(.white)
-                        .background(Color.green)
-                }
-            }
+                        .background(Color(#colorLiteral(red: 0.00619146321, green: 0.4578815103, blue: 0.1789277494, alpha: 1)))
+                    .cornerRadius(10)
+                }.padding()
+                Spacer()
+            }.frame(maxHeight: .infinity)
+                .edgesIgnoringSafeArea(.all)
+                .background(
+                    ZStack{
+                        Rectangle().foregroundColor(Color(#colorLiteral(red: 0.8937863708, green: 0.9039856791, blue: 0.9527032971, alpha: 1))).edgesIgnoringSafeArea(.all)
+                        Rectangle().foregroundColor(Color.white).edgesIgnoringSafeArea(.all).rotationEffect(Angle(degrees: 80)).offset(x: 0, y: -80)
+                    }
+            )
             
         }
     }
