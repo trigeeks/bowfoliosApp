@@ -21,6 +21,7 @@ struct SignInView: View {
         session.signIn(email: email, password: password) { (result, error) in
             if let error = error {
                 self.error = error.localizedDescription
+                
             } else {
                 self.email = ""
                 self.password = ""
