@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Pages
 
 struct SignInView: View {
     
@@ -148,46 +149,12 @@ struct SignUpView: View {
     }
 }
 
+
+
+
 struct AuthView: View {
     
-    // array that store views
-    // put into Pagesview
-    // TODO: this should be change to actuall picture of our app by changing the assets images
-    let views = [ AnyView( // first view
-        ZStack {
-            HStack {
-                Image("editProfile")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                Image("profileView")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                
-            }
-            Text("  Making your profile  ").fontWeight(.semibold).font(.system(size: 38)).background(Color.black.opacity(0.3)).rotationEffect(Angle(degrees: 20)).foregroundColor(.white)
-    }),
-                  AnyView( // second view
-                    ZStack {
-                        HStack {
-                            Image("interestView")
-                                .resizable().aspectRatio(contentMode: .fit)
-                            Image("filterView")
-                                .resizable().aspectRatio(contentMode: .fit)
-                        }
-                        Text("  Adding your projects  ").fontWeight(.semibold).font(.system(size: 38)).background(Color.black.opacity(0.3)).rotationEffect(Angle(degrees: -20)).foregroundColor(.white)
-                  }),
-                  AnyView(
-                    ZStack {
-                        HStack {
-                            Image("addProject")
-                                .resizable().aspectRatio(contentMode: .fit)
-                            Image("editProfile")
-                                .resizable().aspectRatio(contentMode: .fit)
-                        }
-                        Text("connect to people with shared interests!").fontWeight(.semibold).font(.system(size: 38)).multilineTextAlignment(.center).background(Color.black.opacity(0.3)).foregroundColor(.white)
-                  }) ]
-    
-    
+    @State var index: Int = 0
     var body: some View {
         NavigationView{
 
@@ -197,10 +164,46 @@ struct AuthView: View {
                 // Logo image
                 Image("logo")
                 
+                // MARK: -Pages scroll view
                 // PresentView that can scroll
-                PagesView(views).frame(height: 250)
+                    // TODO: this should be change to actuall picture of our app by changing the assets images
+                Pages(currentPage: $index) { () -> [AnyView] in
+                    ZStack {
+                        HStack {
+                            Image("editProfile")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                            Image("profileView")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            
+                        }
+                        
+                        Text("  Making your profile  ").fontWeight(.semibold).font(.system(size: 38)).background(Color.black.opacity(0.3)).rotationEffect(Angle(degrees: 20)).foregroundColor(.white)
+                    }
+                    ZStack {
+                        HStack {
+                            Image("interestView")
+                                .resizable().aspectRatio(contentMode: .fit)
+                            Image("filterView")
+                            .resizable().aspectRatio(contentMode: .fit)
+                        }
+                        Text("  Adding your projects  ").fontWeight(.semibold).font(.system(size: 38)).background(Color.black.opacity(0.3)).rotationEffect(Angle(degrees: -20)).foregroundColor(.white)
+                    }
+                    ZStack {
+                        HStack {
+                            Image("addProject")
+                                .resizable().aspectRatio(contentMode: .fit)
+                            Image("editProfile")
+                            .resizable().aspectRatio(contentMode: .fit)
+                        }
+                        Text("connect to people with shared interests!").fontWeight(.semibold).font(.system(size: 38)).multilineTextAlignment(.center).background(Color.black.opacity(0.3)).foregroundColor(.white)
+                    }
+                }.frame(height: 250)
                 
-                // Title
+                
+                
+                // MARK: -Descriptions and button
                 VStack {
                     Text("Welcome To Bowfolios")
                         .font(.largeTitle).fontWeight(.heavy).multilineTextAlignment(.center)
@@ -216,7 +219,7 @@ struct AuthView: View {
                         .frame(height: 50)
                         .foregroundColor(.white)
                         .background(Color(#colorLiteral(red: 0.00619146321, green: 0.4578815103, blue: 0.1789277494, alpha: 1)))
-                    .cornerRadius(10)
+                        .cornerRadius(10)
                 }.padding()
                 Spacer()
             }.frame(maxHeight: .infinity)

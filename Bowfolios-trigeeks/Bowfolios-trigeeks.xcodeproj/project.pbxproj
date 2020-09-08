@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,8 @@
 		455220ED2505B2A20030E36E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455220EC2505B2A20030E36E /* Preview Assets.xcassets */; };
 		455220F02505B2A20030E36E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455220EE2505B2A20030E36E /* LaunchScreen.storyboard */; };
 		455220F82505B2E90030E36E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 455220F72505B2E90030E36E /* GoogleService-Info.plist */; };
-		455220FC2507017E0030E36E /* PagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220FB2507017E0030E36E /* PagesView.swift */; };
+		45522109250748850030E36E /* Pages in Frameworks */ = {isa = PBXBuildFile; productRef = 45522108250748850030E36E /* Pages */; };
+		4552210B250751980030E36E /* DesignedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552210A250751980030E36E /* DesignedButton.swift */; };
 		57B3012B5B6E0FFBE0D5421C /* Pods_Bowfolios_trigeeks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9D39E67C852C7FF3B3FED4 /* Pods_Bowfolios_trigeeks.framework */; };
 		C5CC617F2506C0110053845A /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC617E2506C0110053845A /* SessionStore.swift */; };
 		C5CC61822506C1F20053845A /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC61812506C1F20053845A /* AuthView.swift */; };
@@ -32,7 +33,7 @@
 		455220EF2505B2A20030E36E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		455220F12505B2A20030E36E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		455220F72505B2E90030E36E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		455220FB2507017E0030E36E /* PagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesView.swift; sourceTree = "<group>"; };
+		4552210A250751980030E36E /* DesignedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignedButton.swift; sourceTree = "<group>"; };
 		496F035E81181B3080E6C5E1 /* Pods-Bowfolios-trigeeks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bowfolios-trigeeks.release.xcconfig"; path = "Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks.release.xcconfig"; sourceTree = "<group>"; };
 		71D5D44F6411608C3497CDCA /* Pods-Bowfolios-trigeeks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bowfolios-trigeeks.debug.xcconfig"; path = "Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks.debug.xcconfig"; sourceTree = "<group>"; };
 		C5CC617E2506C0110053845A /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
@@ -46,6 +47,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57B3012B5B6E0FFBE0D5421C /* Pods_Bowfolios_trigeeks.framework in Frameworks */,
+				45522109250748850030E36E /* Pages in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +127,7 @@
 				455220E72505B29C0030E36E /* RootView.swift */,
 				C5CC61812506C1F20053845A /* AuthView.swift */,
 				C5CC61832506C2600053845A /* HomeView.swift */,
-				455220FB2507017E0030E36E /* PagesView.swift */,
+				4552210A250751980030E36E /* DesignedButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -148,6 +150,9 @@
 			dependencies = (
 			);
 			name = "Bowfolios-trigeeks";
+			packageProductDependencies = (
+				45522108250748850030E36E /* Pages */,
+			);
 			productName = "Bowfolios-trigeeks";
 			productReference = 455220E02505B29C0030E36E /* Bowfolios-trigeeks.app */;
 			productType = "com.apple.product-type.application";
@@ -176,6 +181,9 @@
 				Base,
 			);
 			mainGroup = 455220D72505B29C0030E36E;
+			packageReferences = (
+				45522107250748850030E36E /* XCRemoteSwiftPackageReference "Pages" */,
+			);
 			productRefGroup = 455220E12505B29C0030E36E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -251,8 +259,8 @@
 				455220E62505B29C0030E36E /* SceneDelegate.swift in Sources */,
 				C5CC61842506C2600053845A /* HomeView.swift in Sources */,
 				C5CC617F2506C0110053845A /* SessionStore.swift in Sources */,
-				455220FC2507017E0030E36E /* PagesView.swift in Sources */,
 				455220E82505B29C0030E36E /* RootView.swift in Sources */,
+				4552210B250751980030E36E /* DesignedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +454,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		45522107250748850030E36E /* XCRemoteSwiftPackageReference "Pages" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nachonavarro/Pages";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		45522108250748850030E36E /* Pages */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 45522107250748850030E36E /* XCRemoteSwiftPackageReference "Pages" */;
+			productName = Pages;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 455220D82505B29C0030E36E /* Project object */;
 }
