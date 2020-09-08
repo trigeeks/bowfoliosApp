@@ -149,9 +149,21 @@ struct SignUpView: View {
 }
 
 struct AuthView: View {
+    
     var body: some View {
         NavigationView{
-            SignInView()
+            
+            VStack {
+                Image("logo")
+                NavigationLink(destination: SignInView()) {
+                    Text("SIGN IN")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(height: 50)
+                        .foregroundColor(.white)
+                        .background(Color.green)
+                }
+            }
+            
         }
     }
 }
