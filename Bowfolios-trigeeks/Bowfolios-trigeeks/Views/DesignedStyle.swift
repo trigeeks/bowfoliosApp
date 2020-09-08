@@ -47,8 +47,8 @@ struct TextFieldModifier: ViewModifier {
         .padding(20)
         .cornerRadius(15)
         .overlay(
-            RoundedRectangle(cornerRadius: 15).strokeBorder(Color.black.opacity(0.05), lineWidth: 4)
-                .shadow(color: Color.black.opacity(0.2), radius: 3, x: 5, y: 5)
+            RoundedRectangle(cornerRadius: 15).strokeBorder(Color(#colorLiteral(red: 0.4727979898, green: 0.524199903, blue: 0.588883698, alpha: 1)).opacity(0.05), lineWidth: 4)
+                .shadow(color: Color(#colorLiteral(red: 0.5392544866, green: 0.5978889465, blue: 0.671661675, alpha: 1)).opacity(0.2), radius: 1, x: 5, y: 5)
                 .shadow(color: Color.white, radius: 3, x: -5, y: -5)
             .clipShape(RoundedRectangle(cornerRadius: 15))
             .shadow(color: Color.black.opacity(0.2), radius: 3, x: -5, y: -5)
