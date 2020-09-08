@@ -34,15 +34,15 @@ struct HomeView: View {
                     }
                     VStack(spacing: 30) {
                         Button(action: {}) {
-                            DesignedButton(buttonText: "My Profile", isImage: false)
+                            Text("My Profile").frame(width: 150, height: 60).modifier(ButtonModifier())
                         }.animation(.interpolatingSpring(mass: 0.5, stiffness: 90, damping: 10, initialVelocity: 0))
                         Button(action: {}) {
-                            DesignedButton(buttonText: "Add Project", isImage: false)
+                             Text("Add Project").frame(width: 150, height: 60).modifier(ButtonModifier())
                         }.animation(.interpolatingSpring(mass: 1, stiffness: 100, damping: 10, initialVelocity: 4))
                         Button(action: {
                             self.session.signOut()
                         }) {
-                            DesignedButton(buttonText: "Log Out", isImage: false)
+                            Text("Log Out").frame(width: 150, height: 60).modifier(ButtonModifier())
                         }.animation(.interpolatingSpring(mass: 1.5, stiffness: 100, damping: 10, initialVelocity: 0))
                     }.offset(x: UIScreen.main.bounds.width/4, y: -UIScreen.main.bounds.height * 0.2)
                         
@@ -80,7 +80,8 @@ struct TopBar: View {
                     Button(action: {
                         self.isExpand.toggle()
                     }) {
-                        DesignedButton(buttonText: "person", isImage: true).font(.system(size: 45)).foregroundColor(Color(#colorLiteral(red: 0.4268223047, green: 0.5645358562, blue: 0.9971285462, alpha: 1)))
+                        Image(systemName: "person").font(.system(size: 45)).foregroundColor(Color(#colorLiteral(red: 0.4268223047, green: 0.5645358562, blue: 0.9971285462, alpha: 1)))
+                            .frame(width: 80, height: 80).modifier(ButtonModifier())
                     }
                 }
             }
