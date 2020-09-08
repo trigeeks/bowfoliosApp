@@ -16,6 +16,7 @@ struct HomeView: View {
     @ObservedObject var profiles = ProfileViewModel()
     @State var selected = 0
     @State var isExpand = false
+    @State var editView: Bool = false
     
     var body: some View {
         
@@ -33,12 +34,21 @@ struct HomeView: View {
                             self.isExpand = false
                     }
                     VStack(spacing: 30) {
-                        Button(action: {}) {
+                        Button(action: {
+                            withAnimation {
+                                self.editView.toggle()
+                            }
+                        }) {
                             Text("My Profile").frame(width: 150, height: 60).modifier(ButtonModifier())
-                        }.animation(.interpolatingSpring(mass: 0.5, stiffness: 90, damping: 10, initialVelocity: 0))
+                            }.animation(.interpolatingSpring(mass: 0.5, stiffness: 90, damping: 10, initialVelocity: 0))
+                            .sheet(isPresented: $editView, content:{
+                                EditProfileView(editView: self.$editView).environmentObject(self.session)
+                            })
+                        
                         Button(action: {}) {
                              Text("Add Project").frame(width: 150, height: 60).modifier(ButtonModifier())
                         }.animation(.interpolatingSpring(mass: 1, stiffness: 100, damping: 10, initialVelocity: 4))
+                        
                         Button(action: {
                             self.session.signOut()
                         }) {
