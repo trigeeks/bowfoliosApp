@@ -22,6 +22,8 @@
 		57B3012B5B6E0FFBE0D5421C /* Pods_Bowfolios_trigeeks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9D39E67C852C7FF3B3FED4 /* Pods_Bowfolios_trigeeks.framework */; };
 		C53773E725079A3C009ACCC3 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53773E625079A3C009ACCC3 /* Profile.swift */; };
 		C53773EA25079BB8009ACCC3 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53773E925079BB8009ACCC3 /* ProfileViewModel.swift */; };
+		C55020212507BC78005E124B /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55020202507BC78005E124B /* EditProfileView.swift */; };
+		C55020242507BFB0005E124B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55020232507BFB0005E124B /* ImagePicker.swift */; };
 		C5CC617F2506C0110053845A /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC617E2506C0110053845A /* SessionStore.swift */; };
 		C5CC61822506C1F20053845A /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC61812506C1F20053845A /* AuthView.swift */; };
 		C5CC61842506C2600053845A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC61832506C2600053845A /* HomeView.swift */; };
@@ -46,6 +48,8 @@
 		71D5D44F6411608C3497CDCA /* Pods-Bowfolios-trigeeks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bowfolios-trigeeks.debug.xcconfig"; path = "Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks.debug.xcconfig"; sourceTree = "<group>"; };
 		C53773E625079A3C009ACCC3 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		C53773E925079BB8009ACCC3 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		C55020202507BC78005E124B /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		C55020232507BFB0005E124B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C5CC617E2506C0110053845A /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		C5CC61812506C1F20053845A /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		C5CC61832506C2600053845A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 			children = (
 				455220E32505B29C0030E36E /* AppDelegate.swift */,
 				455220E52505B29C0030E36E /* SceneDelegate.swift */,
+				C55020222507BF4A005E124B /* Helper */,
 				C5CC617D2506BFAE0053845A /* Model */,
 				C53773E825079B80009ACCC3 /* ViewModel */,
 				C5CC61802506C06A0053845A /* Views */,
@@ -133,6 +138,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		C55020222507BF4A005E124B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C55020232507BFB0005E124B /* ImagePicker.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		C5CC617D2506BFAE0053845A /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +164,7 @@
 				C5CC61832506C2600053845A /* HomeView.swift */,
 				457C74102507B98C00218265 /* Modifiers.swift */,
 				397566C42507C81D0074F90E /* ProjectView.swift */,
+				C55020202507BC78005E124B /* EditProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -280,12 +294,14 @@
 				455220E42505B29C0030E36E /* AppDelegate.swift in Sources */,
 				C53773E725079A3C009ACCC3 /* Profile.swift in Sources */,
 				C5CC61822506C1F20053845A /* AuthView.swift in Sources */,
+				C55020212507BC78005E124B /* EditProfileView.swift in Sources */,
 				C53773EA25079BB8009ACCC3 /* ProfileViewModel.swift in Sources */,
 				457C74112507B98C00218265 /* Modifiers.swift in Sources */,
 				455220E62505B29C0030E36E /* SceneDelegate.swift in Sources */,
 				397566C52507C81D0074F90E /* ProjectView.swift in Sources */,
 				C5CC61842506C2600053845A /* HomeView.swift in Sources */,
 				C5CC617F2506C0110053845A /* SessionStore.swift in Sources */,
+				C55020242507BFB0005E124B /* ImagePicker.swift in Sources */,
 				455220E82505B29C0030E36E /* RootView.swift in Sources */,
 				397566C12507B38C0074F90E /* Project.swift in Sources */,
 				397566C32507BBC50074F90E /* ProjectViewModel.swift in Sources */,
@@ -356,7 +372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -410,7 +426,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -425,8 +441,10 @@
 			baseConfigurationReference = 71D5D44F6411608C3497CDCA /* Pods-Bowfolios-trigeeks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Bowfolios-trigeeks/Preview Content\"";
+				DEVELOPMENT_TEAM = K437L26D6M;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Bowfolios-trigeeks/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -435,6 +453,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "trigeeks.Bowfolios-trigeeks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -445,8 +464,10 @@
 			baseConfigurationReference = 496F035E81181B3080E6C5E1 /* Pods-Bowfolios-trigeeks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Bowfolios-trigeeks/Preview Content\"";
+				DEVELOPMENT_TEAM = K437L26D6M;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Bowfolios-trigeeks/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -455,6 +476,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "trigeeks.Bowfolios-trigeeks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
