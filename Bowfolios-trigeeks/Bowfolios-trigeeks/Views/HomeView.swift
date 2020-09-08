@@ -13,7 +13,7 @@ import Pages
 struct HomeView: View {
     
     @EnvironmentObject var session: SessionStore
-    @ObservedObject var profiles = ProfilesViewModel()
+    @ObservedObject var profiles = ProfileViewModel()
     @State var selected = 0
     @State var isExpand = false
     

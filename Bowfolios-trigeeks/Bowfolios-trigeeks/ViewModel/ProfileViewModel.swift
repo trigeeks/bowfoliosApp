@@ -10,8 +10,8 @@ import Foundation
 import FirebaseStorage
 import FirebaseFirestore
 import FirebaseFirestoreSwift
- 
-class ProfilesViewModel: ObservableObject {
+
+class ProfileViewModel: ObservableObject {
     
     @Published var profiles = [Profile]()
     
