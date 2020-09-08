@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		397566C12507B38C0074F90E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397566C02507B38C0074F90E /* Project.swift */; };
 		455220E42505B29C0030E36E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E32505B29C0030E36E /* AppDelegate.swift */; };
 		455220E62505B29C0030E36E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E52505B29C0030E36E /* SceneDelegate.swift */; };
 		455220E82505B29C0030E36E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E72505B29C0030E36E /* RootView.swift */; };
@@ -15,7 +16,6 @@
 		455220F02505B2A20030E36E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455220EE2505B2A20030E36E /* LaunchScreen.storyboard */; };
 		455220F82505B2E90030E36E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 455220F72505B2E90030E36E /* GoogleService-Info.plist */; };
 		45522109250748850030E36E /* Pages in Frameworks */ = {isa = PBXBuildFile; productRef = 45522108250748850030E36E /* Pages */; };
-
 		57B3012B5B6E0FFBE0D5421C /* Pods_Bowfolios_trigeeks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9D39E67C852C7FF3B3FED4 /* Pods_Bowfolios_trigeeks.framework */; };
 		C53773E725079A3C009ACCC3 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53773E625079A3C009ACCC3 /* Profile.swift */; };
 		C53773EA25079BB8009ACCC3 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53773E925079BB8009ACCC3 /* ProfileViewModel.swift */; };
@@ -26,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		2F9D39E67C852C7FF3B3FED4 /* Pods_Bowfolios_trigeeks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bowfolios_trigeeks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		397566C02507B38C0074F90E /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		455220E02505B29C0030E36E /* Bowfolios-trigeeks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bowfolios-trigeeks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		455220E32505B29C0030E36E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		455220E52505B29C0030E36E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +36,6 @@
 		455220EF2505B2A20030E36E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		455220F12505B2A20030E36E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		455220F72505B2E90030E36E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-
 		496F035E81181B3080E6C5E1 /* Pods-Bowfolios-trigeeks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bowfolios-trigeeks.release.xcconfig"; path = "Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks.release.xcconfig"; sourceTree = "<group>"; };
 		71D5D44F6411608C3497CDCA /* Pods-Bowfolios-trigeeks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bowfolios-trigeeks.debug.xcconfig"; path = "Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks.debug.xcconfig"; sourceTree = "<group>"; };
 		C53773E625079A3C009ACCC3 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -122,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				C53773E925079BB8009ACCC3 /* ProfileViewModel.swift */,
-				457C740C25079DFF00218265 /* ProfilesViewModel.swift */,
 			);
 			path = "Model View";
 			sourceTree = "<group>";
@@ -132,6 +131,7 @@
 			children = (
 				C5CC617E2506C0110053845A /* SessionStore.swift */,
 				C53773E625079A3C009ACCC3 /* Profile.swift */,
+				397566C02507B38C0074F90E /* Project.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,7 +142,6 @@
 				455220E72505B29C0030E36E /* RootView.swift */,
 				C5CC61812506C1F20053845A /* AuthView.swift */,
 				C5CC61832506C2600053845A /* HomeView.swift */,
-				4552210A250751980030E36E /* DesignedStyle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -269,7 +268,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				457C740D25079DFF00218265 /* ProfilesViewModel.swift in Sources */,
 				455220E42505B29C0030E36E /* AppDelegate.swift in Sources */,
 				C53773E725079A3C009ACCC3 /* Profile.swift in Sources */,
 				C5CC61822506C1F20053845A /* AuthView.swift in Sources */,
@@ -278,7 +276,7 @@
 				C5CC61842506C2600053845A /* HomeView.swift in Sources */,
 				C5CC617F2506C0110053845A /* SessionStore.swift in Sources */,
 				455220E82505B29C0030E36E /* RootView.swift in Sources */,
-				4552210B250751980030E36E /* DesignedStyle.swift in Sources */,
+				397566C12507B38C0074F90E /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
