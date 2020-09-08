@@ -30,98 +30,59 @@ struct EditProfileView: View {
     
     var body: some View {
         VStack{
-
-            Spacer()
             HStack{
-                Text("First Name")
-                    .font(.headline).multilineTextAlignment(.leading).padding(.horizontal)
                 
-                TextField("First Name", text: $firstName)
-                .font(.system(size: 14))
-                .padding(12)
+                Button(action: {
+                    self.editView = false
+                }) {
+                    Text("Cancel")
+                        .multilineTextAlignment(.leading)
+                }.padding(.horizontal)
                 
-            }.background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 1))
-            
-            HStack{
-                Text("Last Name")
-                    .font(.headline).multilineTextAlignment(.leading).padding(.horizontal)
-
-                TextField("Last Name", text: $lastName)
-                .font(.system(size: 14))
-                .padding(12)
-
-            }.background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 1))
-            
-            HStack{
-                Text("Title   ")
-                    .font(.headline).multilineTextAlignment(.leading).padding(.horizontal)
+                Spacer()
                 
-                TextField("Aka?", text: $title)
-                .font(.system(size: 14))
-                .padding(12)
+                Text("Edit profile").font(.headline).multilineTextAlignment(.center).padding(.trailing, 12)
                 
-            }.background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 1)).edgesIgnoringSafeArea(.all)
-            
-            HStack{
-                Text("Bio     ")
-                    .font(.headline).multilineTextAlignment(.leading).padding(.horizontal)
+                Spacer()
                 
-                TextField("Add a Bio to your profile", text: $bio)
-                .font(.system(size: 14))
-                    .padding(12)
-                
-            }
-            .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 1)).edgesIgnoringSafeArea(.all)
-            
-            HStack{
-                Text("Interests")
-                    .font(.headline).multilineTextAlignment(.leading).padding(.horizontal)
-                
-                TextField("What do you like", text: $interests)
-                .font(.system(size: 14))
-                .padding(12)
-                
-            }.background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 1)).edgesIgnoringSafeArea(.all)
-            
-            
-            HStack{
-                Text("Projects")
-                    .font(.headline).multilineTextAlignment(.leading).padding(.horizontal)
-                
-                TextField("your projects", text: $projects)
-                .font(.system(size: 14))
-                .padding(12)
-                
-            }.background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.gray), lineWidth: 1)).edgesIgnoringSafeArea(.all)
-            
-            Spacer()
-            
             Button(action: {
                 self.editProfile()
                 self.editView = false
             }){
-                Text("Edit")
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .frame(height: 50)
-                    .foregroundColor(.white)
-                    .background(Color.green)
+                Text("Save")
+                    
+            }.padding(.horizontal)
             }
             
-                        
-            
+            Spacer()
+
             Button(action: {
                 self.showActionSheet = true
             }) {
                 if image == nil {
-                    Text("pick a image")
+                    ZStack{
+
+                        
+                        Image("turtlerock").renderingMode(.original).resizable().scaledToFit().frame(width:120, height: 120).clipShape(Circle())
+                        .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                            .shadow(radius: 10)
+                        
+                        Image(systemName: "camera.on.rectangle").font(.system(size: 30, weight: .regular)).foregroundColor(Color.white)
+                        .shadow(radius: 10)
+                    }
                 }else{
                     ZStack{
                                             
-                        Image(uiImage: image!).renderingMode(.original).resizable().scaledToFit().frame(width:200, height: 100)
+                        Image(uiImage: image!).renderingMode(.original).resizable().scaledToFit().frame(width:120, height: 120).clipShape(Circle())
+                        .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                            .shadow(radius: 10)
+                        
+                        Image(systemName: "camera.on.rectangle").font(.system(size: 30, weight: .regular)).foregroundColor(Color.white)
+                        .shadow(radius: 10)
                         
                     }
                 }
-            }.actionSheet(isPresented: $showActionSheet){
+            }.padding(.vertical, 30).actionSheet(isPresented: $showActionSheet){
                 ActionSheet(title: Text("Add a picture"), message: nil, buttons: [
                 //button 1
                     .default(Text("Camera"), action: {
@@ -140,10 +101,78 @@ struct EditProfileView: View {
             }.sheet(isPresented: $showImagePicker){
                 imagePicker(image: self.$image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
             }
+            
+            Spacer()
+            Form{
+            HStack{
+                Text("First Name")
+                    .multilineTextAlignment(.leading).padding(.horizontal)
+                
+                TextField("First Name", text: $firstName)
+                .font(.system(size: 14))
+                
+                
+            }
+            
+            HStack{
+                Text("Last Name")
+                    .multilineTextAlignment(.leading).padding(.horizontal)
+
+                TextField("Last Name", text: $lastName)
+                .font(.system(size: 14))
+                
+
+            }
+            
+            HStack{
+                Text("Title   ")
+                    .multilineTextAlignment(.leading).padding(.horizontal)
+                
+                TextField("Aka?", text: $title)
+                .font(.system(size: 14))
+                
+                
+            }
+                
+                HStack(alignment: .top){
+                Text("Bio     ")
+                    .multilineTextAlignment(.leading).padding(.horizontal)
+                
+                    TextField("Add a Bio to your profile", text: $bio)
+                        .font(.system(size: 14)).lineLimit(4)
+                        .multilineTextAlignment(.leading).frame(height: 100)
+            }
+                
+            
+            HStack{
+                Text("Interests")
+                    .multilineTextAlignment(.leading).padding(.horizontal)
+                
+                TextField("What do you like", text: $interests)
+                .font(.system(size: 14))
+                
+                
+            }
+            
+            HStack{
+                Text("Projects")
+                    .multilineTextAlignment(.leading).padding(.horizontal)
+                
+                TextField("your projects", text: $projects)
+                .font(.system(size: 14))
+                
+                
+            }
+                
+            }
+            Spacer()
+            
+        }.onAppear {
+            self.getInfo()
         }
     }
     
-    //upload data to firebase
+// MARK: - functions
     func editProfile() {
         let db = Firestore.firestore()
         let userEmail : String = (Auth.auth().currentUser?.email)!
@@ -162,8 +191,31 @@ struct EditProfileView: View {
         }
     }
     
+    func getInfo(){
+        let db = Firestore.firestore()
+        let userEmail : String = (Auth.auth().currentUser?.email)!
+        
+        let doc = db.collection("profiles").document(userEmail)
+        doc.getDocument { (document, err) in
+            if let document = document, document.exists {
+                
+                //document is found
+                let profile = try! document.data(as: Profile.self)
+                
+                //fetching data and display into Textfields
+                self.firstName = profile!.firstName
+                self.lastName = profile!.lastName
+                self.bio = profile!.bio
+                self.title = profile!.title
+                
+            } else {
+                print("Document does not exist, it will create a new document for user")
+            }
+        }
+    }
+    
 }
-
+// MARK: - helper functions
 func uploadImage(image: UIImage, path: String){
     if let imageData = image.jpegData(compressionQuality: 0.2){
         let storage = Storage.storage()
@@ -181,8 +233,14 @@ func uploadImage(image: UIImage, path: String){
     }
 }
 
+
+
+// MARK: - helper views
+
+
+
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        Text("hi")
+        EditProfileView(editView: .constant(true))
     }
 }
