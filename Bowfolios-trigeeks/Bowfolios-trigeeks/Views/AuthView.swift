@@ -31,33 +31,41 @@ struct SignInView: View {
     
     var body: some View {
         VStack{
-            Text("Welcome back!")
-                .font(.system(size: 32, weight: .heavy))
-            
-            Text("Sign in to continue")
-                .font(.system(size: 18, weight: .medium))
-                .foregroundColor(.gray)
-            
-            VStack{
-                TextField("Email address", text: $email)
-                    .font(.system(size: 14))
-                    .padding(12)
-                    .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.black), lineWidth: 1))
+            VStack {
+                
+                VStack {
+                Text("Welcome back!")
+                    .font(.system(size: 32, weight: .heavy))
                     
                 
-                SecureField("Password", text: $password).font(.system(size: 14))
-                    .padding(12)
-                    .background(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(.black), lineWidth: 1))
+                Text("Sign in to continue")
+                    .font(.system(size: 18, weight: .medium))
+                    .foregroundColor(.gray)
                     
-            }.padding(.vertical, 70)
-            
-            Button(action: signIn){
-                Text("Sign In")
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .frame(height: 50)
-                    .foregroundColor(.white)
-                    .background(Color.green)
+                    }.cornerRadius(15)
+                .padding()
+
+                
+                VStack{
+
+                        TextField("Email address", text: $email)
+                            .modifier(TextFieldModifier())
+                    
+                    
+                    SecureField("Password", text: $password).modifier(TextFieldModifier())
+                    
+                }.padding(.vertical, 70)
+                
+                Button(action: signIn){
+                    Text("Sign In")
+                        .frame(width: UIScreen.main.bounds.width*0.9, height: 70)
+                        .modifier(ButtonModifier())
+                }//.frame(minWidth: 0, maxWidth: .infinity)
             }
+            .frame(width: UIScreen.main.bounds.width - 30 , height: 500)
+            //.background(Color.white.opacity(0.5))
+            .cornerRadius(25)
+                .offset(y: UIScreen.main.bounds.height / 7)
             
             if (error != "") {
                 Text(error)
@@ -80,8 +88,11 @@ struct SignInView: View {
                 }
                 
             }
+            Spacer()
             
         }.padding(.horizontal, 32)
+        .background(Color(#colorLiteral(red: 0.8999916911, green: 0.9301283956, blue: 0.9705904126, alpha: 1)))
+            .edgesIgnoringSafeArea(.all)
         
     }
 }
@@ -237,6 +248,6 @@ struct AuthView: View {
 
 struct AuthView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthView()
+        SignInView()
     }
 }

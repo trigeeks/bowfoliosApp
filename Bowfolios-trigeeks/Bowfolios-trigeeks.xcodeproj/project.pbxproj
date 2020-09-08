@@ -15,7 +15,7 @@
 		455220F02505B2A20030E36E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455220EE2505B2A20030E36E /* LaunchScreen.storyboard */; };
 		455220F82505B2E90030E36E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 455220F72505B2E90030E36E /* GoogleService-Info.plist */; };
 		45522109250748850030E36E /* Pages in Frameworks */ = {isa = PBXBuildFile; productRef = 45522108250748850030E36E /* Pages */; };
-		4552210B250751980030E36E /* DesignedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552210A250751980030E36E /* DesignedButton.swift */; };
+		4552210B250751980030E36E /* DesignedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552210A250751980030E36E /* DesignedStyle.swift */; };
 		57B3012B5B6E0FFBE0D5421C /* Pods_Bowfolios_trigeeks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9D39E67C852C7FF3B3FED4 /* Pods_Bowfolios_trigeeks.framework */; };
 		C5CC617F2506C0110053845A /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC617E2506C0110053845A /* SessionStore.swift */; };
 		C5CC61822506C1F20053845A /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC61812506C1F20053845A /* AuthView.swift */; };
@@ -33,7 +33,7 @@
 		455220EF2505B2A20030E36E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		455220F12505B2A20030E36E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		455220F72505B2E90030E36E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		4552210A250751980030E36E /* DesignedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignedButton.swift; sourceTree = "<group>"; };
+		4552210A250751980030E36E /* DesignedStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignedStyle.swift; sourceTree = "<group>"; };
 		496F035E81181B3080E6C5E1 /* Pods-Bowfolios-trigeeks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bowfolios-trigeeks.release.xcconfig"; path = "Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks.release.xcconfig"; sourceTree = "<group>"; };
 		71D5D44F6411608C3497CDCA /* Pods-Bowfolios-trigeeks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bowfolios-trigeeks.debug.xcconfig"; path = "Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks.debug.xcconfig"; sourceTree = "<group>"; };
 		C5CC617E2506C0110053845A /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 				455220E72505B29C0030E36E /* RootView.swift */,
 				C5CC61812506C1F20053845A /* AuthView.swift */,
 				C5CC61832506C2600053845A /* HomeView.swift */,
-				4552210A250751980030E36E /* DesignedButton.swift */,
+				4552210A250751980030E36E /* DesignedStyle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -260,7 +260,7 @@
 				C5CC61842506C2600053845A /* HomeView.swift in Sources */,
 				C5CC617F2506C0110053845A /* SessionStore.swift in Sources */,
 				455220E82505B29C0030E36E /* RootView.swift in Sources */,
-				4552210B250751980030E36E /* DesignedButton.swift in Sources */,
+				4552210B250751980030E36E /* DesignedStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
