@@ -154,10 +154,10 @@ struct MainView: View {
         
         Pages(currentPage: $selected, navigationOrientation: .horizontal, transitionStyle: .scroll, hasControl: false) { () -> [AnyView] in
             
-            TestView()
-            TestView()
-            TestView()
-            AuthView()
+            TestView()  //profile
+            TestView()  //project
+            TestView()  //interest
+            AuthView()  //filter
             
         }
     }
