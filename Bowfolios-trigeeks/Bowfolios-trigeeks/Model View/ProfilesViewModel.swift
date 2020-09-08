@@ -12,6 +12,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
  
 class ProfilesViewModel: ObservableObject {
+    
     @Published var profiles = [Profile]()
     
     private var db = Firestore.firestore()
@@ -27,7 +28,8 @@ class ProfilesViewModel: ObservableObject {
                return try? queryDocumentSnapshot.data(as: Profile.self)
 
             }
-            
+            print(self.profiles)
+            print("Done for fetching data")
         }
     }
     
