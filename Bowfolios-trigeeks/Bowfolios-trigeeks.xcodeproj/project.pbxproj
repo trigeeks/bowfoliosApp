@@ -16,6 +16,7 @@
 		455220F82505B2E90030E36E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 455220F72505B2E90030E36E /* GoogleService-Info.plist */; };
 		45522109250748850030E36E /* Pages in Frameworks */ = {isa = PBXBuildFile; productRef = 45522108250748850030E36E /* Pages */; };
 		4552210B250751980030E36E /* DesignedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552210A250751980030E36E /* DesignedButton.swift */; };
+		457C740D25079DFF00218265 /* ProfilesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457C740C25079DFF00218265 /* ProfilesViewModel.swift */; };
 		57B3012B5B6E0FFBE0D5421C /* Pods_Bowfolios_trigeeks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9D39E67C852C7FF3B3FED4 /* Pods_Bowfolios_trigeeks.framework */; };
 		C53773E725079A3C009ACCC3 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53773E625079A3C009ACCC3 /* Profile.swift */; };
 		C53773EA25079BB8009ACCC3 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53773E925079BB8009ACCC3 /* ProfileViewModel.swift */; };
@@ -36,6 +37,7 @@
 		455220F12505B2A20030E36E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		455220F72505B2E90030E36E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4552210A250751980030E36E /* DesignedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignedButton.swift; sourceTree = "<group>"; };
+		457C740C25079DFF00218265 /* ProfilesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesViewModel.swift; sourceTree = "<group>"; };
 		496F035E81181B3080E6C5E1 /* Pods-Bowfolios-trigeeks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bowfolios-trigeeks.release.xcconfig"; path = "Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks.release.xcconfig"; sourceTree = "<group>"; };
 		71D5D44F6411608C3497CDCA /* Pods-Bowfolios-trigeeks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bowfolios-trigeeks.debug.xcconfig"; path = "Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks.debug.xcconfig"; sourceTree = "<group>"; };
 		C53773E625079A3C009ACCC3 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				C53773E925079BB8009ACCC3 /* ProfileViewModel.swift */,
+				457C740C25079DFF00218265 /* ProfilesViewModel.swift */,
 			);
 			path = "Model View";
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				457C740D25079DFF00218265 /* ProfilesViewModel.swift in Sources */,
 				455220E42505B29C0030E36E /* AppDelegate.swift in Sources */,
 				C53773E725079A3C009ACCC3 /* Profile.swift in Sources */,
 				C5CC61822506C1F20053845A /* AuthView.swift in Sources */,
