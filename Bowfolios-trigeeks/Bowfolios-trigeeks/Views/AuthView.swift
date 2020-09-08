@@ -152,6 +152,7 @@ struct AuthView: View {
     
     // array that store views
     // put into Pagesview
+    // TODO: this should be change to actuall picture of our app by changing the assets images
     let views = [ AnyView( // first view
         ZStack {
             HStack {
@@ -185,12 +186,18 @@ struct AuthView: View {
                         }
                         Text("connect to people with shared interests!").fontWeight(.semibold).font(.system(size: 38)).multilineTextAlignment(.center).background(Color.black.opacity(0.3)).foregroundColor(.white)
                   }) ]
+    
+    
     var body: some View {
         NavigationView{
 
             VStack(spacing: 20) {
                 Spacer()
+                
+                // Logo image
                 Image("logo")
+                
+                // PresentView that can scroll
                 PagesView(views).frame(height: 250)
                 
                 // Title
@@ -202,6 +209,7 @@ struct AuthView: View {
                         .multilineTextAlignment(.center)
                 }.padding()
                 
+                // Button go to SignInView
                 NavigationLink(destination: SignInView()) {
                     Text("GET START").fontWeight(.semibold)
                         .frame(minWidth: 0, maxWidth: .infinity)
