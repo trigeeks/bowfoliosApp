@@ -17,17 +17,37 @@ struct HomeView: View {
     @State var isExpand = false
     
     var body: some View {
-        VStack {
-            TopBar(selected: $selected, isExpand: $isExpand)
-            MainView(selected: $selected)
-            Button(action: {
-                self.session.signOut()
-            }) {
-                Image(systemName: "clear.fill").resizable().frame(width: 25, height: 25).padding()
-                
-                Text("Quit").fontWeight(.regular)
+        
+        ZStack {
+            VStack {
+                TopBar(selected: $selected, isExpand: $isExpand)
+                MainView(selected: $selected)
+
+            }.edgesIgnoringSafeArea(.all)
+            
+            if isExpand {
+                ZStack {
+                    Rectangle().foregroundColor(Color.white.opacity(0.01)).edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            self.isExpand = false
+                    }
+                    VStack(spacing: 30) {
+                        Button(action: {}) {
+                            DesignedButton(buttonText: "My Profile", isImage: false)
+                        }.animation(.interpolatingSpring(mass: 0.5, stiffness: 90, damping: 10, initialVelocity: 0))
+                        Button(action: {}) {
+                            DesignedButton(buttonText: "Add Project", isImage: false)
+                        }.animation(.interpolatingSpring(mass: 1, stiffness: 100, damping: 10, initialVelocity: 4))
+                        Button(action: {
+                            self.session.signOut()
+                        }) {
+                            DesignedButton(buttonText: "Log Out", isImage: false)
+                        }.animation(.interpolatingSpring(mass: 1.5, stiffness: 100, damping: 10, initialVelocity: 0))
+                    }.offset(x: UIScreen.main.bounds.width/4, y: -UIScreen.main.bounds.height * 0.2)
+                        
+                }.transition(.move(edge: .trailing))
             }
-        }.edgesIgnoringSafeArea(.all)
+        } // end of ZStack
     }
 }
 
@@ -56,7 +76,7 @@ struct TopBar: View {
                     Button(action: {
                         self.isExpand.toggle()
                     }) {
-                        DesignedButton(buttonText: "person").font(.system(size: 45)).foregroundColor(Color(#colorLiteral(red: 0.4268223047, green: 0.5645358562, blue: 0.9971285462, alpha: 1)))
+                        DesignedButton(buttonText: "person", isImage: true).font(.system(size: 45)).foregroundColor(Color(#colorLiteral(red: 0.4268223047, green: 0.5645358562, blue: 0.9971285462, alpha: 1)))
                     }
                 }
             }
@@ -126,8 +146,11 @@ struct MainView: View {
     var body: some View {
         
         Pages(currentPage: $selected, navigationOrientation: .horizontal, transitionStyle: .scroll, hasControl: false) { () -> [AnyView] in
-            AuthView()
+            
             TestView()
+            TestView()
+            TestView()
+            AuthView()
             
         }
     }
