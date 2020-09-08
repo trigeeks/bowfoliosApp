@@ -52,7 +52,7 @@ struct EditProfileView: View {
                 Text("Save")
                     
             }.padding(.horizontal)
-            }
+            }.padding(.top, 20)
             
             Spacer()
 
