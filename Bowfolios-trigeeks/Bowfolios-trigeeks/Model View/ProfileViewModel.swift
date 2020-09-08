@@ -14,7 +14,7 @@ import Foundation
 import FirebaseStorage
 import FirebaseFirestore
 import FirebaseFirestoreSwift
- 
+
 class ProfileViewModel: ObservableObject {
     
     @Published var profiles = [Profile]()
