@@ -57,9 +57,11 @@ struct ProfileRowView: View {
                         ForEach(profile.interests, id: \.self) {interest in
                             Text("  \(interest)  ")
                                 .fontWeight(.semibold)
+                                .padding(5)
                                 .background(LinearGradient(gradient: Gradient(colors: [Color("bg2"), Color("bg1")]), startPoint: .leading, endPoint: .trailing))
                                 .foregroundColor(Color.white)
                                 .cornerRadius(5)
+
                             
                             
                         }

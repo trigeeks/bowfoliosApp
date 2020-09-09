@@ -9,10 +9,21 @@
 import SwiftUI
 
 struct ProjectView: View {
+    @ObservedObject var projects = ProjectViewModel()
+    @ObservedObject var profiles = ProfileViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        List(self.projects.projects) { project in
+            ProjectRowView(project: project)
+        }
+        .onAppear {
+            self.profiles.fetchData()
+            self.projects.fetchData()
+        }
+        
     }
 }
+    
 
 
 struct ProjectsView_Previews: PreviewProvider {
