@@ -16,6 +16,7 @@ struct ProfileView: View {
         List(self.profiles.profiles) { profile in
             ProfileRowView(profile: profile)
         }
+        .id(UUID())
         .onAppear {
             self.profiles.fetchData()
             self.projects.fetchData()
