@@ -18,6 +18,8 @@ struct HomeView: View {
     @State var selected = 0
     @State var isExpand = false
     @State var editView: Bool = false
+    @State var showAddProject = false
+    @State var showSheet = false
     
     var body: some View {
         
@@ -37,16 +39,21 @@ struct HomeView: View {
                     VStack(spacing: 30) {
                         Button(action: {
                             withAnimation {
-                                self.editView.toggle()
+                                self.editView = true
+                                self.showSheet = true
+                                self.isExpand.toggle()
                             }
                         }) {
                             Text("My Profile").frame(width: 150, height: 60).modifier(ButtonModifier())
                             }.animation(.interpolatingSpring(mass: 0.5, stiffness: 90, damping: 10, initialVelocity: 0))
-                            .sheet(isPresented: $editView, content:{
-                                EditProfileView(editView: self.$editView).environmentObject(self.session)
-                            })
+                            
+                            
                         
-                        Button(action: {}) {
+                        Button(action: {
+                            self.showAddProject = true
+                            self.showSheet = true
+                            self.isExpand.toggle()
+                        }) {
                              Text("Add Project").frame(width: 150, height: 60).modifier(ButtonModifier())
                         }.animation(.interpolatingSpring(mass: 1, stiffness: 100, damping: 10, initialVelocity: 4))
                         
@@ -64,6 +71,13 @@ struct HomeView: View {
                 self.profiles.fetchData()
                 self.projects.fetchData()
         }
+        .sheet(isPresented: $showSheet, content:{
+            if self.editView {
+            EditProfileView(editView: self.$editView).environmentObject(self.session)
+            } else if self.showAddProject {
+                AddProjectView(showAddProject: self.$showSheet, showSheet: self.$showSheet)
+            }
+        })
     }
 }
 
