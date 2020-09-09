@@ -7,10 +7,24 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
+
 
 struct ProfileRowView: View {
     @State var profile: Profile
     @ObservedObject var projects = ProjectViewModel()
+    
+    func getProject(projectName: String) -> String {
+        for project in projects.projects {
+            if project.name == projectName {
+                return project.picture
+            }
+            
+        }
+        print("Error: Can't find that project")
+        return ""
+        
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -28,7 +42,7 @@ struct ProfileRowView: View {
                             .foregroundColor(.gray)
                     }
                     Spacer()
-                    Image("turtlerock")
+                    WebImage(url: URL(string: self.profile.picture)).renderingMode(.original)
                         .resizable()
                         .cornerRadius(10)
                         .frame(width: 60, height:60)
@@ -62,7 +76,7 @@ struct ProfileRowView: View {
                         HStack {
                             ForEach(profile.projects, id: \.self) { project in
                                 
-                                Image("turtlerock")
+                                WebImage(url: URL(string: self.getProject(projectName: project))).renderingMode(.original)
                                     .resizable().frame(width: 50, height: 50).cornerRadius(50)
                             }
                         }
@@ -70,7 +84,8 @@ struct ProfileRowView: View {
                 }
                 
             }
-        }.onAppear() {
+        }
+        .onAppear() {
             self.projects.fetchData()
         }
     }
