@@ -21,19 +21,26 @@ struct AddProjectView: View {
     @State private var description = ""
     @State private var interests: [String] = []
     @State private var picture = ""
+    // TODO: add real interests list
+    @State var interestsArray: [String] = ["A", "B"]
+    @State var usersArray: [String] = []
     
     @State var selectedParticipantsArray: [String] = []
     
     @State var showActionSheet = false
     @State var showImagePicker = false
+    @State var showInterestsSelections = false
+    @State var showParticipantsSelections = false
     @State var sourceType: UIImagePickerController.SourceType = .camera
     @State var image: UIImage?
     
-    @State var value: CGFloat = 0
     
     
     var body: some View {
+        ZStack {
         VStack {
+            
+            //MARK: - navigation button and title
             HStack{
                 
                 Button(action: {
@@ -96,7 +103,7 @@ struct AddProjectView: View {
                 }
             }.padding(.vertical, 30).actionSheet(isPresented: $showActionSheet){
                 ActionSheet(title: Text("Add a picture"), message: nil, buttons: [
-                //button 1
+                    //button 1
                     .default(Text("Camera"), action: {
                         self.showImagePicker = true
                         self.sourceType = .camera
@@ -115,35 +122,37 @@ struct AddProjectView: View {
             }
             
             Spacer()
+            
+            //MARK: - Form for projecct information
             Form {
-            HStack{
-                Text("Name          ")
-                    .multilineTextAlignment(.leading).padding(.horizontal)
-                
-                TextField("Project Name", text: $name)
-                .font(.system(size: 14))
-                
-                
-            }
+                HStack{
+                    Text("Name          ")
+                        .multilineTextAlignment(.leading).padding(.horizontal)
+                    
+                    TextField("Project Name", text: $name)
+                        .font(.system(size: 14))
+                    
+                    
+                }
                 
                 HStack{
                     Text("Homepage ")
                         .multilineTextAlignment(.leading).padding(.horizontal)
                     
                     TextField("Project page link", text: $homepage)
-                    .font(.system(size: 14))
+                        .font(.system(size: 14))
                     
                     
                 }
-            
-                HStack(alignment: .top) {
-                Text("Description")
-                    .multilineTextAlignment(.leading).padding(.horizontal)
-
-//                TextField("Description", text: $description)
-//                .font(.system(size: 14))
-                    MutiLineTextField(preText: "Add some description of your project", text: $description).frame(height: 80)
                 
+                HStack(alignment: .top) {
+                    Text("Description")
+                        .multilineTextAlignment(.leading).padding(.horizontal)
+                    
+                    //                TextField("Description", text: $description)
+                    //                .font(.system(size: 14))
+                    MutiLineTextField(preText: "Add some description of your project", text: $description).frame(height: 80)
+                    
                     
                 }
                 
@@ -154,34 +163,48 @@ struct AddProjectView: View {
                 HStack{
                     Text("Interests")
                         .multilineTextAlignment(.leading).padding(.horizontal)
+                    Spacer()
+                    Image(systemName: "chevron.down")
                     
                     
+                }.onTapGesture {
+                    self.showInterestsSelections = true
                 }
                 
                 HStack{
                     Text("Participants")
                         .multilineTextAlignment(.leading).padding(.horizontal)
+                    Spacer()
+                    Image(systemName: "chevron.down")
                     
                     
+                }.onTapGesture {
+                    self.showParticipantsSelections = true
                 }
                 
             }
-            
-//            .offset(y: -self.value).animation(.spring()).onAppear {
-//                self.profilesViewModel.fetchData()
-//                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (noti) in
-//                    let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
-//                    let height = value.height
-//                    self.value = height
-//                }
-//                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (noti) in
-//                    self.value = 0
-//                }
-//            }
+            // for keyboard but no use delete later in case whould use it elsewhere
+            //            .offset(y: -self.value).animation(.spring()).onAppear {
+            //                self.profilesViewModel.fetchData()
+            //                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (noti) in
+            //                    let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+            //                    let height = value.height
+            //                    self.value = height
+            //                }
+            //                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (noti) in
+            //                    self.value = 0
+            //                }
+            //            }
             Spacer()
             
         }.onAppear {
             self.profilesViewModel.fetchData()
+            }
+            
+            // MARK: - Selections of interests and participants
+            Selections(showSelections: $showInterestsSelections, selectedArray: $interests, itemsArray: $interestsArray).offset(y: showInterestsSelections ? 0 : 900).animation(.linear)
+            
+            Selections(showSelections: $showParticipantsSelections, selectedArray: $selectedParticipantsArray, itemsArray: $usersArray).offset(y: showParticipantsSelections ? 0 : 900).animation(.linear)
         }
     }
     
@@ -236,6 +259,12 @@ struct AddProjectView: View {
                     
                 }
             }
+        }
+    }
+    
+    func getUsersArray() {
+        for profile in profilesViewModel.profiles {
+            self.usersArray.append(profile.email)
         }
     }
     
