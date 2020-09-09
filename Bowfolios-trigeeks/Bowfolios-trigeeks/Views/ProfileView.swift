@@ -9,9 +9,19 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @ObservedObject var projects = ProjectViewModel()
+    @ObservedObject var profiles = ProfileViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        List(self.profiles.profiles) { profile in
+            ProfileRowView(profile: profile)
+        }
+        .onAppear {
+            self.profiles.fetchData()
+            self.projects.fetchData()
+        }
     }
+    
 }
 
 struct ProfileView_Previews: PreviewProvider {

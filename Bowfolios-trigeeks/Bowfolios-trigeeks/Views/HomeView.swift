@@ -164,7 +164,7 @@ struct MainView: View {
         
         Pages(currentPage: $selected, navigationOrientation: .horizontal, transitionStyle: .scroll, hasControl: false) { () -> [AnyView] in
             
-            TestView()  //profile
+            ProfileView()  //profile
             TestView()  //project
             TestView()  //interest
             AuthView()  //filter
