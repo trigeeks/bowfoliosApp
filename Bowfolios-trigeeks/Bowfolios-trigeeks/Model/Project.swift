@@ -12,7 +12,7 @@ import FirebaseFirestoreSwift
 
 struct Project: Codable, Identifiable {
     
-    @DocumentID var id: String?
+    @DocumentID var id: String? = UUID().uuidString
     var name: String
     var description: String
     var picture: String
