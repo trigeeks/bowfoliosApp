@@ -8,6 +8,7 @@
 
 import SwiftUI
 import FirebaseStorage
+import FirebaseFirestore
 
 struct AddProjectView: View {
     @Binding var showAddProject: Bool
@@ -68,7 +69,7 @@ struct AddProjectView: View {
                 }.padding(.horizontal)
                 .disabled(name == "" ||
                 homepage == "" ||
-                    //interest.count <= 0 ||
+                interests.count <= 0 ||
                 description == "" ||
                 image == nil)
                 
@@ -144,7 +145,7 @@ struct AddProjectView: View {
                     
                     //                TextField("Description", text: $description)
                     //                .font(.system(size: 14))
-                    MutiLineTextField(preText: "Add some description of your project", text: $description)
+                    MutiLineTextField(preText: "Add some description of your project", text: $description).frame(height: 80)
                     
                     
                 }
@@ -252,7 +253,6 @@ struct AddProjectView: View {
         let project: Project = Project(name: self.name, description: self.description, picture: "nothing", homepage: self.homepage, interests: self.interests)
         uploadImage(image: image!, path: project.id!)
         projectViewModel.addProject(project: project)
-        projectViewModel.loadImageFromStorage(project: project)
         dismiss()
     }
     
@@ -274,6 +274,17 @@ struct AddProjectView: View {
                     print("an error has happened -> \(err.localizedDescription)")
                 } else {
                     print("project image uploaded successfully")
+                    let imageRef = storage.reference().child("projectImages/\(path).jpg")
+                    imageRef.downloadURL { (url, error) in
+                        if error != nil {
+                            print((error?.localizedDescription)!)
+                        } else {
+                            //self.project.picture = "\(url!)"
+                            Firestore.firestore().collection("projects").document(path).updateData(["picture" : "\(url!)"])
+                        }
+                        
+                        
+                    }
                 }
             }
             
