@@ -9,9 +9,11 @@
 import SwiftUI
 import Firebase
 import FirebaseFirestoreSwift
+import SDWebImageSwiftUI
 
 struct EditProfileView: View {
     @Binding var editView: Bool
+    @Binding var showSheet: Bool
     
     @EnvironmentObject var session: SessionStore
     
@@ -27,6 +29,7 @@ struct EditProfileView: View {
     @State var showImagePicker = false
     @State var sourceType: UIImagePickerController.SourceType = .camera
     @State var image: UIImage?
+    @State var isUploaded = false
     
     var body: some View {
         VStack{
@@ -34,6 +37,8 @@ struct EditProfileView: View {
                 
                 Button(action: {
                     self.editView = false
+                    self.showSheet = false
+                    
                 }) {
                     Text("Cancel")
                         .multilineTextAlignment(.leading)
@@ -48,6 +53,7 @@ struct EditProfileView: View {
             Button(action: {
                 self.editProfile()
                 self.editView = false
+                self.showSheet = false
             }){
                 Text("Save")
                     
@@ -59,7 +65,7 @@ struct EditProfileView: View {
             Button(action: {
                 self.showActionSheet = true
             }) {
-                if image == nil {
+                if picture == "" {
                     ZStack{
 
                         
@@ -73,7 +79,7 @@ struct EditProfileView: View {
                 }else{
                     ZStack{
                                             
-                        Image(uiImage: image!).renderingMode(.original).resizable().scaledToFit().frame(width:120, height: 120).clipShape(Circle())
+                        WebImage(url: URL(string: self.picture)).renderingMode(.original).resizable().scaledToFit().frame(width:120, height: 120).clipShape(Circle())
                         .overlay(Circle().stroke(Color.white, lineWidth: 2))
                             .shadow(radius: 10)
                         
@@ -180,6 +186,8 @@ struct EditProfileView: View {
         
         //skip adding picture now
         
+        
+        
          db.collection("profiles").document(userEmail).setData(["bio": bio, "email": userEmail, "firstName": firstName, "interests": [interests], "lastName": lastName, "picture": "nothing", "projects": [projects], "title": title])
         
         
@@ -207,7 +215,7 @@ struct EditProfileView: View {
                 self.lastName = profile!.lastName
                 self.bio = profile!.bio
                 self.title = profile!.title
-                
+                self.picture = profile!.picture
             } else {
                 print("Document does not exist, it will create a new document for user")
             }
@@ -219,12 +227,24 @@ struct EditProfileView: View {
 func uploadImage(image: UIImage, path: String){
     if let imageData = image.jpegData(compressionQuality: 0.2){
         let storage = Storage.storage()
-        storage.reference().child(path).putData(imageData, metadata: nil){
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        storage.reference().child("profileImages/\(path)").putData(imageData, metadata: metadata){
             (_, err) in
             if let err = err{
                 print("an error has happened -> \(err.localizedDescription)")
             } else {
                 print("image uploaded successfully")
+                let temp = storage.reference().child("profileImages/\(path)")
+                    temp.downloadURL { (url, err) in
+                    if err == nil {
+                        print(url!)
+                        Firestore.firestore().collection("profiles").document(path).updateData(["picture": "\(url!)"])
+                    } else {
+                        print("Cannot download the url")
+                        
+                    }
+                }
             }
         }
         
@@ -241,6 +261,6 @@ func uploadImage(image: UIImage, path: String){
 
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileView(editView: .constant(true))
+        EditProfileView(editView: .constant(true), showSheet: .constant(true))
     }
 }
