@@ -10,9 +10,9 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
-struct Profile: Codable, Identifiable {
+struct Profile: Codable, Identifiable, Hashable {
     
-    @DocumentID var id: String?
+    @DocumentID var id: String? = UUID().uuidString
     var firstName: String
     var lastName: String
     var bio: String
