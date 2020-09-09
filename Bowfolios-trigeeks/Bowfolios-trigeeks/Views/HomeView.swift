@@ -73,7 +73,7 @@ struct HomeView: View {
         }
         .sheet(isPresented: $showSheet, content:{
             if self.editView {
-            EditProfileView(editView: self.$editView).environmentObject(self.session)
+                EditProfileView(editView: self.$editView, showSheet: self.$showSheet).environmentObject(self.session)
             } else if self.showAddProject {
                 AddProjectView(showAddProject: self.$showSheet, showSheet: self.$showSheet)
             }
