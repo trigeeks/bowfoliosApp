@@ -13,8 +13,8 @@ import Pages
 struct HomeView: View {
     
     @EnvironmentObject var session: SessionStore
-    @ObservedObject var projects = ProjectViewModel()
-    @ObservedObject var profiles = ProfileViewModel()
+    @EnvironmentObject var projects: ProjectViewModel
+    @EnvironmentObject var profiles: ProfileViewModel
     @State var selected = 0
     @State var isExpand = false
     @State var editView: Bool = false
@@ -31,8 +31,12 @@ struct HomeView: View {
                 
                 // MARK: - Main Pages View
                 MainView(selected: $selected)
-
+                
             }.edgesIgnoringSafeArea(.all)
+            .onAppear {
+                self.profiles.fetchData()
+                self.projects.fetchData()
+            }
             
             if isExpand {
                 ZStack {
@@ -49,16 +53,16 @@ struct HomeView: View {
                             }
                         }) {
                             Text("My Profile").frame(width: 150, height: 60).modifier(ButtonModifier())
-                            }.animation(.interpolatingSpring(mass: 0.5, stiffness: 90, damping: 10, initialVelocity: 0))
-                            
-                            
+                        }.animation(.interpolatingSpring(mass: 0.5, stiffness: 90, damping: 10, initialVelocity: 0))
+                        
+                        
                         
                         Button(action: {
                             self.showAddProject = true
                             self.showSheet = true
                             self.isExpand.toggle()
                         }) {
-                             Text("Add Project").frame(width: 150, height: 60).modifier(ButtonModifier())
+                            Text("Add Project").frame(width: 150, height: 60).modifier(ButtonModifier())
                         }.animation(.interpolatingSpring(mass: 1, stiffness: 100, damping: 10, initialVelocity: 4))
                         
                         Button(action: {
@@ -67,7 +71,7 @@ struct HomeView: View {
                             Text("Log Out").frame(width: 150, height: 60).modifier(ButtonModifier())
                         }.animation(.interpolatingSpring(mass: 1.5, stiffness: 100, damping: 10, initialVelocity: 0))
                     }.offset(x: UIScreen.main.bounds.width/4, y: -UIScreen.main.bounds.height * 0.2)
-                        
+                    
                 }.transition(.move(edge: .trailing))
             }
         } // end of ZStack
@@ -179,10 +183,10 @@ struct MainView: View {
         
         Pages(currentPage: $selected, navigationOrientation: .horizontal, transitionStyle: .scroll, hasControl: false) { () -> [AnyView] in
             
-            ProfileView()  //profile
-            ProjectView()  //project
-            TestView()  //interest
-            FilterView()  //filter
+            ProfileView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())  //profile
+            ProjectView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())  //project
+            TestView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())  //interest
+            FilterView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())  //filter
             
         }
     }

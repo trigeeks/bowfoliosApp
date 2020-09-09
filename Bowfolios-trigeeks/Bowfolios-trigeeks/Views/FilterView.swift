@@ -12,8 +12,8 @@ struct FilterView: View {
     @State var showSelections: Bool = false
     @State var selectedArray: [String] = []
     @State var interestsArray: [String] = ["Software Engineering", "Climate Change", "HPC", "Distributed Computing", "Renewable Energy", "AI", "Visualization", "Scalable IP Networks", "Educational Technology", "Unity"].sorted()
-    @ObservedObject private var profilesViewModel = ProfileViewModel()
-    @ObservedObject private var projectsViewModel = ProjectViewModel()
+    @EnvironmentObject var projects: ProjectViewModel
+    @EnvironmentObject var profiles: ProfileViewModel
     
 //    func getInterests() -> [String] {
 //        var interestsArray: [String] = []
@@ -84,12 +84,6 @@ struct FilterView: View {
                     
                     
                 }
-                .onAppear() {
-                    
-                    self.profilesViewModel.fetchData()
-                    self.projectsViewModel.fetchData()
-                }
-                    
                 .background(Color.white)
                 
                 
@@ -98,6 +92,10 @@ struct FilterView: View {
                 
                 
             }.edgesIgnoringSafeArea(.bottom)
+            .onAppear {
+                self.profiles.fetchData()
+                self.projects.fetchData()
+            }
             
         }
     }
@@ -108,7 +106,7 @@ struct FilterView: View {
 
     func getProfiles(interests: [String]) -> [Profile]{
         var profiles: [Profile] = []
-        for profile in profilesViewModel.profiles {
+        for profile in self.profiles.profiles {
             var isContains = false
             for interest in interests {
                 if profile.interests.contains(interest) {

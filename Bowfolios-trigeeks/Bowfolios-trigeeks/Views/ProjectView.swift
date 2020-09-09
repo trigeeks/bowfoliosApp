@@ -9,15 +9,13 @@
 import SwiftUI
 
 struct ProjectView: View {
-    @ObservedObject var projects = ProjectViewModel()
-    @ObservedObject var profiles = ProfileViewModel()
+    @EnvironmentObject var projects: ProjectViewModel
+    @EnvironmentObject var profiles: ProfileViewModel
     var body: some View {
         
         List(self.projects.projects) { project in
             ProjectRowView(project: project)
-        }
-        .id(UUID())
-        .onAppear {
+        }.onAppear {
             self.profiles.fetchData()
             self.projects.fetchData()
         }
@@ -29,6 +27,6 @@ struct ProjectView: View {
 
 struct ProjectsView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectView()
+        ProjectView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())
     }
 }

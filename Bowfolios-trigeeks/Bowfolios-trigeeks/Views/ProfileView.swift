@@ -9,15 +9,13 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @ObservedObject var projects = ProjectViewModel()
-    @ObservedObject var profiles = ProfileViewModel()
+    @EnvironmentObject var projects: ProjectViewModel
+    @EnvironmentObject var profiles: ProfileViewModel
     var body: some View {
         
         List(self.profiles.profiles) { profile in
             ProfileRowView(profile: profile)
-        }
-        .id(UUID())
-        .onAppear {
+        }.onAppear {
             self.profiles.fetchData()
             self.projects.fetchData()
         }

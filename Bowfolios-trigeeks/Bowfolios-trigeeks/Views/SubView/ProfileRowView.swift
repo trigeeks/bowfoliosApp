@@ -12,7 +12,7 @@ import SDWebImageSwiftUI
 
 struct ProfileRowView: View {
     @State var profile: Profile
-    @ObservedObject var projects = ProjectViewModel()
+    @EnvironmentObject var projects: ProjectViewModel
     
     func getProject(projectName: String) -> String {
         for project in projects.projects {
@@ -86,9 +86,6 @@ struct ProfileRowView: View {
                 }
                 
             }
-        }
-        .onAppear() {
-            self.projects.fetchData()
         }
     }
 }

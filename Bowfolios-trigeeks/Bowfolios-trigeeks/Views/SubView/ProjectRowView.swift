@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 
 struct ProjectRowView: View {
     @State var project: Project
-    @ObservedObject var profiles = ProfileViewModel()
+    @EnvironmentObject var profiles: ProfileViewModel
     
     // filter the profileData to get profiles that in the given project
     func getParticipants(project: String) -> [String] {
@@ -74,9 +74,6 @@ struct ProjectRowView: View {
             
             
             
-        }
-        .onAppear() {
-            self.profiles.fetchData()
         }
     }
 }
