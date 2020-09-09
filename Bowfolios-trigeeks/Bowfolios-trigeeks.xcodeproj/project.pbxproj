@@ -10,6 +10,7 @@
 		397566C12507B38C0074F90E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397566C02507B38C0074F90E /* Project.swift */; };
 		397566C32507BBC50074F90E /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397566C22507BBC50074F90E /* ProjectViewModel.swift */; };
 		397566C52507C81D0074F90E /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397566C42507C81D0074F90E /* ProjectView.swift */; };
+		397566CA250853B40074F90E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397566C9250853B40074F90E /* ProfileView.swift */; };
 		455220E42505B29C0030E36E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E32505B29C0030E36E /* AppDelegate.swift */; };
 		455220E62505B29C0030E36E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E52505B29C0030E36E /* SceneDelegate.swift */; };
 		455220E82505B29C0030E36E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E72505B29C0030E36E /* RootView.swift */; };
@@ -34,6 +35,7 @@
 		397566C02507B38C0074F90E /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		397566C22507BBC50074F90E /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		397566C42507C81D0074F90E /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
+		397566C9250853B40074F90E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		455220E02505B29C0030E36E /* Bowfolios-trigeeks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bowfolios-trigeeks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		455220E32505B29C0030E36E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		455220E52505B29C0030E36E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		397566CB250853BA0074F90E /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		455220D72505B29C0030E36E = {
 			isa = PBXGroup;
 			children = (
@@ -159,11 +168,13 @@
 		C5CC61802506C06A0053845A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				397566CB250853BA0074F90E /* SubView */,
 				455220E72505B29C0030E36E /* RootView.swift */,
 				C5CC61812506C1F20053845A /* AuthView.swift */,
 				C5CC61832506C2600053845A /* HomeView.swift */,
 				457C74102507B98C00218265 /* Modifiers.swift */,
 				397566C42507C81D0074F90E /* ProjectView.swift */,
+				397566C9250853B40074F90E /* ProfileView.swift */,
 				C55020202507BC78005E124B /* EditProfileView.swift */,
 			);
 			path = Views;
@@ -298,6 +309,7 @@
 				C53773EA25079BB8009ACCC3 /* ProfileViewModel.swift in Sources */,
 				457C74112507B98C00218265 /* Modifiers.swift in Sources */,
 				455220E62505B29C0030E36E /* SceneDelegate.swift in Sources */,
+				397566CA250853B40074F90E /* ProfileView.swift in Sources */,
 				397566C52507C81D0074F90E /* ProjectView.swift in Sources */,
 				C5CC61842506C2600053845A /* HomeView.swift in Sources */,
 				C5CC617F2506C0110053845A /* SessionStore.swift in Sources */,
