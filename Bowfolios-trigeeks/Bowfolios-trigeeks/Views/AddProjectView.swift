@@ -29,6 +29,8 @@ struct AddProjectView: View {
     @State var sourceType: UIImagePickerController.SourceType = .camera
     @State var image: UIImage?
     
+    @State var value: CGFloat = 0
+    
     
     var body: some View {
         VStack {
@@ -113,7 +115,7 @@ struct AddProjectView: View {
             }
             
             Spacer()
-            Form{
+            Form {
             HStack{
                 Text("Name          ")
                     .multilineTextAlignment(.leading).padding(.horizontal)
@@ -164,6 +166,18 @@ struct AddProjectView: View {
                 }
                 
             }
+            
+//            .offset(y: -self.value).animation(.spring()).onAppear {
+//                self.profilesViewModel.fetchData()
+//                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (noti) in
+//                    let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+//                    let height = value.height
+//                    self.value = height
+//                }
+//                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (noti) in
+//                    self.value = 0
+//                }
+//            }
             Spacer()
             
         }.onAppear {
