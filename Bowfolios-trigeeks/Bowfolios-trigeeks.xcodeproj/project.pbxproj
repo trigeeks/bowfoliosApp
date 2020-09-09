@@ -35,6 +35,8 @@
 		C5CC61842506C2600053845A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC61832506C2600053845A /* HomeView.swift */; };
 		C5F72CBA2508D2F40023FA8F /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F72CB92508D2F40023FA8F /* Interest.swift */; };
 		C5F72CBC2508D4B50023FA8F /* InterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F72CBB2508D4B50023FA8F /* InterestViewModel.swift */; };
+		C5F72CBE2508DBA70023FA8F /* InterestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F72CBD2508DBA70023FA8F /* InterestView.swift */; };
+		C5F72CC02508DC260023FA8F /* InterestRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F72CBF2508DC260023FA8F /* InterestRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,8 @@
 		C5CC61832506C2600053845A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C5F72CB92508D2F40023FA8F /* Interest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
 		C5F72CBB2508D4B50023FA8F /* InterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewModel.swift; sourceTree = "<group>"; };
+		C5F72CBD2508DBA70023FA8F /* InterestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestView.swift; sourceTree = "<group>"; };
+		C5F72CBF2508DC260023FA8F /* InterestRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 			children = (
 				397566CC250854BC0074F90E /* ProjectRowView.swift */,
 				397566CE250854CE0074F90E /* ProfileRowView.swift */,
+				C5F72CBF2508DC260023FA8F /* InterestRowView.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				397566C9250853B40074F90E /* ProfileView.swift */,
 				C55020202507BC78005E124B /* EditProfileView.swift */,
 				457C7438250869D400218265 /* AddProjectView.swift */,
+				C5F72CBD2508DBA70023FA8F /* InterestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -332,9 +338,11 @@
 				457C74112507B98C00218265 /* Modifiers.swift in Sources */,
 				455220E62505B29C0030E36E /* SceneDelegate.swift in Sources */,
 				397566CF250854CE0074F90E /* ProfileRowView.swift in Sources */,
+				C5F72CC02508DC260023FA8F /* InterestRowView.swift in Sources */,
 				397566CA250853B40074F90E /* ProfileView.swift in Sources */,
 				397566C52507C81D0074F90E /* ProjectView.swift in Sources */,
 				397566CD250854BC0074F90E /* ProjectRowView.swift in Sources */,
+				C5F72CBE2508DBA70023FA8F /* InterestView.swift in Sources */,
 				C5CC61842506C2600053845A /* HomeView.swift in Sources */,
 				C5F72CBA2508D2F40023FA8F /* Interest.swift in Sources */,
 				457C7439250869D400218265 /* AddProjectView.swift in Sources */,

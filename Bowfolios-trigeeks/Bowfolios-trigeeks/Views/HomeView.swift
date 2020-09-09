@@ -180,7 +180,7 @@ struct MainView: View {
             
             ProfileView()  //profile
             TestView()  //project
-            TestView()  //interest
+            InterestView()  //interest
             AuthView()  //filter
             
         }

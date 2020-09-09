@@ -14,12 +14,14 @@ struct Interest: Codable, Identifiable {
     
     @DocumentID var id: String?
     var projects: [String]
+    var title: String
     var users: [String]
     
     enum CodingKeys: String, CodingKey {
         
         case id
         case projects
+        case title
         case users
         
     }
