@@ -14,6 +14,7 @@ import SDWebImageSwiftUI
 struct EditProfileView: View {
     @Binding var editView: Bool
     @Binding var showSheet: Bool
+    @Binding var forceReload: Bool
     
     @EnvironmentObject var session: SessionStore
     
@@ -54,6 +55,7 @@ struct EditProfileView: View {
                 self.editProfile()
                 self.editView = false
                 self.showSheet = false
+                self.forceReload.toggle()
             }){
                 Text("Save")
                     
@@ -274,6 +276,6 @@ func uploadImage(image: UIImage, path: String){
 
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileView(editView: .constant(true), showSheet: .constant(true))
+        EditProfileView(editView: .constant(true), showSheet: .constant(true), forceReload: .constant(false))
     }
 }

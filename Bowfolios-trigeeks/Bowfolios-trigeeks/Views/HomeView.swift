@@ -13,13 +13,12 @@ import Pages
 struct HomeView: View {
     
     @EnvironmentObject var session: SessionStore
-    @EnvironmentObject var projects: ProjectViewModel
-    @EnvironmentObject var profiles: ProfileViewModel
     @State var selected = 0
     @State var isExpand = false
     @State var editView: Bool = false
     @State var showAddProject = false
     @State var showSheet = false
+    @State var forceReload = false // this var does nothing but forces a reload
     
     var body: some View {
         
@@ -30,13 +29,10 @@ struct HomeView: View {
                 
                 
                 // MARK: - Main Pages View
-                MainView(selected: $selected)
+                MainView(selected: $selected, forceReload: self.$forceReload)
                 
             }.edgesIgnoringSafeArea(.all)
-            .onAppear {
-                self.profiles.fetchData()
-                self.projects.fetchData()
-            }
+
             
             if isExpand {
                 ZStack {
@@ -74,16 +70,12 @@ struct HomeView: View {
                     
                 }.transition(.move(edge: .trailing))
             }
-        } // end of ZStack
-            .onAppear {
-                self.profiles.fetchData()
-                self.projects.fetchData()
         }
         .sheet(isPresented: $showSheet, content:{
             if self.editView {
-                EditProfileView(editView: self.$editView, showSheet: self.$showSheet).environmentObject(self.session)
+                EditProfileView(editView: self.$editView, showSheet: self.$showSheet, forceReload: self.$forceReload).environmentObject(self.session)
             } else if self.showAddProject {
-                AddProjectView(showAddProject: self.$showSheet, showSheet: self.$showSheet)
+                AddProjectView(showAddProject: self.$showSheet, showSheet: self.$showSheet, forceReload: self.$forceReload)
             }
         })
     }
@@ -179,12 +171,13 @@ struct TopBar: View {
 
 struct MainView: View {
     @Binding var selected: Int
+    @Binding var forceReload: Bool
     var body: some View {
         
         Pages(currentPage: $selected, navigationOrientation: .horizontal, transitionStyle: .scroll, hasControl: false) { () -> [AnyView] in
 
-            ProfileView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())  //profile
-            ProjectView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())  //project
+            ProfileView(forceReload: self.$forceReload).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())  //profile
+            ProjectView(forceReload: self.$forceReload).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())  //project
             InterestView() //interest
             FilterView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())  //filter
             

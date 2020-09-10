@@ -11,6 +11,7 @@ import SwiftUI
 struct ProjectView: View {
     @EnvironmentObject var projects: ProjectViewModel
     @EnvironmentObject var profiles: ProfileViewModel
+    @Binding var forceReload: Bool
     var body: some View {
         
         List(self.projects.projects) { project in
@@ -27,6 +28,6 @@ struct ProjectView: View {
 
 struct ProjectsView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())
+        ProjectView(forceReload: .constant(false)).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())
     }
 }

@@ -11,6 +11,7 @@ import SwiftUI
 struct ProfileView: View {
     @EnvironmentObject var projects: ProjectViewModel
     @EnvironmentObject var profiles: ProfileViewModel
+    @Binding var forceReload: Bool
     var body: some View {
         
         List(self.profiles.profiles) { profile in
@@ -25,6 +26,6 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView(forceReload: .constant(false))
     }
 }

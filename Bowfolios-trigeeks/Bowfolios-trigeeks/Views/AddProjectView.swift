@@ -13,6 +13,7 @@ import FirebaseFirestore
 struct AddProjectView: View {
     @Binding var showAddProject: Bool
     @Binding var showSheet: Bool
+    @Binding var forceReload: Bool
     
     @EnvironmentObject var projects: ProjectViewModel
     @EnvironmentObject var profiles: ProfileViewModel
@@ -251,6 +252,7 @@ struct AddProjectView: View {
         let project: Project = Project(name: self.name, description: self.description, picture: "", homepage: self.homepage, interests: self.interests)
         uploadImage(image: image!, path: project.id!)
         projects.addProject(project: project)
+        self.forceReload.toggle()
         dismiss()
     }
     
@@ -323,6 +325,6 @@ struct AddProjectView: View {
 
 struct AddProjectView_Previews: PreviewProvider {
     static var previews: some View {
-        AddProjectView(showAddProject: .constant(true), showSheet: .constant(true))
+        AddProjectView(showAddProject: .constant(true), showSheet: .constant(true), forceReload: .constant(false))
     }
 }
