@@ -15,8 +15,8 @@ struct AddProjectView: View {
     @Binding var showSheet: Bool
     @Binding var forceReload: Bool
     
-    @EnvironmentObject var projects: ProjectViewModel
-    @EnvironmentObject var profiles: ProfileViewModel
+    @ObservedObject var projects = ProjectViewModel()
+    @ObservedObject var profiles = ProfileViewModel()
     
     @State private var name = ""
     @State private var homepage = ""
@@ -42,43 +42,43 @@ struct AddProjectView: View {
     
     var body: some View {
         ZStack {
-        VStack {
-
-            //MARK: - navigation button and title
-            HStack{
+            VStack {
                 
-                Button(action: {
-                    self.handleCancelButton()
-                }) {
-                    Text("Cancel")
-                        .multilineTextAlignment(.leading)
-                }.padding(.horizontal)
-                
-                Spacer()
-                
-                Text("Add Project")
-                    .font(.headline).multilineTextAlignment(.center).padding(.trailing, 12)
-                
-                Spacer()
-                
-                // Save Button
-                Button(action: {
-                    self.handleSaveButton()
-                }){
-                    Text("Save")
+                //MARK: - navigation button and title
+                HStack{
                     
-                }.padding(.horizontal)
-                .disabled(name == "" ||
-                homepage == "" ||
-                interests.count <= 0 ||
-                description == "" ||
-                image == nil)
-                
-                
+                    Button(action: {
+                        self.handleCancelButton()
+                    }) {
+                        Text("Cancel")
+                            .multilineTextAlignment(.leading)
+                    }.padding(.horizontal)
+                    
+                    Spacer()
+                    
+                    Text("Add Project")
+                        .font(.headline).multilineTextAlignment(.center).padding(.trailing, 12)
+                    
+                    Spacer()
+                    
+                    // Save Button
+                    Button(action: {
+                        self.handleSaveButton()
+                    }){
+                        Text("Save")
+                        
+                    }.padding(.horizontal)
+                        .disabled(name == "" ||
+                            homepage == "" ||
+                            interests.count <= 0 ||
+                            description == "" ||
+                            image == nil)
+                    
+                    
                 }.padding(.top, 20)
-            
-            Spacer()
-            
+                
+                Spacer()
+                
                 Button(action: {
                     self.showActionSheet = true
                 }) {
@@ -90,17 +90,17 @@ struct AddProjectView: View {
                                 .background(
                                     Circle().fill(Color.white)
                                         .shadow(color: Color.black.opacity(0.2), radius: 10, x: 8, y: 10)
-                                    .shadow(color: Color.white.opacity(1), radius: 2, x: -10, y: -10)
+                                        .shadow(color: Color.white.opacity(1), radius: 2, x: -10, y: -10)
                             )
                             
                             Image(systemName: "camera.on.rectangle").font(.system(size: 30, weight: .regular)).foregroundColor(Color.white)
-                            .shadow(radius: 10)
+                                .shadow(radius: 10)
                         }
                     }else{
                         ZStack{
-                                                
+                            
                             Image(uiImage: image!).renderingMode(.original).resizable().frame(width:120, height: 120).clipShape(Circle())
-                            .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                                .overlay(Circle().stroke(Color.white, lineWidth: 2))
                                 .shadow(radius: 10)
                             
                         }
@@ -124,101 +124,105 @@ struct AddProjectView: View {
                 }.sheet(isPresented: $showImagePicker){
                     imagePicker(image: self.$image, showImagePicker: self.$showImagePicker, sourceType: self.sourceType)
                 }
+                
+                
+                Spacer()
+                
+                //MARK: - Form for projecct information
+                Form {
+                    HStack{
+                        Text("Name          ")
+                            .multilineTextAlignment(.leading).padding(.horizontal)
                         
-            
-            Spacer()
-
-            //MARK: - Form for projecct information
-            Form {
-                HStack{
-                    Text("Name          ")
-                        .multilineTextAlignment(.leading).padding(.horizontal)
-                    
-                    TextField("Project Name", text: $name)
-                        .font(.system(size: 14))
-                    
-                }
-                
-                
-                HStack(alignment: .top) {
-                    Text("Description")
-                        .multilineTextAlignment(.leading).padding(.horizontal)
-                    
-                    //                TextField("Description", text: $description)
-                    //                .font(.system(size: 14))
-                    MutiLineTextField(preText: "Add some description of your project", text: $description).frame(height: 80)
-                    
-                    
-                }
-
-                
-                HStack{
-                    Text("Homepage ")
-                        .multilineTextAlignment(.leading).padding(.horizontal)
-                    
-                    TextField("Project page link", text: $homepage)
-                        .font(.system(size: 14))
-                    
-                    
-                }
-
-                
-                HStack{
-                    Text("Interests")
-                        .multilineTextAlignment(.leading).padding(.horizontal)
-                    Spacer()
-                    Image(systemName: "chevron.down")
-                    
-                    
-                }.onTapGesture {
-                    self.showInterestsSelections = true
-                }
-                
-                
-                if interests.count > 0 {
-                    ScrollView(.horizontal, showsIndicators: true) {
-                        HStack {
-                            ForEach(self.interests, id: \.self) { interest in
-                                Text("  \(interest)  ")
-                                .fontWeight(.semibold)
-                                           .background(Color(#colorLiteral(red: 0.4322651923, green: 0.5675497651, blue: 0.8860189915, alpha: 1)))
-                                           .foregroundColor(Color.white)
-                                           .cornerRadius(20)
-                            }
-                        }.padding()
+                        TextField("Project Name", text: $name)
+                            .font(.system(size: 14))
                         
                     }
                     
-                }
-                
-                HStack{
-                    Text("Participants")
-                        .multilineTextAlignment(.leading).padding(.horizontal)
-                    Spacer()
-                    Image(systemName: "chevron.down")
+                    
+                    HStack(alignment: .top) {
+                        Text("Description")
+                            .multilineTextAlignment(.leading).padding(.horizontal)
+                        
+                        //                TextField("Description", text: $description)
+                        //                .font(.system(size: 14))
+                        MutiLineTextField(preText: "Add some description of your project", text: $description).frame(height: 80)
+                        
+                        
+                    }
                     
                     
-                }.onTapGesture {
-                    self.showParticipantsSelections = true
-                    self.getUsersArray()
-                }
-                
-                if selectedParticipantsArray.count > 0 {
-                    VStack {
-                        ForEach(self.selectedParticipantsArray, id: \.self) { user in
+                    HStack{
+                        Text("Homepage ")
+                            .multilineTextAlignment(.leading).padding(.horizontal)
+                        
+                        TextField("Project page link", text: $homepage)
+                            .font(.system(size: 14))
+                        
+                        
+                    }
+                    
+                    
+                    HStack{
+                        Text("Interests")
+                            .multilineTextAlignment(.leading).padding(.horizontal)
+                        Spacer()
+                        Image(systemName: "chevron.down")
+                        
+                        
+                    }.onTapGesture {
+                        self.showInterestsSelections = true
+                    }
+                    
+                    
+                    if interests.count > 0 {
+                        ScrollView(.horizontal, showsIndicators: true) {
                             HStack {
-                                Spacer()
-                                Text("  \(user)  ")
-                            }.padding(10)
+                                ForEach(self.interests, id: \.self) { interest in
+                                    Text("  \(interest)  ")
+                                        .fontWeight(.semibold)
+                                        .background(Color(#colorLiteral(red: 0.4322651923, green: 0.5675497651, blue: 0.8860189915, alpha: 1)))
+                                        .foregroundColor(Color.white)
+                                        .cornerRadius(20)
+                                }
+                            }.padding()
                             
                         }
+                        
                     }
+                    
+                    HStack{
+                        Text("Participants")
+                            .multilineTextAlignment(.leading).padding(.horizontal)
+                        Spacer()
+                        Image(systemName: "chevron.down")
+                        
+                        
+                    }.onTapGesture {
+                        self.showParticipantsSelections = true
+                        self.getUsersArray()
+                    }
+                    
+                    if selectedParticipantsArray.count > 0 {
+                        VStack {
+                            ForEach(self.selectedParticipantsArray, id: \.self) { user in
+                                HStack {
+                                    Spacer()
+                                    Text("  \(user)  ")
+                                }.padding(10)
+                                
+                            }
+                        }
+                    }
+                    
                 }
+                Spacer()
                 
             }
-            Spacer()
-            
-        }
+            .onAppear {
+                self.profiles.fetchData()
+                self.projects.fetchData()
+            }
             
             // MARK: - Selections of interests and participants
             Selections(showSelections: $showInterestsSelections, selectedArray: $interests, itemsArray: $interestsArray).offset(y: showInterestsSelections ? 0 : 900).animation(.linear)
@@ -226,23 +230,23 @@ struct AddProjectView: View {
             Selections(showSelections: $showParticipantsSelections, selectedArray: $selectedParticipantsArray, itemsArray: $usersArray).offset(y: showParticipantsSelections ? 0 : 900).animation(.linear)
         }
         
-//        .offset(y: -self.value).animation(.spring()).onAppear {
-//            self.profilesViewModel.fetchData()
-//            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (noti) in
-//                let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
-//                let height = value.height
-//                self.value = height
-//            }
-//            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (noti) in
-//                self.value = 0
-//            }
-//
-//        }
+        //        .offset(y: -self.value).animation(.spring()).onAppear {
+        //            self.profilesViewModel.fetchData()
+        //            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (noti) in
+        //                let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+        //                let height = value.height
+        //                self.value = height
+        //            }
+        //            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (noti) in
+        //                self.value = 0
+        //            }
+        //
+        //        }
     }
     
     
     // MARK: - Button functions
-
+    
     func handleCancelButton() {
         dismiss()
     }
@@ -260,9 +264,9 @@ struct AddProjectView: View {
         showAddProject = false
         showSheet = false
     }
-
+    
     // MARK: - Data functions
-
+    
     func uploadImage(image: UIImage, path: String){
         if let imageData = image.jpegData(compressionQuality: 0.2){
             let storage = Storage.storage()
@@ -288,8 +292,8 @@ struct AddProjectView: View {
                 }
             }
             
-            } else {
-                       print("could't unwrap/case image to data")
+        } else {
+            print("could't unwrap/case image to data")
         }
     }
     
