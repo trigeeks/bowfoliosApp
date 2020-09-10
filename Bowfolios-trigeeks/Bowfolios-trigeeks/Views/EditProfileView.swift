@@ -17,6 +17,7 @@ struct EditProfileView: View {
     @State var value: CGFloat = 0
     @State var showInterestsSelections = false
     @State var showProjectsSelections = false
+    @Binding var forceReload: Bool
     
     @EnvironmentObject var session: SessionStore
     @ObservedObject var totalProjects = ProjectViewModel()
@@ -62,6 +63,7 @@ struct EditProfileView: View {
                     self.editProfile()
                     self.editView = false
                     self.showSheet = false
+                    self.forceReload.toggle()
                 }){
                     Text("Save")
                     
