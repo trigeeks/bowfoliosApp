@@ -13,8 +13,6 @@ import Pages
 struct HomeView: View {
     
     @EnvironmentObject var session: SessionStore
-    @EnvironmentObject var projects: ProjectViewModel
-    @EnvironmentObject var profiles: ProfileViewModel
     @State var selected = 0
     @State var isExpand = false
     @State var editView: Bool = false
@@ -33,10 +31,6 @@ struct HomeView: View {
                 MainView(selected: $selected)
                 
             }.edgesIgnoringSafeArea(.all)
-            .onAppear {
-                self.profiles.fetchData()
-                self.projects.fetchData()
-            }
             
             if isExpand {
                 ZStack {
@@ -75,10 +69,6 @@ struct HomeView: View {
                 }.transition(.move(edge: .trailing))
             }
         } // end of ZStack
-            .onAppear {
-                self.profiles.fetchData()
-                self.projects.fetchData()
-        }
         .sheet(isPresented: $showSheet, content:{
             if self.editView {
                 EditProfileView(editView: self.$editView, showSheet: self.$showSheet).environmentObject(self.session)
