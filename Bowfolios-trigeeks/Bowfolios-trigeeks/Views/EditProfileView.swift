@@ -65,7 +65,19 @@ struct EditProfileView: View {
             Button(action: {
                 self.showActionSheet = true
             }) {
-                if picture == "" {
+                if picture != "" {
+                    ZStack{
+                                            
+                        WebImage(url: URL(string: self.picture)).renderingMode(.original).resizable().scaledToFit().frame(width:120, height: 120).clipShape(Circle())
+                        .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                            .shadow(radius: 10)
+                        
+                        Image(systemName: "camera.on.rectangle").font(.system(size: 30, weight: .regular)).foregroundColor(Color.white)
+                        .shadow(radius: 10)
+                        
+                    }
+                } else {
+                if image == nil {
                     ZStack{
 
                         
@@ -79,13 +91,14 @@ struct EditProfileView: View {
                 }else{
                     ZStack{
                                             
-                        WebImage(url: URL(string: self.picture)).renderingMode(.original).resizable().scaledToFit().frame(width:120, height: 120).clipShape(Circle())
+                        Image(uiImage: image!).renderingMode(.original).resizable().scaledToFit().frame(width:120, height: 120).clipShape(Circle())
                         .overlay(Circle().stroke(Color.white, lineWidth: 2))
                             .shadow(radius: 10)
                         
                         Image(systemName: "camera.on.rectangle").font(.system(size: 30, weight: .regular)).foregroundColor(Color.white)
                         .shadow(radius: 10)
                         
+                    }
                     }
                 }
             }.padding(.vertical, 30).actionSheet(isPresented: $showActionSheet){

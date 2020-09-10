@@ -248,7 +248,7 @@ struct AddProjectView: View {
     
     func handleSaveButton() {
         setParticipants()
-        let project: Project = Project(name: self.name, description: self.description, picture: "nothing", homepage: self.homepage, interests: self.interests)
+        let project: Project = Project(name: self.name, description: self.description, picture: "", homepage: self.homepage, interests: self.interests)
         uploadImage(image: image!, path: project.id!)
         projects.addProject(project: project)
         dismiss()

@@ -182,10 +182,10 @@ struct MainView: View {
     var body: some View {
         
         Pages(currentPage: $selected, navigationOrientation: .horizontal, transitionStyle: .scroll, hasControl: false) { () -> [AnyView] in
-            
+
             ProfileView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())  //profile
             ProjectView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())  //project
-            TestView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())  //interest
+            InterestView() //interest
             FilterView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())  //filter
             
         }
