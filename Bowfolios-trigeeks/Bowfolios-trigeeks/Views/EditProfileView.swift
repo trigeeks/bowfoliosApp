@@ -59,6 +59,7 @@ struct EditProfileView: View {
                 
                 Spacer()
                 
+
                 Button(action: {
                     self.editProfile()
                     self.editView = false
@@ -66,6 +67,7 @@ struct EditProfileView: View {
                     self.forceReload.toggle()
                 }){
                     Text("Save")
+
                     
                 }.padding(.horizontal)
             }.padding(.top, 20)
@@ -343,6 +345,6 @@ extension UIApplication {
 
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileView(editView: .constant(true), showSheet: .constant(true))
+        EditProfileView(editView: .constant(true), showSheet: .constant(true), forceReload: .constant(false))
     }
 }

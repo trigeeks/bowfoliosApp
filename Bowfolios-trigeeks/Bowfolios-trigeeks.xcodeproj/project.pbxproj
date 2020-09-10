@@ -50,7 +50,7 @@
 		397566CE250854CE0074F90E /* ProfileRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRowView.swift; sourceTree = "<group>"; };
 		4545224C25088F520069ED69 /* SelectionsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionsSheet.swift; sourceTree = "<group>"; };
 		4545225025091E570069ED69 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
-		455220E02505B29C0030E36E /* Bowfolios-trigeeks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bowfolios-trigeeks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		455220E02505B29C0030E36E /* Bowfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bowfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		455220E32505B29C0030E36E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		455220E52505B29C0030E36E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		455220E72505B29C0030E36E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		455220E12505B29C0030E36E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				455220E02505B29C0030E36E /* Bowfolios-trigeeks.app */,
+				455220E02505B29C0030E36E /* Bowfolio.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -232,7 +232,7 @@
 				45522108250748850030E36E /* Pages */,
 			);
 			productName = "Bowfolios-trigeeks";
-			productReference = 455220E02505B29C0030E36E /* Bowfolios-trigeeks.app */;
+			productReference = 455220E02505B29C0030E36E /* Bowfolio.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -504,7 +504,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "trigeeks.Bowfolios-trigeeks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Bowfolio;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -527,7 +527,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "trigeeks.Bowfolios-trigeeks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Bowfolio;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
