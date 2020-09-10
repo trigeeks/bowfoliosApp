@@ -14,6 +14,8 @@ import FirebaseAuth
 struct ContentView: View {
     
     @EnvironmentObject var session: SessionStore
+    @EnvironmentObject var projects: ProjectViewModel
+    @EnvironmentObject var profiles: ProfileViewModel
     
     func getUser(){
         session.listen()
@@ -38,6 +40,8 @@ struct ContentView: View {
             }
         }.onAppear {
             self.getUser()
+            self.profiles.fetchData()
+            self.projects.fetchData()
 
         }
     }
