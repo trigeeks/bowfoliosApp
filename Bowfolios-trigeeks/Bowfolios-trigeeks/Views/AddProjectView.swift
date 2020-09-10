@@ -14,8 +14,8 @@ struct AddProjectView: View {
     @Binding var showAddProject: Bool
     @Binding var showSheet: Bool
     
-    @ObservedObject var profilesViewModel = ProfileViewModel()
-    @ObservedObject var projectViewModel = ProjectViewModel()
+    @EnvironmentObject var projects: ProjectViewModel
+    @EnvironmentObject var profiles: ProfileViewModel
     
     @State private var name = ""
     @State private var homepage = ""
@@ -217,9 +217,7 @@ struct AddProjectView: View {
             }
             Spacer()
             
-        }.onAppear {
-            self.profilesViewModel.fetchData()
-            }
+        }
             
             // MARK: - Selections of interests and participants
             Selections(showSelections: $showInterestsSelections, selectedArray: $interests, itemsArray: $interestsArray).offset(y: showInterestsSelections ? 0 : 900).animation(.linear)
@@ -252,7 +250,7 @@ struct AddProjectView: View {
         setParticipants()
         let project: Project = Project(name: self.name, description: self.description, picture: "", homepage: self.homepage, interests: self.interests)
         uploadImage(image: image!, path: project.id!)
-        projectViewModel.addProject(project: project)
+        projects.addProject(project: project)
         dismiss()
     }
     
@@ -296,10 +294,10 @@ struct AddProjectView: View {
     
     func setParticipants() {
         for user in self.selectedParticipantsArray {
-            for profile in self.profilesViewModel.profiles {
+            for profile in self.profiles.profiles {
                 if profile.email.lowercased() == user.lowercased() {
                     
-                    self.profilesViewModel.addOneProject(projectName: self.name, email: profile.email)
+                    self.profiles.addOneProject(projectName: self.name, email: profile.email)
                     
                 }
             }
@@ -308,7 +306,7 @@ struct AddProjectView: View {
     
     func getUsersArray() {
         var users: [String] = []
-        for profile in profilesViewModel.profiles {
+        for profile in profiles.profiles {
             users.append(profile.email)
         }
         self.usersArray = users
