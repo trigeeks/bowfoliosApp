@@ -19,11 +19,9 @@ struct InterestRowView: View {
     
     var body: some View {
         VStack{
-            Text(theInterest)
+            Text(theInterest).fontWeight(.semibold)
             
-            Divider()
-            
-            ScrollView{
+            ScrollView(.horizontal, showsIndicators: false){
                 
             HStack{
                 if self.userPics != nil {
@@ -39,7 +37,7 @@ struct InterestRowView: View {
                     
                 }
                 }
-            }
+            }.padding(.horizontal)
             }
         }
     }

@@ -15,7 +15,7 @@ struct InterestView: View {
     @ObservedObject var interestSection = InterestViewModel()
     var body: some View {
         VStack{
-        ScrollView{
+        List{
             ForEach(self.interestSection.interests){ sec in
                 InterestRowView(theInterest: sec.title, userPics: sec.users, projectPics: sec.projects)
             }
