@@ -14,8 +14,8 @@ struct AddProjectView: View {
     @Binding var showAddProject: Bool
     @Binding var showSheet: Bool
     
-    @ObservedObject var projects = ProjectViewModel()
-    @ObservedObject var profiles = ProfileViewModel()
+    @EnvironmentObject var projects: ProjectViewModel
+    @EnvironmentObject var profiles: ProfileViewModel
     
     @State private var name = ""
     @State private var homepage = ""
