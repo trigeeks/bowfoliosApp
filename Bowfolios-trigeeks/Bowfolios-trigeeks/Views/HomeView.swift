@@ -173,16 +173,12 @@ struct MainView: View {
     @Binding var forceReload: Bool
     var body: some View {
         
-        PageView([
-            AnyView( ProfileView(forceReload: self.$forceReload).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())),  //profile
-            
-            AnyView( ProjectView(forceReload: self.$forceReload).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())),  //project
-            
-            AnyView( InterestView()),                    //interest
-            
-            AnyView(FilterView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel()) )  //filter
-            
-        ], currentPage: $selected)
+        Pages(currentPage: $selected, forceReload: $forceReload) { () -> [AnyView] in
+            ProfileView(forceReload: self.$forceReload).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())
+            ProjectView(forceReload: self.$forceReload).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())
+            InterestView()
+            FilterView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())
+        }
 
     }
 }

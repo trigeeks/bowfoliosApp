@@ -183,43 +183,6 @@ struct AuthView: View {
                 // Logo image
                 Image("logo")
                 
-                // MARK: -Pages scroll view
-                // PresentView that can scroll
-                    // TODO: this should be change to actuall picture of our app by changing the assets images
-//                Pages(currentPage: $index) { () -> [AnyView] in
-//                    ZStack {
-//                        HStack {
-//                            Image("editProfile")
-//                                .resizable()
-//                                .aspectRatio(contentMode: .fit)
-//                            Image("profileView")
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fit)
-//
-//                        }
-//
-//                        Text("  Making your profile  ").fontWeight(.semibold).font(.system(size: 38)).background(Color.black.opacity(0.3)).rotationEffect(Angle(degrees: 20)).foregroundColor(.white)
-//                    }
-//                    ZStack {
-//                        HStack {
-//                            Image("interestView")
-//                                .resizable().aspectRatio(contentMode: .fit)
-//                            Image("filterView")
-//                            .resizable().aspectRatio(contentMode: .fit)
-//                        }
-//                        Text("  Adding your projects  ").fontWeight(.semibold).font(.system(size: 38)).background(Color.black.opacity(0.3)).rotationEffect(Angle(degrees: -20)).foregroundColor(.white)
-//                    }
-//                    ZStack {
-//                        HStack {
-//                            Image("addProject")
-//                                .resizable().aspectRatio(contentMode: .fit)
-//                            Image("editProfile")
-//                            .resizable().aspectRatio(contentMode: .fit)
-//                        }
-//                        Text("connect to people with shared interests!").fontWeight(.semibold).font(.system(size: 38)).multilineTextAlignment(.center).background(Color.black.opacity(0.3)).foregroundColor(.white)
-//                    }
-//                }.frame(height: 250)
-                
                 
                 
                 // MARK: -Descriptions and button
