@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,11 @@
 		397566CF250854CE0074F90E /* ProfileRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397566CE250854CE0074F90E /* ProfileRowView.swift */; };
 		4545224D25088F520069ED69 /* SelectionsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4545224C25088F520069ED69 /* SelectionsSheet.swift */; };
 		4545225125091E570069ED69 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4545225025091E570069ED69 /* FilterView.swift */; };
+		4545225E250B721E0069ED69 /* ModelPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45452259250B721D0069ED69 /* ModelPages.swift */; };
+		4545225F250B721E0069ED69 /* Pages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4545225A250B721E0069ED69 /* Pages.swift */; };
+		45452260250B721E0069ED69 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4545225B250B721E0069ED69 /* PageControl.swift */; };
+		45452261250B721E0069ED69 /* PagesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4545225C250B721E0069ED69 /* PagesBuilder.swift */; };
+		45452262250B721E0069ED69 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4545225D250B721E0069ED69 /* PageViewController.swift */; };
 		455220E42505B29C0030E36E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E32505B29C0030E36E /* AppDelegate.swift */; };
 		455220E62505B29C0030E36E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E52505B29C0030E36E /* SceneDelegate.swift */; };
 		455220E82505B29C0030E36E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E72505B29C0030E36E /* ContentView.swift */; };
@@ -22,7 +27,6 @@
 		455220ED2505B2A20030E36E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455220EC2505B2A20030E36E /* Preview Assets.xcassets */; };
 		455220F02505B2A20030E36E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455220EE2505B2A20030E36E /* LaunchScreen.storyboard */; };
 		455220F82505B2E90030E36E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 455220F72505B2E90030E36E /* GoogleService-Info.plist */; };
-		45522109250748850030E36E /* Pages in Frameworks */ = {isa = PBXBuildFile; productRef = 45522108250748850030E36E /* Pages */; };
 		457C74112507B98C00218265 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457C74102507B98C00218265 /* Modifiers.swift */; };
 		457C7439250869D400218265 /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457C7438250869D400218265 /* AddProjectView.swift */; };
 		457C743B25086DC700218265 /* MutiLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457C743A25086DC700218265 /* MutiLineTextField.swift */; };
@@ -50,6 +54,11 @@
 		397566CE250854CE0074F90E /* ProfileRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRowView.swift; sourceTree = "<group>"; };
 		4545224C25088F520069ED69 /* SelectionsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionsSheet.swift; sourceTree = "<group>"; };
 		4545225025091E570069ED69 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		45452259250B721D0069ED69 /* ModelPages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelPages.swift; sourceTree = "<group>"; };
+		4545225A250B721E0069ED69 /* Pages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pages.swift; sourceTree = "<group>"; };
+		4545225B250B721E0069ED69 /* PageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
+		4545225C250B721E0069ED69 /* PagesBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagesBuilder.swift; sourceTree = "<group>"; };
+		4545225D250B721E0069ED69 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		455220E02505B29C0030E36E /* Bowfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bowfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		455220E32505B29C0030E36E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		455220E52505B29C0030E36E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +92,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				57B3012B5B6E0FFBE0D5421C /* Pods_Bowfolios_trigeeks.framework in Frameworks */,
-				45522109250748850030E36E /* Pages in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +106,18 @@
 				C5F72CBF2508DC260023FA8F /* InterestRowView.swift */,
 			);
 			path = SubView;
+			sourceTree = "<group>";
+		};
+		45452258250B71F00069ED69 /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				45452259250B721D0069ED69 /* ModelPages.swift */,
+				4545225B250B721E0069ED69 /* PageControl.swift */,
+				4545225A250B721E0069ED69 /* Pages.swift */,
+				4545225C250B721E0069ED69 /* PagesBuilder.swift */,
+				4545225D250B721E0069ED69 /* PageViewController.swift */,
+			);
+			path = PageView;
 			sourceTree = "<group>";
 		};
 		455220D72505B29C0030E36E = {
@@ -174,6 +194,7 @@
 		C55020222507BF4A005E124B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				45452258250B71F00069ED69 /* PageView */,
 				C55020232507BFB0005E124B /* ImagePicker.swift */,
 				457C743A25086DC700218265 /* MutiLineTextField.swift */,
 				4545224C25088F520069ED69 /* SelectionsSheet.swift */,
@@ -229,7 +250,6 @@
 			);
 			name = "Bowfolios-trigeeks";
 			packageProductDependencies = (
-				45522108250748850030E36E /* Pages */,
 			);
 			productName = "Bowfolios-trigeeks";
 			productReference = 455220E02505B29C0030E36E /* Bowfolio.app */;
@@ -260,7 +280,6 @@
 			);
 			mainGroup = 455220D72505B29C0030E36E;
 			packageReferences = (
-				45522107250748850030E36E /* XCRemoteSwiftPackageReference "Pages" */,
 			);
 			productRefGroup = 455220E12505B29C0030E36E /* Products */;
 			projectDirPath = "";
@@ -338,6 +357,7 @@
 				C5CC61822506C1F20053845A /* AuthView.swift in Sources */,
 				C55020212507BC78005E124B /* EditProfileView.swift in Sources */,
 				C53773EA25079BB8009ACCC3 /* ProfileViewModel.swift in Sources */,
+				45452261250B721E0069ED69 /* PagesBuilder.swift in Sources */,
 				457C74112507B98C00218265 /* Modifiers.swift in Sources */,
 				455220E62505B29C0030E36E /* SceneDelegate.swift in Sources */,
 				4545225125091E570069ED69 /* FilterView.swift in Sources */,
@@ -345,10 +365,13 @@
 				C5F72CC02508DC260023FA8F /* InterestRowView.swift in Sources */,
 				397566CA250853B40074F90E /* ProfileView.swift in Sources */,
 				397566C52507C81D0074F90E /* ProjectView.swift in Sources */,
+				45452262250B721E0069ED69 /* PageViewController.swift in Sources */,
 				397566CD250854BC0074F90E /* ProjectRowView.swift in Sources */,
 				C5F72CBE2508DBA70023FA8F /* InterestView.swift in Sources */,
 				C5CC61842506C2600053845A /* HomeView.swift in Sources */,
 				C5F72CBA2508D2F40023FA8F /* Interest.swift in Sources */,
+				4545225F250B721E0069ED69 /* Pages.swift in Sources */,
+				45452260250B721E0069ED69 /* PageControl.swift in Sources */,
 				457C7439250869D400218265 /* AddProjectView.swift in Sources */,
 				C5CC617F2506C0110053845A /* SessionStore.swift in Sources */,
 				4545224D25088F520069ED69 /* SelectionsSheet.swift in Sources */,
@@ -356,6 +379,7 @@
 				455220E82505B29C0030E36E /* ContentView.swift in Sources */,
 				457C743B25086DC700218265 /* MutiLineTextField.swift in Sources */,
 				397566C12507B38C0074F90E /* Project.swift in Sources */,
+				4545225E250B721E0069ED69 /* ModelPages.swift in Sources */,
 				397566C32507BBC50074F90E /* ProjectViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,25 +580,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		45522107250748850030E36E /* XCRemoteSwiftPackageReference "Pages" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nachonavarro/Pages";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.5;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		45522108250748850030E36E /* Pages */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 45522107250748850030E36E /* XCRemoteSwiftPackageReference "Pages" */;
-			productName = Pages;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 455220D82505B29C0030E36E /* Project object */;
 }
