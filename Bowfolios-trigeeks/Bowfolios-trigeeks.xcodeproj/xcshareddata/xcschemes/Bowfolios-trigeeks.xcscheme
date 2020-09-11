@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "455220DF2505B29C0030E36E"
-               BuildableName = "Bowfolios-trigeeks.app"
+               BuildableName = "Bowfolio.app"
                BlueprintName = "Bowfolios-trigeeks"
                ReferencedContainer = "container:Bowfolios-trigeeks.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "455220DF2505B29C0030E36E"
-            BuildableName = "Bowfolios-trigeeks.app"
+            BuildableName = "Bowfolio.app"
             BlueprintName = "Bowfolios-trigeeks"
             ReferencedContainer = "container:Bowfolios-trigeeks.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "455220DF2505B29C0030E36E"
-            BuildableName = "Bowfolios-trigeeks.app"
+            BuildableName = "Bowfolio.app"
             BlueprintName = "Bowfolios-trigeeks"
             ReferencedContainer = "container:Bowfolios-trigeeks.xcodeproj">
          </BuildableReference>
