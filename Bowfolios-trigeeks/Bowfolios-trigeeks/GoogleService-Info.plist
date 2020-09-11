@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>767714958062-pq253fn5q5vs21dhusj54op1psr5k1ba.apps.googleusercontent.com</string>
+	<string>767714958062-eh1kn9q7b3pgvhubj1ghmnvrog5ob8j9.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.767714958062-pq253fn5q5vs21dhusj54op1psr5k1ba</string>
+	<string>com.googleusercontent.apps.767714958062-eh1kn9q7b3pgvhubj1ghmnvrog5ob8j9</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBdLbd_pue2yWMOocHVrGeAC1SN-25wq6A</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>trigeeks.Bowfolios-trigeeks</string>
+	<string>trigeeks.Bowfolios</string>
 	<key>PROJECT_ID</key>
 	<string>bowfolios-trigeeks</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:767714958062:ios:fa33570d1f8856376cf1ff</string>
+	<string>1:767714958062:ios:6f5ea981f2dc0f186cf1ff</string>
 	<key>DATABASE_URL</key>
 	<string>https://bowfolios-trigeeks.firebaseio.com</string>
 </dict>
