@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import Pages
 
 
 struct HomeView: View {
@@ -174,13 +173,16 @@ struct MainView: View {
     @Binding var forceReload: Bool
     var body: some View {
         
-        Pages(currentPage: $selected, navigationOrientation: .horizontal, transitionStyle: .scroll, hasControl: false) { () -> [AnyView] in
-
-            ProfileView(forceReload: self.$forceReload).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())  //profile
-            ProjectView(forceReload: self.$forceReload).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())  //project
-            InterestView() //interest
-            FilterView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())  //filter
+        PageView([
+            AnyView( ProfileView(forceReload: self.$forceReload).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())),  //profile
             
-        }
+            AnyView( ProjectView(forceReload: self.$forceReload).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())),  //project
+            
+            AnyView( InterestView()),                    //interest
+            
+            AnyView(FilterView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel()) )  //filter
+            
+        ], currentPage: $selected)
+
     }
 }
