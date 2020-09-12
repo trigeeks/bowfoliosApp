@@ -10,13 +10,11 @@ import SwiftUI
 
 
 struct MutiLineTextField: UIViewRepresentable {
-    
-    var preText: String
     @Binding var text: String
     
     func makeCoordinator() -> MutiLineTextField.Coordinator {
         
-        return MutiLineTextField.Coordinator(parent1: self)
+        return MutiLineTextField.Coordinator(self)
     }
     
     
@@ -26,21 +24,20 @@ struct MutiLineTextField: UIViewRepresentable {
         tview.isEditable = true
         tview.isUserInteractionEnabled = true
         tview.isScrollEnabled = true
-        tview.text = self.preText
-        tview.textColor = UIColor(cgColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
         tview.font = .systemFont(ofSize: 16)
         tview.delegate = context.coordinator
         return tview
     }
     
     func updateUIView(_ uiView: UITextView , context: UIViewRepresentableContext<MutiLineTextField>) {
+        uiView.text = (text == "") ? "" : text
     }
     
     class Coordinator: NSObject, UITextViewDelegate {
         
         var parent: MutiLineTextField
         
-        init(parent1: MutiLineTextField) {
+        init(_ parent1: MutiLineTextField) {
             parent = parent1
         }
         
@@ -55,6 +52,7 @@ struct MutiLineTextField: UIViewRepresentable {
             // to fit dark mode
             textView.textColor = .label
         }
+        
     }
 }
 
@@ -68,7 +66,7 @@ struct MutiLineTextFieldView: View {
     @State var text = "ABc"
     var body: some View {
         VStack {
-            MutiLineTextField(preText: "abc", text: $text)
+            MutiLineTextField(text: $text)
             Button(action: {
             }) {
                 Text("Print")
