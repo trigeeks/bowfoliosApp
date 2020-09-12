@@ -22,6 +22,7 @@ struct EditProfileView: View {
     
     @EnvironmentObject var session: SessionStore
     @ObservedObject var totalProjects = ProjectViewModel()
+    @ObservedObject var totalInterests = ProfileViewModel()
     
     @State private var firstName = ""
     @State private var lastName = ""
@@ -37,7 +38,7 @@ struct EditProfileView: View {
     @State var image: UIImage?
     @State var isUploaded = false
     
-    @State var interestsArray: [String] = ["Software Engineering", "Climate Change", "HPC", "Distributed Computing", "Renewable Energy", "AI", "Visualization", "Scalable IP Networks", "Educational Technology", "Unity"]
+    @State var interestsArray: [String] = []
     @State var projectsArray: [String] = []
     var body: some View {
         ZStack{
@@ -165,9 +166,7 @@ struct EditProfileView: View {
                     HStack(alignment: .top){
                         Text("Bio     ")
                             .multilineTextAlignment(.leading).padding(.horizontal)
-                        
-                        //                    TextField("Add a Bio to your profile", text: $bio).font(.system(size: 14)).lineLimit(4)
-                        //                        .multilineTextAlignment(.leading).frame(height: 100)
+                    
                         MutiLineTextField(text: self.$bio).frame(height: 100)
                     }
                     
@@ -181,6 +180,7 @@ struct EditProfileView: View {
                     }.onTapGesture {
                         self.value = 0
                         UIApplication.shared.endEditing()
+                        self.getInterests()
                         self.showInterestsSelections = true
                     }
                     
@@ -305,6 +305,24 @@ struct EditProfileView: View {
             projects.append(each.name)
         }
         projectsArray = projects
+    }
+    
+    func getInterests() {
+        for each in totalInterests.profiles {
+            for eachInt in each.interests {
+                if !self.interestsArray.contains(eachInt) {
+                    self.interestsArray.append(eachInt)
+                }
+            }
+        }
+        
+        for each in totalProjects.projects {
+            for eachInt in each.interests {
+                if !self.interestsArray.contains(eachInt){
+                    self.interestsArray.append(eachInt)
+                }
+            }
+        }
     }
     
 }
