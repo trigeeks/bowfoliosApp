@@ -166,9 +166,7 @@ struct EditProfileView: View {
                     HStack(alignment: .top){
                         Text("Bio     ")
                             .multilineTextAlignment(.leading).padding(.horizontal)
-                        
-                        //                    TextField("Add a Bio to your profile", text: $bio).font(.system(size: 14)).lineLimit(4)
-                        //                        .multilineTextAlignment(.leading).frame(height: 100)
+                    
                         MutiLineTextField(text: self.$bio).frame(height: 100)
                     }
                     
@@ -310,7 +308,6 @@ struct EditProfileView: View {
     }
     
     func getInterests() {
-        var interests: [String] = []
         for each in totalInterests.profiles {
             for eachInt in each.interests {
                 if !self.interestsArray.contains(eachInt) {
