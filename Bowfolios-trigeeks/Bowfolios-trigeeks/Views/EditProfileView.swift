@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 import Firebase
 import FirebaseFirestoreSwift
 import SDWebImageSwiftUI
@@ -77,39 +78,41 @@ struct EditProfileView: View {
                 Button(action: {
                     self.showActionSheet = true
                 }) {
-                    if picture != "" {
+                    
+                    if image == nil {
+                        if picture != "" {
+                            ZStack{
+                                WebImage(url: URL(string: self.picture)).renderingMode(.original).resizable().frame(width:120, height: 120).clipShape(Circle())
+                                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                                    .shadow(radius: 10)
+                                
+                                Image(systemName: "camera.on.rectangle").font(.system(size: 30, weight: .regular)).foregroundColor(Color.white)
+                                    .shadow(radius: 10)
+                            }
+                        } else {
+                            ZStack{
+                                
+                                
+                                Image("turtlerock").renderingMode(.original).resizable().frame(width:120, height: 120).clipShape(Circle())
+                                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                                    .shadow(radius: 10)
+                                
+                                Image(systemName: "camera.on.rectangle").font(.system(size: 30, weight: .regular)).foregroundColor(Color.white)
+                                    .shadow(radius: 10)
+                            }
+                        }
+                    }else{
                         ZStack{
-                            WebImage(url: URL(string: self.picture)).renderingMode(.original).resizable().scaledToFit().frame(width:120, height: 120).clipShape(Circle())
+                            
+                            Image(uiImage: image!).renderingMode(.original).resizable().frame(width:120, height: 120).clipShape(Circle())
                                 .overlay(Circle().stroke(Color.white, lineWidth: 2))
                                 .shadow(radius: 10)
                             
                             Image(systemName: "camera.on.rectangle").font(.system(size: 30, weight: .regular)).foregroundColor(Color.white)
                                 .shadow(radius: 10)
+                            
                         }
-                    } else {
-                        if image == nil {
-                            ZStack{
-                                
-                                
-                                Image("turtlerock").renderingMode(.original).resizable().scaledToFit().frame(width:120, height: 120).clipShape(Circle())
-                                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                                    .shadow(radius: 10)
-                                
-                                Image(systemName: "camera.on.rectangle").font(.system(size: 30, weight: .regular)).foregroundColor(Color.white)
-                                    .shadow(radius: 10)
-                            }
-                        }else{
-                            ZStack{
-                                
-                                Image(uiImage: image!).renderingMode(.original).resizable().scaledToFit().frame(width:120, height: 120).clipShape(Circle())
-                                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                                    .shadow(radius: 10)
-                                
-                                Image(systemName: "camera.on.rectangle").font(.system(size: 30, weight: .regular)).foregroundColor(Color.white)
-                                    .shadow(radius: 10)
-                                
-                            }
-                        }
+                        
                     }
                 }.padding(.vertical, 30).actionSheet(isPresented: $showActionSheet){
                     ActionSheet(title: Text("Add a picture"), message: nil, buttons: [
@@ -297,9 +300,11 @@ struct EditProfileView: View {
     }
     
     func getProjects() {
+        var projects: [String] = []
         for each in totalProjects.projects {
-            projectsArray.append(each.name)
+            projects.append(each.name)
         }
+        projectsArray = projects
     }
     
 }
