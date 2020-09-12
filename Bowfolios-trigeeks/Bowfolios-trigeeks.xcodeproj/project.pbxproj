@@ -20,13 +20,13 @@
 		45452260250B721E0069ED69 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4545225B250B721E0069ED69 /* PageControl.swift */; };
 		45452261250B721E0069ED69 /* PagesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4545225C250B721E0069ED69 /* PagesBuilder.swift */; };
 		45452262250B721E0069ED69 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4545225D250B721E0069ED69 /* PageViewController.swift */; };
+		45452264250B8EC20069ED69 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45452263250B8EC20069ED69 /* GoogleService-Info.plist */; };
 		455220E42505B29C0030E36E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E32505B29C0030E36E /* AppDelegate.swift */; };
 		455220E62505B29C0030E36E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E52505B29C0030E36E /* SceneDelegate.swift */; };
 		455220E82505B29C0030E36E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455220E72505B29C0030E36E /* ContentView.swift */; };
 		455220EA2505B2A20030E36E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455220E92505B2A20030E36E /* Assets.xcassets */; };
 		455220ED2505B2A20030E36E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455220EC2505B2A20030E36E /* Preview Assets.xcassets */; };
 		455220F02505B2A20030E36E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 455220EE2505B2A20030E36E /* LaunchScreen.storyboard */; };
-		455220F82505B2E90030E36E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 455220F72505B2E90030E36E /* GoogleService-Info.plist */; };
 		457C74112507B98C00218265 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457C74102507B98C00218265 /* Modifiers.swift */; };
 		457C7439250869D400218265 /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457C7438250869D400218265 /* AddProjectView.swift */; };
 		457C743B25086DC700218265 /* MutiLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457C743A25086DC700218265 /* MutiLineTextField.swift */; };
@@ -59,6 +59,7 @@
 		4545225B250B721E0069ED69 /* PageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		4545225C250B721E0069ED69 /* PagesBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagesBuilder.swift; sourceTree = "<group>"; };
 		4545225D250B721E0069ED69 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		45452263250B8EC20069ED69 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		455220E02505B29C0030E36E /* Bowfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bowfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		455220E32505B29C0030E36E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		455220E52505B29C0030E36E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		455220EC2505B2A20030E36E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		455220EF2505B2A20030E36E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		455220F12505B2A20030E36E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		455220F72505B2E90030E36E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		457C74102507B98C00218265 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		457C7438250869D400218265 /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
 		457C743A25086DC700218265 /* MutiLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutiLineTextField.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 				455220E92505B2A20030E36E /* Assets.xcassets */,
 				455220EE2505B2A20030E36E /* LaunchScreen.storyboard */,
 				455220F12505B2A20030E36E /* Info.plist */,
-				455220F72505B2E90030E36E /* GoogleService-Info.plist */,
+				45452263250B8EC20069ED69 /* GoogleService-Info.plist */,
 				455220EB2505B2A20030E36E /* Preview Content */,
 			);
 			path = "Bowfolios-trigeeks";
@@ -296,7 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				455220F02505B2A20030E36E /* LaunchScreen.storyboard in Resources */,
-				455220F82505B2E90030E36E /* GoogleService-Info.plist in Resources */,
+				45452264250B8EC20069ED69 /* GoogleService-Info.plist in Resources */,
 				455220ED2505B2A20030E36E /* Preview Assets.xcassets in Resources */,
 				455220EA2505B2A20030E36E /* Assets.xcassets in Resources */,
 			);
@@ -520,14 +520,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Bowfolios-trigeeks/Preview Content\"";
-				DEVELOPMENT_TEAM = K437L26D6M;
+				DEVELOPMENT_TEAM = L5D3LC3AVZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Bowfolios-trigeeks/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "trigeeks.Bowfolios-trigeeks";
+				PRODUCT_BUNDLE_IDENTIFIER = trigeeks.Bowfolios;
 				PRODUCT_NAME = Bowfolio;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -543,14 +543,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Bowfolios-trigeeks/Preview Content\"";
-				DEVELOPMENT_TEAM = K437L26D6M;
+				DEVELOPMENT_TEAM = L5D3LC3AVZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Bowfolios-trigeeks/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "trigeeks.Bowfolios-trigeeks";
+				PRODUCT_BUNDLE_IDENTIFIER = trigeeks.Bowfolios;
 				PRODUCT_NAME = Bowfolio;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

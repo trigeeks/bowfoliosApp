@@ -5,6 +5,7 @@ target 'Bowfolios-trigeeks' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
+  # Pods for Bowfolios-trigeeks
 # Add the Firebase pod for Google Analytics
 pod 'Firebase/Analytics'
   # Pods for Bowfolios-trigeeks
