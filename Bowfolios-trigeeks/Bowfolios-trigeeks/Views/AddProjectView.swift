@@ -146,7 +146,7 @@ struct AddProjectView: View {
                         
                         //                TextField("Description", text: $description)
                         //                .font(.system(size: 14))
-                        MutiLineTextField(preText: "Add some description of your project", text: $description).frame(height: 80)
+                        MutiLineTextField(text: $description).frame(height: 80)
                         
                         
                     }
