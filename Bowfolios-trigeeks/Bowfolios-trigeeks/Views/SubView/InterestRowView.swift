@@ -12,10 +12,12 @@ import FirebaseFirestoreSwift
 import SDWebImageSwiftUI
 
 struct InterestRowView: View {
+    @EnvironmentObject var projects: ProjectViewModel
+    @EnvironmentObject var profiles: ProfileViewModel
     
-    var theInterest: String
-    var userPics: [String]?
-    var projectPics: [String]?
+    @State var theInterest: String
+    @State var thePics: [String] = []
+    
     
     var body: some View {
         VStack{
@@ -24,27 +26,32 @@ struct InterestRowView: View {
             ScrollView(.horizontal, showsIndicators: false){
                 
             HStack{
-                if self.userPics != nil {
-                    ForEach(self.userPics!, id: \.self){ userPic in
-                    WebImage(url: URL(string: userPic)).renderingMode(.original).resizable().scaledToFit().frame(width:50, height: 50).clipShape(Circle())
-                    
+                
+                ForEach(self.profiles.profiles){ prof in
+                    if prof.interests.contains(self.theInterest){
+                        WebImage(url: URL(string: prof.picture)).renderingMode(.original).resizable().scaledToFit().frame(width:50, height: 50).clipShape(Circle())
+                    }
+                }
+                
+                ForEach(self.projects.projects){ proj in
+                if proj.interests.contains(self.theInterest){
+                    WebImage(url: URL(string: proj.picture)).renderingMode(.original).resizable().scaledToFit().frame(width:50, height: 50).clipShape(Circle())
                 }
                 }
                 
-                if self.projectPics != nil {
-                ForEach(self.projectPics!, id: \.self){ projectPic in
-                    WebImage(url: URL(string: projectPic)).renderingMode(.original).resizable().scaledToFit().frame(width:50, height: 50).clipShape(Circle())
-                    
-                }
-                }
             }.padding(.horizontal)
             }
+        }.onAppear {
+            self.profiles.fetchData()
+            self.projects.fetchData()
+           
         }
     }
+
 }
 
 struct InterestRowView_Previews: PreviewProvider {
     static var previews: some View {
-        InterestRowView(theInterest: "lala", userPics: ["lala"], projectPics: ["lala"])
+        InterestRowView(theInterest: "lala", thePics: ["sas"])
     }
 }
