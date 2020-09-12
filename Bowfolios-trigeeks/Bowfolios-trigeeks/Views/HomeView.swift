@@ -171,12 +171,13 @@ struct TopBar: View {
 struct MainView: View {
     @Binding var selected: Int
     @Binding var forceReload: Bool
+    
     var body: some View {
         
         Pages(currentPage: $selected, forceReload: $forceReload) { () -> [AnyView] in
             ProfileView(forceReload: self.$forceReload).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())
             ProjectView(forceReload: self.$forceReload).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())
-            InterestView()
+            InterestView().environmentObject(ProfileViewModel()).environmentObject(ProjectViewModel())
             FilterView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())
         }
 
