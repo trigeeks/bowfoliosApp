@@ -38,8 +38,6 @@
 		C5CC617F2506C0110053845A /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC617E2506C0110053845A /* SessionStore.swift */; };
 		C5CC61822506C1F20053845A /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC61812506C1F20053845A /* AuthView.swift */; };
 		C5CC61842506C2600053845A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC61832506C2600053845A /* HomeView.swift */; };
-		C5F72CBA2508D2F40023FA8F /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F72CB92508D2F40023FA8F /* Interest.swift */; };
-		C5F72CBC2508D4B50023FA8F /* InterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F72CBB2508D4B50023FA8F /* InterestViewModel.swift */; };
 		C5F72CBE2508DBA70023FA8F /* InterestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F72CBD2508DBA70023FA8F /* InterestView.swift */; };
 		C5F72CC02508DC260023FA8F /* InterestRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F72CBF2508DC260023FA8F /* InterestRowView.swift */; };
 /* End PBXBuildFile section */
@@ -80,8 +78,6 @@
 		C5CC617E2506C0110053845A /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		C5CC61812506C1F20053845A /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		C5CC61832506C2600053845A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		C5F72CB92508D2F40023FA8F /* Interest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
-		C5F72CBB2508D4B50023FA8F /* InterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewModel.swift; sourceTree = "<group>"; };
 		C5F72CBD2508DBA70023FA8F /* InterestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestView.swift; sourceTree = "<group>"; };
 		C5F72CBF2508DC260023FA8F /* InterestRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,7 +182,6 @@
 			children = (
 				C53773E925079BB8009ACCC3 /* ProfileViewModel.swift */,
 				397566C22507BBC50074F90E /* ProjectViewModel.swift */,
-				C5F72CBB2508D4B50023FA8F /* InterestViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -208,7 +203,6 @@
 				C5CC617E2506C0110053845A /* SessionStore.swift */,
 				C53773E625079A3C009ACCC3 /* Profile.swift */,
 				397566C02507B38C0074F90E /* Project.swift */,
-				C5F72CB92508D2F40023FA8F /* Interest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -353,7 +347,6 @@
 			files = (
 				455220E42505B29C0030E36E /* AppDelegate.swift in Sources */,
 				C53773E725079A3C009ACCC3 /* Profile.swift in Sources */,
-				C5F72CBC2508D4B50023FA8F /* InterestViewModel.swift in Sources */,
 				C5CC61822506C1F20053845A /* AuthView.swift in Sources */,
 				C55020212507BC78005E124B /* EditProfileView.swift in Sources */,
 				C53773EA25079BB8009ACCC3 /* ProfileViewModel.swift in Sources */,
@@ -369,7 +362,6 @@
 				397566CD250854BC0074F90E /* ProjectRowView.swift in Sources */,
 				C5F72CBE2508DBA70023FA8F /* InterestView.swift in Sources */,
 				C5CC61842506C2600053845A /* HomeView.swift in Sources */,
-				C5F72CBA2508D2F40023FA8F /* Interest.swift in Sources */,
 				4545225F250B721E0069ED69 /* Pages.swift in Sources */,
 				45452260250B721E0069ED69 /* PageControl.swift in Sources */,
 				457C7439250869D400218265 /* AddProjectView.swift in Sources */,
@@ -520,14 +512,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Bowfolios-trigeeks/Preview Content\"";
-				DEVELOPMENT_TEAM = L5D3LC3AVZ;
+				DEVELOPMENT_TEAM = 5BBX9U2PRR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Bowfolios-trigeeks/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = trigeeks.Bowfolios;
+				PRODUCT_BUNDLE_IDENTIFIER = "trigeeks.Bowfolios-trigeeks";
 				PRODUCT_NAME = Bowfolio;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -543,14 +535,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Bowfolios-trigeeks/Preview Content\"";
-				DEVELOPMENT_TEAM = L5D3LC3AVZ;
+				DEVELOPMENT_TEAM = 5BBX9U2PRR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Bowfolios-trigeeks/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = trigeeks.Bowfolios;
+				PRODUCT_BUNDLE_IDENTIFIER = "trigeeks.Bowfolios-trigeeks";
 				PRODUCT_NAME = Bowfolio;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

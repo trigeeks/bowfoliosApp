@@ -24,7 +24,7 @@ struct AddProjectView: View {
     @State private var interests: [String] = []
     @State private var picture = ""
     // TODO: add real interests list
-    @State var interestsArray: [String] = ["Software Engineering", "Climate Change", "HPC", "Distributed Computing", "Renewable Energy", "AI", "Visualization", "Scalable IP Networks", "Educational Technology", "Unity"]
+    @State var interestsArray: [String] = ["Software Engineering", "Climate Change", "HPC", "Distributed Computing", "Renewable Energy", "AI", "Visualization", "Scalable IP Networks", "Educational Technology", "Unity", "iOS Development"]
     @State var usersArray: [String] = []
     
     @State var selectedParticipantsArray: [String] = []
