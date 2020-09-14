@@ -139,19 +139,14 @@ struct AddProjectView: View {
                         
                     }
                     
-                    
                     HStack(alignment: .top) {
                         Text("Description")
                             .multilineTextAlignment(.leading).padding(.horizontal)
                         
-                        //                TextField("Description", text: $description)
-                        //                .font(.system(size: 14))
                         MutiLineTextField(text: $description).frame(height: 80)
                         
                         
                     }
-                    
-                    
                     HStack{
                         Text("Homepage ")
                             .multilineTextAlignment(.leading).padding(.horizontal)
@@ -159,9 +154,7 @@ struct AddProjectView: View {
                         TextField("Project page link", text: $homepage)
                             .font(.system(size: 14))
                         
-                        
                     }
-                    
                     
                     HStack{
                         Text("Interests")
@@ -172,6 +165,8 @@ struct AddProjectView: View {
                         
                     }.onTapGesture {
                         self.showInterestsSelections = true
+                        UIApplication.shared.endEditing()
+                        self.value = 0
                     }
                     
                     
@@ -200,6 +195,8 @@ struct AddProjectView: View {
                         
                     }.onTapGesture {
                         self.showParticipantsSelections = true
+                        self.value = 0
+                        UIApplication.shared.endEditing()
                         self.getUsersArray()
                     }
                     
@@ -215,8 +212,20 @@ struct AddProjectView: View {
                         }
                     }
                     
+                }.offset(y: -self.value).animation(.spring()).onAppear {
+                    NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (noti) in
+                        
+                        let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+                        let height = value.height
+                        
+                        self.value = height - 100
+                    }
+                    
+                    NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (noti) in
+                        self.value = 0
+                    }
                 }
-                Spacer()
+               // Spacer()
                 
             }
             .onAppear {
@@ -230,18 +239,6 @@ struct AddProjectView: View {
             Selections(showSelections: $showParticipantsSelections, selectedArray: $selectedParticipantsArray, itemsArray: $usersArray).offset(y: showParticipantsSelections ? 0 : 900).animation(.linear)
         }
         
-        //        .offset(y: -self.value).animation(.spring()).onAppear {
-        //            self.profilesViewModel.fetchData()
-        //            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (noti) in
-        //                let value = noti.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
-        //                let height = value.height
-        //                self.value = height
-        //            }
-        //            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (noti) in
-        //                self.value = 0
-        //            }
-        //
-        //        }
     }
     
     
@@ -322,7 +319,6 @@ struct AddProjectView: View {
     
     
 } // end of struct
-
 
 
 
