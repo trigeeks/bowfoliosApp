@@ -11,7 +11,7 @@ import SwiftUI
 struct FilterView: View {
     @State var showSelections: Bool = false
     @State var selectedArray: [String] = []
-    @State var interestsArray: [String] = ["Software Engineering", "Climate Change", "HPC", "Distributed Computing", "Renewable Energy", "AI", "Visualization", "Scalable IP Networks", "Educational Technology", "Unity"].sorted()
+    @State var interestsArray = InterestsArray().interestsArray
     @EnvironmentObject var projects: ProjectViewModel
     @EnvironmentObject var profiles: ProfileViewModel
     

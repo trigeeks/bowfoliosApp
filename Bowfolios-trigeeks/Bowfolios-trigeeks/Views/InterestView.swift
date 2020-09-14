@@ -16,7 +16,7 @@ struct InterestView: View {
     @EnvironmentObject var projects: ProjectViewModel
     @EnvironmentObject var profiles: ProfileViewModel
     
-    @State var interestsArray: [String] = ["Software Engineering", "Climate Change", "HPC", "Distributed Computing", "Renewable Energy", "AI", "Visualization", "Scalable IP Networks", "Educational Technology", "Unity", "iOS Development"]
+    @State var interestsArray = InterestsArray().interestsArray
     var body: some View {
         VStack{
         List{

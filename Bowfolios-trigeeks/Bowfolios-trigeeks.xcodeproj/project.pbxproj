@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		396C9E78250F044E00DECD2D /* InterestsArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396C9E77250F044E00DECD2D /* InterestsArray.swift */; };
 		397566C12507B38C0074F90E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397566C02507B38C0074F90E /* Project.swift */; };
 		397566C32507BBC50074F90E /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397566C22507BBC50074F90E /* ProjectViewModel.swift */; };
 		397566C52507C81D0074F90E /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397566C42507C81D0074F90E /* ProjectView.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		2F9D39E67C852C7FF3B3FED4 /* Pods_Bowfolios_trigeeks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bowfolios_trigeeks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		396C9E77250F044E00DECD2D /* InterestsArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsArray.swift; sourceTree = "<group>"; };
 		397566C02507B38C0074F90E /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		397566C22507BBC50074F90E /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		397566C42507C81D0074F90E /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				C5CC617E2506C0110053845A /* SessionStore.swift */,
 				C53773E625079A3C009ACCC3 /* Profile.swift */,
 				397566C02507B38C0074F90E /* Project.swift */,
+				396C9E77250F044E00DECD2D /* InterestsArray.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				397566C12507B38C0074F90E /* Project.swift in Sources */,
 				4545225E250B721E0069ED69 /* ModelPages.swift in Sources */,
 				397566C32507BBC50074F90E /* ProjectViewModel.swift in Sources */,
+				396C9E78250F044E00DECD2D /* InterestsArray.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
