@@ -38,7 +38,7 @@ struct EditProfileView: View {
     @State var image: UIImage?
     @State var isUploaded = false
     
-    @State var interestsArray = InterestsArray().interestsArray
+    @State var interestsArray: [String] = []
     @State var projectsArray: [String] = []
     var body: some View {
         ZStack{
@@ -180,7 +180,7 @@ struct EditProfileView: View {
                     }.onTapGesture {
                         self.value = 0
                         UIApplication.shared.endEditing()
-//                        self.getInterests()
+                        self.getInterests()
                         self.showInterestsSelections = true
                     }
                     
@@ -307,23 +307,23 @@ struct EditProfileView: View {
         projectsArray = projects
     }
     
-//    func getInterests() {
-//        for each in totalInterests.profiles {
-//            for eachInt in each.interests {
-//                if !self.interestsArray.contains(eachInt) {
-//                    self.interestsArray.append(eachInt)
-//                }
-//            }
-//        }
-//
-//        for each in totalProjects.projects {
-//            for eachInt in each.interests {
-//                if !self.interestsArray.contains(eachInt){
-//                    self.interestsArray.append(eachInt)
-//                }
-//            }
-//        }
-//    }
+    func getInterests() {
+        for each in totalInterests.profiles {
+            for eachInt in each.interests {
+                if !self.interestsArray.contains(eachInt) {
+                    self.interestsArray.append(eachInt)
+                }
+            }
+        }
+
+        for each in totalProjects.projects {
+            for eachInt in each.interests {
+                if !self.interestsArray.contains(eachInt){
+                    self.interestsArray.append(eachInt)
+                }
+            }
+        }
+    }
     
 }
 // MARK: - helper functions
