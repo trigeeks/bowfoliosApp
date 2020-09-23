@@ -70,7 +70,7 @@ struct HomeView: View {
                 }.transition(.move(edge: .trailing))
             }
         }
-        .sheet(isPresented: $showSheet, content:{
+        .fullScreenCover(isPresented: $showSheet, content:{
             if self.editView {
                 EditProfileView(editView: self.$editView, showSheet: self.$showSheet, forceReload: self.$forceReload).environmentObject(self.session)
             } else if self.showAddProject {
