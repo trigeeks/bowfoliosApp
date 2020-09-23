@@ -31,6 +31,7 @@
 		457C74112507B98C00218265 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457C74102507B98C00218265 /* Modifiers.swift */; };
 		457C7439250869D400218265 /* AddProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457C7438250869D400218265 /* AddProjectView.swift */; };
 		45F80ED3251B59EF00D28CA1 /* TextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F80ED2251B59EE00D28CA1 /* TextEditorView.swift */; };
+		45F80ED9251B8ABD00D28CA1 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F80ED8251B8ABD00D28CA1 /* AlertView.swift */; };
 		57B3012B5B6E0FFBE0D5421C /* Pods_Bowfolios_trigeeks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9D39E67C852C7FF3B3FED4 /* Pods_Bowfolios_trigeeks.framework */; };
 		C53773E725079A3C009ACCC3 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53773E625079A3C009ACCC3 /* Profile.swift */; };
 		C53773EA25079BB8009ACCC3 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53773E925079BB8009ACCC3 /* ProfileViewModel.swift */; };
@@ -71,6 +72,7 @@
 		457C74102507B98C00218265 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		457C7438250869D400218265 /* AddProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectView.swift; sourceTree = "<group>"; };
 		45F80ED2251B59EE00D28CA1 /* TextEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorView.swift; sourceTree = "<group>"; };
+		45F80ED8251B8ABD00D28CA1 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		496F035E81181B3080E6C5E1 /* Pods-Bowfolios-trigeeks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bowfolios-trigeeks.release.xcconfig"; path = "Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks.release.xcconfig"; sourceTree = "<group>"; };
 		71D5D44F6411608C3497CDCA /* Pods-Bowfolios-trigeeks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bowfolios-trigeeks.debug.xcconfig"; path = "Target Support Files/Pods-Bowfolios-trigeeks/Pods-Bowfolios-trigeeks.debug.xcconfig"; sourceTree = "<group>"; };
 		C53773E625079A3C009ACCC3 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				397566CE250854CE0074F90E /* ProfileRowView.swift */,
 				C5F72CBF2508DC260023FA8F /* InterestRowView.swift */,
 				45F80ED2251B59EE00D28CA1 /* TextEditorView.swift */,
+				45F80ED8251B8ABD00D28CA1 /* AlertView.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				C5CC61822506C1F20053845A /* AuthView.swift in Sources */,
 				C55020212507BC78005E124B /* EditProfileView.swift in Sources */,
 				C53773EA25079BB8009ACCC3 /* ProfileViewModel.swift in Sources */,
+				45F80ED9251B8ABD00D28CA1 /* AlertView.swift in Sources */,
 				45452261250B721E0069ED69 /* PagesBuilder.swift in Sources */,
 				457C74112507B98C00218265 /* Modifiers.swift in Sources */,
 				455220E62505B29C0030E36E /* SceneDelegate.swift in Sources */,
