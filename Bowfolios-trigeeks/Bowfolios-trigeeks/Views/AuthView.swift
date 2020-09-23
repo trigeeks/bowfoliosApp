@@ -13,6 +13,8 @@ struct SignInView: View {
     @State var email: String = ""
     @State var password: String = ""
     @State var error: String = ""
+    @State var isVisiable = false
+    @State var showAlert = false
     @EnvironmentObject var session: SessionStore
     
     func signIn() {
@@ -20,6 +22,7 @@ struct SignInView: View {
         session.signIn(email: email, password: password) { (result, error) in
             if let error = error {
                 self.error = error.localizedDescription
+                self.showAlert = true
                 
             } else {
                 self.email = ""
@@ -30,71 +33,116 @@ struct SignInView: View {
     }
     
     var body: some View {
-        VStack{
+        ZStack {
             VStack {
                 
-                VStack {
-                Text("Welcome back!")
-                    .font(.system(size: 32, weight: .heavy))
+                HStack {
+                    Spacer()
+                    Text("Welcome To Bowfolios!")
+                        .fontWeight(.semibold)
+                        .font(.largeTitle)
+                        .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
+                        .multilineTextAlignment(.trailing)
+                        .padding(.top, 40)
+                        .padding(.leading, 6)
+                        .frame(width: UIScreen.main.bounds.width*3/4)
                     
-                
-                Text("Sign in to continue")
-                    .font(.system(size: 18, weight: .medium))
-                    .foregroundColor(.gray)
-                    
-                    }.cornerRadius(15)
-                .padding()
-
-                
-                VStack{
-
-                        TextField("Email address", text: $email)
-                            .modifier(TextFieldModifier())
-                    
-                    
-                    SecureField("Password", text: $password).modifier(TextFieldModifier())
-                    
-                }.padding(.vertical, 70)
-                
-                Button(action: signIn){
-                    Text("Sign In")
-                        .frame(width: UIScreen.main.bounds.width*0.9, height: 70)
-                        .modifier(ButtonModifier())
-                }//.frame(minWidth: 0, maxWidth: .infinity)
-            }
-            .frame(width: UIScreen.main.bounds.width - 30 , height: 500)
-            //.background(Color.white.opacity(0.5))
-            .cornerRadius(25)
-                .offset(y: UIScreen.main.bounds.height / 7)
-            Spacer()
-            
-            if (error != "") {
-                Text(error)
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundColor(.red)
-                    .padding()
-                
-                
-            }
-            
-            Spacer()
-            
-            NavigationLink (destination: SignUpView()){
-                HStack{
-                    Text("Don't have an account?")
-                        .font(.system(size: 14, weight:.light))
-                        .foregroundColor(.primary)
-                    Text("Create an account")
-                        .font(.system(size: 14,weight: .bold))
                 }
+
                 
+                VStack {
+                    
+                    // Log in Information field
+                    VStack(alignment: .leading) {
+                        
+                        // email text filed
+                        Text("Email")
+                            .fontWeight(.semibold)
+                            .font(.title)
+                            .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
+                        
+                        TextField("Enter Your Email", text: $email)
+                            .modifier(TextFieldModifier())
+                            
+                            
+                            
+                        // password text field
+                        Text("Password")
+                            .fontWeight(.semibold)
+                            .font(.title)
+                            .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
+                        
+                        HStack {
+                            
+                            if isVisiable {
+                            TextField("Enter Your Password", text: $password)
+                                .modifier(TextFieldModifier())
+                            } else {
+                                SecureField("Enter Your Password", text: $password)
+                                    .padding(1)
+                                    .modifier(TextFieldModifier())
+                            }
+                            
+                            // change visiable password button
+                            Button(action: {
+                                self.isVisiable.toggle()
+                            }, label: {
+                                Image(systemName: "eye.fill").foregroundColor(.gray)
+                                    
+                            }).buttonStyle(ButtonsModifier())
+                            
+                            
+
+                        }
+                        
+                        
+                        
+                    }.padding(20)
+                    
+                    
+                    // Button log in
+                    VStack {
+                        Button(action: {signIn()}, label: {
+                            Text("Login")
+                                .fontWeight(.semibold)
+                                .font(.title2)
+                                .foregroundColor(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+                        })
+                        .buttonStyle(LongButtonStyle())
+
+                    }.padding()
+                }.background(
+                    RoundedRectangle(cornerRadius: 15).foregroundColor(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+                        .shadow(color: Color.black.opacity(0.2), radius: 10, x: 8, y: 10)
+                        .shadow(color: Color.white.opacity(0.7), radius: 10, x: -10, y: -10)
+                )
+                .padding(30)
+                
+                Spacer()
+                
+                // go to signup section
+                
+                    HStack {
+                        Text("Do not have an account?")
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
+                    NavigationLink (destination: SignUpView()) {
+                        Text("Register").fontWeight(.semibold)
+                            .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
+                    }.buttonStyle(ButtonsModifier())
+                    }.padding(30)
+                    .modifier(SectionModifier())
+                
+                
+                Spacer()
+                
+                
+            }.background(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+            .ignoresSafeArea(.all)
+            if showAlert {
+                AlertView(showAlert: $showAlert, alertMessage: $error).transition(.slide)
             }
-            Spacer()
-            
-        }.padding(.horizontal, 32)
-        .background(Color(#colorLiteral(red: 0.8999916911, green: 0.9301283956, blue: 0.9705904126, alpha: 1)))
-            .edgesIgnoringSafeArea(.all)
-        
+        }
     }
 }
 
@@ -103,15 +151,19 @@ struct SignUpView: View {
     @State var password: String = ""
     @State var error: String = ""
     @State var rePassword: String = ""
+    @State var isVisiable = false
+    @State var showAlert = false
     @EnvironmentObject var session: SessionStore
     
     func signUp(){
         if rePassword != password {
             error = "Your passwords don't match"
+            showAlert = true
         } else {
             session.signUp(email: email, password: password) { (result, error) in
                 if let error = error {
                     self.error = error.localizedDescription
+                    showAlert = true
                 } else {
                     self.email = ""
                     self.password = ""
@@ -120,51 +172,97 @@ struct SignUpView: View {
         }
     }
     var body: some View {
-        VStack{
-            Text("Create Account")
-                .font(.system(size: 32, weight: .heavy))
-            
-            Text("Sign Up to get started")
-                .font(.system(size: 18, weight: .medium))
-                .foregroundColor(.gray)
-            
-            VStack{
-                TextField("Email address", text: $email)
-                    .modifier(TextFieldModifier())
+        ZStack {
+            VStack {
+                HStack {
+                    Spacer()
+                    VStack(alignment: .trailing) {
+                    Text("Create Account")
+                        .fontWeight(.heavy)
+                        .font(.largeTitle)
+                        .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
                     
-                
-                SecureField("Password", text: $password)
-                    .modifier(TextFieldModifier())
-                
-                SecureField("Re-Enter Password", text: $rePassword)
-                .modifier(TextFieldModifier())
+                    Text("Sign Up to get started")
+                        .font(.system(size: 18, weight: .medium))
+                        .foregroundColor(.gray)
+                    }
+                }.padding(.bottom, 20)
+                VStack {
+                VStack{
+                    VStack(alignment: .leading) {
+                        
+                        // email text filed
+                        Text("Email")
+                            .fontWeight(.semibold)
+                            .font(.title)
+                            .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
+                        TextField("Email address", text: $email)
+                            .modifier(TextFieldModifier())
+                    }
+                        
                     
-            }.padding(.vertical, 70)
-            
-            Button(action: signUp){
-                Text("Sign Up")
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .frame(height: 70)
-                .modifier(ButtonModifier())
-            }
-            
-            
-            if (error != "") {
-                Text(error)
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundColor(.red)
-                    .padding()
+
+                    VStack(alignment: .leading) {
+                        
+                        // Password text filed
+                        Text("Password")
+                            .fontWeight(.semibold)
+                            .font(.title)
+                            .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
+                        HStack {
+                            
+                            if isVisiable {
+                            TextField("Enter Your Password", text: $password)
+                                .modifier(TextFieldModifier())
+                            } else {
+                                SecureField("Enter Your Password", text: $password)
+                                    .padding(1)
+                                    .modifier(TextFieldModifier())
+                            }
+                            
+                            // change visiable password button
+                            Button(action: {
+                                self.isVisiable.toggle()
+                            }, label: {
+                                Image(systemName: "eye.fill").foregroundColor(.gray)
+                                    
+                            }).buttonStyle(ButtonsModifier())
+                            
+                            
+
+                        }
+                    }
+
+                    
+                    TextField("Re-Enter Password", text: $rePassword)
+                    .modifier(TextFieldModifier())
+                        
+                }.padding()
+                
+                Button(action: signUp){
+                    Text("Sign Up").fontWeight(.semibold)
+                        .font(.title2)
+                        .foregroundColor(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+                }.padding().buttonStyle(LongButtonStyle())
+                }.background(
+                    RoundedRectangle(cornerRadius: 15).foregroundColor(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+                        .shadow(color: Color.black.opacity(0.2), radius: 10, x: 8, y: 10)
+                        .shadow(color: Color.white.opacity(0.7), radius: 10, x: -10, y: -10)
+                )
+                
+                Spacer()
                 
                 
-            }
-            
-            Spacer()
-            
-            
-        }.padding(.horizontal, 32)
-            .padding(.vertical, 50)
-        .background(Color(#colorLiteral(red: 0.8999916911, green: 0.9301283956, blue: 0.9705904126, alpha: 1)))
+            }.padding(.horizontal, 32)
+                .padding(.vertical, 50)
+            .background(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
             .edgesIgnoringSafeArea(.all)
+            
+            if showAlert {
+                AlertView(showAlert: $showAlert, alertMessage: $error).transition(.flipFromTop)
+            }
+        }
+
     }
 }
 
@@ -222,3 +320,4 @@ struct AuthView_Previews: PreviewProvider {
         SignUpView()
     }
 }
+

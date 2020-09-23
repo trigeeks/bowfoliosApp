@@ -43,20 +43,91 @@ struct TextFieldModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-        .font(.system(size: 20))
-        .padding(20)
-        .cornerRadius(15)
-        .overlay(
-            RoundedRectangle(cornerRadius: 15).strokeBorder(Color(#colorLiteral(red: 0.4727979898, green: 0.524199903, blue: 0.588883698, alpha: 1)).opacity(0.05), lineWidth: 4)
-                .shadow(color: Color(#colorLiteral(red: 0.5392544866, green: 0.5978889465, blue: 0.671661675, alpha: 1)).opacity(0.2), radius: 1, x: 5, y: 5)
-                .shadow(color: Color.white, radius: 3, x: -5, y: -5)
-            .clipShape(RoundedRectangle(cornerRadius: 15))
-            .shadow(color: Color.black.opacity(0.2), radius: 3, x: -5, y: -5)
-            .clipShape(RoundedRectangle(cornerRadius: 15))
-        )
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 15).foregroundColor(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color.gray, lineWidth: 4)
+                            .foregroundColor(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+                            .blur(radius: 4)
+                            .offset(x: 2, y: 4)
+                            .mask(RoundedRectangle(cornerRadius: 15).fill(LinearGradient(gradient: Gradient(colors: [Color.black, Color.clear]), startPoint: .topLeading, endPoint: .bottomTrailing)))
+                        
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color.white, lineWidth: 4)
+                            .foregroundColor(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+                            .blur(radius: 4)
+                            .offset(x: -2, y: -3)
+                            .mask(RoundedRectangle(cornerRadius: 15).fill(LinearGradient(gradient: Gradient(colors: [Color.clear, Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing)))
+
+                    )
+            )
     }
     
     
+}
+
+
+struct SectionModifier: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content
+            .background(
+                RoundedRectangle(cornerRadius: 15).foregroundColor(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 5, y: 5)
+                    .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+            )
+    }
+    
+    
+}
+
+struct ButtonsModifier: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding()
+            .background(
+                Group {
+                    if configuration.isPressed {
+                    RoundedRectangle(cornerRadius: 15).fill(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+                        .shadow(color: Color.black.opacity(0.2), radius: 10, x: -5, y: -5)
+                        .shadow(color: Color.white.opacity(0.7), radius: 10, x: 5, y: 5)
+                    } else {
+                        RoundedRectangle(cornerRadius: 15).fill(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+                            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 5, y: 5)
+                            .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+                    }
+                }
+            )
+    }
+
+
+}
+
+struct LongButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(
+                Group {
+                    if configuration.isPressed {
+                    RoundedRectangle(cornerRadius: 15).fill(Color(#colorLiteral(red: 0.4437265396, green: 0.6356848478, blue: 1, alpha: 0.5364137414)))
+                        .shadow(color: Color(#colorLiteral(red: 0.3474860191, green: 0.4888443947, blue: 0.8093919754, alpha: 1)), radius: 5, x: 0, y: 0)
+                        .shadow(color: Color.white.opacity(0.7), radius: 10, x: 5, y: 5)
+                    } else {
+                        RoundedRectangle(cornerRadius: 15).foregroundColor(Color(#colorLiteral(red: 0.4437265396, green: 0.6356848478, blue: 1, alpha: 0.5364137414)))
+                            .shadow(color: Color(#colorLiteral(red: 0.3474860191, green: 0.4888443947, blue: 0.8093919754, alpha: 1)), radius: 10, x: 10, y: 10)
+                            .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+                    }
+                }
+            )
+    }
+
+
 }
 
 struct TestView: View {
