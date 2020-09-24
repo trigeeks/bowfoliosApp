@@ -10,7 +10,7 @@ import SwiftUI
 
 struct FilterView: View {
     @Namespace private var animation
-    @State var showSelections: Bool = true
+    @State var showSelections: Bool = false
     @State var selectedArray = Set<String>()
     @State var interestsArray = InterestsArray().interestsArray
     @EnvironmentObject var projects: ProjectViewModel
@@ -26,23 +26,27 @@ struct FilterView: View {
         GeometryReader { geometry in
             VStack {
                 
-                //MARK: - Top Section of the View: button and selected Array
+                //MARK: - Top Section of the View: buttons and selected Array
+                
+                VStack {
                 HStack {
                     Text("Interests:").fontWeight(.semibold)
                     Spacer()
+                    
                     Button(action: {
                         withAnimation {
                             self.showSelections.toggle()
                         }
-                    }) {
+                    }, label: {
                         if showSelections {
                             Image(systemName: "chevron.down").font(.system(size: 26))
                         } else {
                             Image(systemName: "chevron.right").font(.system(size: 26))
                         }
-                    }
+                    }).buttonStyle(ButtonsModifier())
+
                     
-                }.padding(.horizontal)
+                }.padding(.all)
                 
                 
                 // display interests selected
@@ -60,19 +64,20 @@ struct FilterView: View {
                             }
                         }, label: {
                             Text("Check All").foregroundColor(.blue)
-                        }).buttonStyle(SimpleButtonStyle())
+                        }).buttonStyle(ButtonsModifier())
                         Spacer()
                         Button(action: {
                             selectedArray = Set<String>()
                         }, label: {
                             Text("Clear All").foregroundColor(.blue)
-                        }).buttonStyle(SimpleButtonStyle())
+                        }).buttonStyle(ButtonsModifier())
                         
                         
-                    }.padding(.horizontal, 40).transition(.move(edge: .trailing)).animation(.spring())
+                    }.padding(.horizontal, 40).padding(.bottom, 20).transition(.move(edge: .trailing)).animation(.spring())
+                    .background(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
                 }
 
-                
+                }.background(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
                 ZStack {
                     
                     //MARK: - List of All Interests to be selected
@@ -80,7 +85,7 @@ struct FilterView: View {
 
                             List(items, children: \.items, selection: $selectedArray) { row in
                                 MultiSelectRow(item: row, selectedItems: $selectedArray)
-                            }.zIndex(5).transition(.move(edge: .trailing)).animation(.spring())
+                            }.zIndex(5).transition(.move(edge: .trailing))
                     }
                     
                     //MARK: - List of Profiles
@@ -93,6 +98,11 @@ struct FilterView: View {
                             }.id(UUID())
                         }
                     }.background(Color.white)
+                    if selectedArray.isEmpty {
+                        VStack {
+                        Image("tap").resizable().frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width/0.764)
+                        }
+                    }
                 }.edgesIgnoringSafeArea(.bottom)
                 .onAppear {
                     self.profiles.fetchData()
