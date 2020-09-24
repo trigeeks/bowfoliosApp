@@ -9,101 +9,112 @@
 import SwiftUI
 
 struct FilterView: View {
+    @Namespace private var animation
     @State var showSelections: Bool = false
-    @State var selectedArray: [String] = []
+    @State var selectedArray = Set<String>()
     @State var interestsArray = InterestsArray().interestsArray
     @EnvironmentObject var projects: ProjectViewModel
     @EnvironmentObject var profiles: ProfileViewModel
-    
-//    func getInterests() -> [String] {
-//        var interestsArray: [String] = []
-//
-//        //for profile in profilesViewModel.profiles {
-//        for profile in profilesViewModel.profiles {
-//            for interest in profile.interests {
-//                if interestsArray.contains(interest) == false {
-//                    interestsArray.append(interest)
-//                }
-//            }
-//        }
-//
-//        //for project in projectsViewModel.projects {
-//        for project in projectsViewModel.projects {
-//            for interest in project.interests {
-//                if interestsArray.contains(interest) == false {
-//                    interestsArray.append(interest)
-//                }
-//            }
-//        }
-//
-//        return interestsArray
-//
-//    }
+
+    @State var items: [ExpandList] = InterestsArray().interestsArray.map { (interest) -> ExpandList in
+        return (ExpandList(name: interest, isTitle: false, isSelected: IsSelected(false)))
+    }
     
     
     var body: some View {
         
-        
-        
         GeometryReader { geometry in
-            
-            
-            ZStack {
+            VStack {
                 
-                ScrollView(showsIndicators: false) {
-                    VStack {
-                        
-                        // plus button
-                        HStack {
-                            Text("Interests:").fontWeight(.semibold)
-                            Spacer()
-                            Button(action: {
-                                self.showSelections = true
-                            }) {
-                                Image(systemName: "plus").font(.system(size: 26))
-                            }
-                            
-                        }.padding()
-                        
-                        // display interests selected
-                        HStack {
-                            
-                            generateContent(in: geometry, selectedArray: self.selectedArray)
-                            
-                        }.padding(.bottom, 30)
-                        Spacer()
-                    }
+                //MARK: - Top Section of the View: buttons and selected Array
+                
+                VStack {
+                HStack {
+                    Text("Interests:").fontWeight(.semibold)
+                    Spacer()
                     
-                    
-                    
-                    // showing result section: profileCards
-                    ForEach(self.getProfiles(interests: self.selectedArray), id:\.self) { profile in
+                    Button(action: {
+                        withAnimation {
+                            self.showSelections.toggle()
+                        }
+                    }, label: {
+                        if showSelections {
+                            Image(systemName: "chevron.down").font(.system(size: 26))
+                        } else {
+                            Image(systemName: "chevron.right").font(.system(size: 26))
+                        }
+                    }).buttonStyle(ButtonsModifier())
 
-                        ProfileRowView(profile: profile).padding()
-                    }.id(UUID())
                     
+                }.padding(.all)
+                
+                
+                // display interests selected
+                HStack {
+                    generateContent(in: geometry, selectedArray: Array(self.selectedArray))
                     
                 }
-                .background(Color.white)
-                
-                
-                
-                Selections(showSelections: self.$showSelections, selectedArray: self.$selectedArray, itemsArray: self.$interestsArray).zIndex(self.showSelections ? 1 : -1)
-                
-                
-            }.edgesIgnoringSafeArea(.bottom)
-            .onAppear {
-                self.profiles.fetchData()
-                self.projects.fetchData()
+
+                if showSelections {
+                    HStack {
+                        Button(action: {
+                            selectedArray = Set<String>()
+                            for string in interestsArray {
+                                selectedArray.insert(string)
+                            }
+                        }, label: {
+                            Text("Check All").foregroundColor(.blue)
+                        }).buttonStyle(ButtonsModifier())
+                        Spacer()
+                        Button(action: {
+                            selectedArray = Set<String>()
+                        }, label: {
+                            Text("Clear All").foregroundColor(.blue)
+                        }).buttonStyle(ButtonsModifier())
+                        
+                        
+                    }.padding(.horizontal, 40).padding(.bottom, 20).transition(.move(edge: .trailing)).animation(.spring())
+                    .background(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+                }
+
+                }.background(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+                ZStack {
+                    
+                    //MARK: - List of All Interests to be selected
+                    if showSelections {
+
+                            List(items, children: \.items, selection: $selectedArray) { row in
+                                MultiSelectRow(item: row, selectedItems: $selectedArray)
+                            }.zIndex(5).transition(.move(edge: .trailing))
+                    }
+                    
+                    //MARK: - List of Profiles
+                    ScrollView(showsIndicators: false) {
+                        // showing result section: profileCards
+                        LazyVStack {
+                            ForEach(self.getProfiles(interests: Array(self.selectedArray)), id:\.self) { profile in
+                                
+                                ProfileRowView(profile: profile).padding()
+                            }.id(UUID())
+                        }
+                    }.background(Color.white)
+                    if selectedArray.isEmpty {
+                        VStack {
+                        Image("tap").resizable().frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width/0.764)
+                        }
+                    }
+                }.edgesIgnoringSafeArea(.bottom)
+                .onAppear {
+                    self.profiles.fetchData()
+                    self.projects.fetchData()
+                }
             }
-            
-        }
+        } // end of Geometry Reader
     }
     
 
     
     // Get profiles by given interests
-
     func getProfiles(interests: [String]) -> [Profile]{
         var profiles: [Profile] = []
         for profile in self.profiles.profiles {
@@ -117,7 +128,6 @@ struct FilterView: View {
                 profiles.append(profile)
             }
         }
-        
         return profiles
     }
     
@@ -132,7 +142,59 @@ struct FilterView_Previews: PreviewProvider {
 
 
 
+// MARK: - Selection List
+// listItem Object
+struct ExpandList: Identifiable {
+    var id = UUID()
+    let name: String
+    let isTitle: Bool
+    var isSelected: IsSelected
+    var items: [ExpandList]?
+}
+// make isSelected in ExpandList mutable
+class IsSelected {
+    var isSelected: Bool
+    
+    init(_ isSelected: Bool) {
+        self.isSelected = isSelected
+    }
+    func togglel(){
+        self.isSelected.toggle()
+    }
+}
+// List Item Row
+struct MultiSelectRow : View {
+    
+    var item: ExpandList
+    @Binding var selectedItems: Set<String>
+    var isSelected: Bool {
+        selectedItems.contains(item.name)
+    }
+    
+    var body: some View {
+        Button(action: {
+            if self.isSelected {
+                self.selectedItems.remove(self.item.name)
+            } else {
+                self.selectedItems.insert(self.item.name)
+            }
+            print(Array(self.selectedItems))
+        }, label: {
+            HStack {
+                Text(self.item.name)
+                Spacer()
+                if self.isSelected {
+                    Image(systemName: "checkmark")
+                        .foregroundColor(Color.blue)
+                }
+            }
+        })
+    }
+}
 
+
+
+//MARK: - auto wrap function: this is global so any view can call it
 // make item in HStack can wrap if this line is full
 func generateContent(in g: GeometryProxy, selectedArray: [String]) -> some View {
     var width = CGFloat.zero
