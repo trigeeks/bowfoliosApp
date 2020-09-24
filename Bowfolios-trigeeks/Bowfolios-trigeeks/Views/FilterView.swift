@@ -50,7 +50,28 @@ struct FilterView: View {
                     generateContent(in: geometry, selectedArray: Array(self.selectedArray))
                     
                 }
-                
+
+                if showSelections {
+                    HStack {
+                        Button(action: {
+                            selectedArray = Set<String>()
+                            for string in interestsArray {
+                                selectedArray.insert(string)
+                            }
+                        }, label: {
+                            Text("Check All").foregroundColor(.blue)
+                        }).buttonStyle(SimpleButtonStyle())
+                        Spacer()
+                        Button(action: {
+                            selectedArray = Set<String>()
+                        }, label: {
+                            Text("Clear All").foregroundColor(.blue)
+                        }).buttonStyle(SimpleButtonStyle())
+                        
+                        
+                    }.padding(.horizontal, 40).transition(.move(edge: .trailing)).animation(.spring())
+                }
+
                 
                 ZStack {
                     
@@ -60,18 +81,6 @@ struct FilterView: View {
                             List(items, children: \.items, selection: $selectedArray) { row in
                                 MultiSelectRow(item: row, selectedItems: $selectedArray)
                             }.zIndex(5).transition(.move(edge: .trailing)).animation(.spring())
-
-                            
-                        VStack {
-                            Spacer()
-                            Button(action: {
-                                self.selectedArray = Set<String>()
-                            }, label: {
-                                Text("Check All")
-                            }).padding(.bottom, 40)
-                        }.zIndex(6)
-                        
-                        
                     }
                     
                     //MARK: - List of Profiles

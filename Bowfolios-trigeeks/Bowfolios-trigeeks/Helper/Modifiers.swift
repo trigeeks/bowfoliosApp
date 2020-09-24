@@ -105,6 +105,27 @@ struct ButtonsModifier: ButtonStyle {
     }
 }
 
+
+struct SimpleButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding()
+            .background(
+                Group {
+                    if configuration.isPressed {
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)), lineWidth: 4)
+                        .shadow(color: Color.black.opacity(0.3), radius: 10, x: -5, y: -5)
+                        .shadow(color: Color.white.opacity(0.7), radius: 10, x: 5, y: 5)
+                    } else {
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color(#colorLiteral(red: 0.9358322024, green: 0.9386646152, blue: 0.9737249017, alpha: 1)), lineWidth: 4)
+                    }
+                }
+            )
+    }
+}
+
 struct RoundButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
