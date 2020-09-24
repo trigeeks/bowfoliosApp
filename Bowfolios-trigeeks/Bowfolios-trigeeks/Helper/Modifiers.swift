@@ -103,8 +103,26 @@ struct ButtonsModifier: ButtonStyle {
                 }
             )
     }
+}
 
-
+struct RoundButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .background(
+                Group {
+                    if configuration
+                        .isPressed {
+                        Circle().fill(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+                        .shadow(color: Color.black.opacity(0.2), radius: 10, x: -5, y: -5)
+                        .shadow(color: Color.white.opacity(0.7), radius: 10, x: 5, y: 5)
+                    } else {
+                        Circle().fill(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+                            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 5, y: 5)
+                            .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+                    }
+                }
+            )
+    }
 }
 
 struct LongButtonStyle: ButtonStyle {
@@ -132,6 +150,7 @@ struct LongButtonStyle: ButtonStyle {
 
 struct TestView: View {
     @State var email = ""
+    @State var isExpand = false
     var body: some View {
         VStack {
 
@@ -141,9 +160,23 @@ struct TestView: View {
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                 Text("Button").frame(width: 150, height: 60).modifier(ButtonModifier()).frame(maxWidth: .infinity)
             }
+            
+            
+            
+            Button(action: {
+                self.isExpand.toggle()
+            }) {
+                Image(systemName: "person.fill").resizable().foregroundColor(Color(#colorLiteral(red: 0.4268223047, green: 0.5645358562, blue: 0.9971285462, alpha: 1)))
+                    .frame(width: 60, height: 60)
+                    .cornerRadius(50)
+            }.buttonStyle(RoundButtonStyle())
+            
+            
+            
+            
             Spacer()
         }.frame(maxWidth: .infinity)
-        .background(Color(#colorLiteral(red: 0.8999916911, green: 0.9301283956, blue: 0.9705904126, alpha: 1)))
+        .background(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
         .edgesIgnoringSafeArea(.all)
     }
 }
