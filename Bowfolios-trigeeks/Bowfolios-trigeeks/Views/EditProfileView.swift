@@ -268,6 +268,7 @@ struct EditProfileView: View {
             .navigationBarHidden(true)
             .onAppear {
                 self.totalProjects.fetchData()
+                self.totalInterests.fetchData()
                 
             }
             .sheet(isPresented: $showImagePicker){
