@@ -7,32 +7,40 @@
 //
 
 import SwiftUI
-import Firebase
-import FirebaseFirestoreSwift
-import SDWebImageSwiftUI
 
 struct InterestView: View {
    
     @EnvironmentObject var projects: ProjectViewModel
     @EnvironmentObject var profiles: ProfileViewModel
     
+    @State var showedProfile: Profile = Profile(firstName: "", lastName: "", bio: "", email: "", title: "", projects: [], interests: [], picture: "")
+    @State var isShowTapedProfile: Bool = false
     @State var interestsArray = InterestsArray().interestsArray
     var body: some View {
-        VStack{
-        List{
-            ForEach(self.interestsArray, id: \.self){ sec in
-                InterestRowView(theInterest: sec)
+        ZStack {
+            VStack{
+            List{
+                ForEach(self.interestsArray, id: \.self){ sec in
+                    InterestRowView(theInterest: sec, showedProfile: $showedProfile, showTapedProfile: $isShowTapedProfile)
+                }
+                
             }
+                
+               
             
+            }.onAppear {
+                self.profiles.fetchData()
+                self.projects.fetchData()
         }
-        
-        }.onAppear {
-            self.profiles.fetchData()
-            self.projects.fetchData()
+            
+            if isShowTapedProfile {
+                BrowseProfileView(profile: showedProfile, isShowed: $isShowTapedProfile)
+            }
         }
     }
     
 }
+
 
 
 

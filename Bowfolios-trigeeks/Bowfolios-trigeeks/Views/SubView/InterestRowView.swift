@@ -17,7 +17,8 @@ struct InterestRowView: View {
     
     @State var theInterest: String
     @State var thePics: [String] = []
-    
+    @Binding var showedProfile: Profile
+    @Binding var showTapedProfile: Bool
     
     var body: some View {
         VStack{
@@ -29,7 +30,17 @@ struct InterestRowView: View {
                 
                 ForEach(self.profiles.profiles){ prof in
                     if prof.interests.contains(self.theInterest){
-                        WebImage(url: URL(string: prof.picture)).renderingMode(.original).resizable().scaledToFit().frame(width:50, height: 50).clipShape(Circle())
+                        WebImage(url: URL(string: prof.picture))
+                            .renderingMode(.original)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:50, height: 50)
+                            .clipShape(Circle())
+                            .onTapGesture {
+                                    self.showedProfile = prof
+                                    self.showTapedProfile = true 
+                            }
+                            
                     }
                 }
                 
@@ -50,8 +61,8 @@ struct InterestRowView: View {
 
 }
 
-struct InterestRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        InterestRowView(theInterest: "lala", thePics: ["sas"])
-    }
-}
+//struct InterestRowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InterestRowView(theInterest: "lala", thePics: ["sas"])
+//    }
+//}
