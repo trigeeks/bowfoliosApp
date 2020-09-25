@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 import Combine
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, UIGestureRecognizerDelegate {
 
     var window: UIWindow?
 
@@ -30,8 +30,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
+        
+        // Handle Tap outside of keyboard to hide the keyboard
+        let tapHideKeyboardGesture = HideKeyboardTapGestureRecognizer(target: window, action:#selector(UIView.endEditing))
+        tapHideKeyboardGesture.requiresExclusiveTouchType = false
+        tapHideKeyboardGesture.cancelsTouchesInView = false
+        tapHideKeyboardGesture.delegate = self //I don't use window as delegate to minimize possible side effects
+        window?.addGestureRecognizer(tapHideKeyboardGesture)
     }
-
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+            return true
+        }
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
