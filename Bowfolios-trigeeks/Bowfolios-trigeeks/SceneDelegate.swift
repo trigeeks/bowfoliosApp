@@ -32,11 +32,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UIGestureRecognizerDele
         }
         
         // Handle Tap outside of keyboard to hide the keyboard
-        let tapGesture = HideKeyboardTapGestureRecognizer(target: window, action:#selector(UIView.endEditing))
-        tapGesture.requiresExclusiveTouchType = false
-        tapGesture.cancelsTouchesInView = false
-        tapGesture.delegate = self //I don't use window as delegate to minimize possible side effects
-        window?.addGestureRecognizer(tapGesture)
+        let tapHideKeyboardGesture = HideKeyboardTapGestureRecognizer(target: window, action:#selector(UIView.endEditing))
+        tapHideKeyboardGesture.requiresExclusiveTouchType = false
+        tapHideKeyboardGesture.cancelsTouchesInView = false
+        tapHideKeyboardGesture.delegate = self //I don't use window as delegate to minimize possible side effects
+        window?.addGestureRecognizer(tapHideKeyboardGesture)
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
