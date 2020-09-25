@@ -15,28 +15,22 @@ struct BrowseProfileView: View {
     @Binding var isShowed: Bool
     var body: some View {
         ZStack {
-            
             Rectangle().fill(Color.white.opacity(0.5)).ignoresSafeArea()
-                .onTapGesture(count: 1, perform: {
-                    dismiss()
-                })
-            
             VStack {
-                
                 // Picture, Name, Title and Email
                 VStack {
                     WebImage(url: URL(string: profile.picture))
                         .resizable()
                         .cornerRadius(150)
                         .frame(width: 150, height: 150)
+                        .modifier(ImageModifier())
                     Text("\(profile.firstName) \(profile.lastName)")
                         .fontWeight(.heavy)
                         .font(.title)
-                    HStack {
-                        Text("\(profile.title)")
-                            .foregroundColor(.gray)
-                        Text("\(profile.email)")
-                    }
+                    
+                    Text("\(profile.title)")
+                        .foregroundColor(.gray)
+                    Text("\(profile.email)")
                 }
                 
                 // Interest and Projects
@@ -78,7 +72,11 @@ struct BrowseProfileView: View {
             .frame(width: UIScreen.main.bounds.width * 4 / 5)
             .background(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
             .cornerRadius(50)
+            
         }.animation(.spring()).transition(.move(edge: .trailing))
+        .onTapGesture(count: 1, perform: {
+            dismiss()
+        })
         
     }
     
@@ -101,8 +99,99 @@ struct BrowseProfileView: View {
     }
 }
 
+
+struct BrowseProjectView: View {
+    var project: Project
+    @EnvironmentObject var profiles: ProfileViewModel
+    @Binding var isShowed: Bool
+    var body: some View {
+        ZStack {
+            Rectangle().fill(Color.white.opacity(0.5)).ignoresSafeArea()
+            VStack {
+                // Picture, Name, Title and Email
+                VStack {
+                    WebImage(url: URL(string: project.picture))
+                        .resizable()
+                        .cornerRadius(150)
+                        .frame(width: 150, height: 150)
+                        .modifier(ImageModifier())
+                    Text("\(project.name)")
+                        .fontWeight(.heavy)
+                        .font(.title)
+                    
+                    Text("\(project.homepage)")
+                        .foregroundColor(.gray)
+                }
+                
+                // Interest and Projects
+                VStack(alignment: .leading) {
+                    Text(project.description).fontWeight(.semibold)
+                    Divider()
+                    Text("Participants:")
+
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(getParticipants(project: project.name), id: \.self) { picture in
+                                
+                                WebImage(url: URL(string: picture))
+                                    .resizable()
+                                    .cornerRadius(50)
+                                    .frame(width: 50, height: 50)
+                            }
+                        }
+                    }
+                    Divider()
+
+                    Text("Interests:")
+
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(project.interests, id: \.self) { interest in
+                                Text("  \(interest)  ")
+                                    .fontWeight(.semibold)
+                                    .background(Color(#colorLiteral(red: 0.7262665033, green: 0.720197618, blue: 0.7732493281, alpha: 1)))
+                                    .clipShape(Capsule())
+                            }
+                        }
+                    }
+                    
+                }.padding()
+                
+            }
+            .padding()
+            .frame(width: UIScreen.main.bounds.width * 4 / 5)
+            .background(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+            .cornerRadius(50)
+            
+        }.animation(.spring()).transition(.move(edge: .trailing))
+        .onTapGesture(count: 1, perform: {
+            dismiss()
+        })
+        
+    }
+    
+    
+    //MARK: -Data Functions
+    func getParticipants(project: String) -> [String] {
+        
+        var participants: [String] = []
+        for profile in profiles.profiles {
+            if profile.projects.contains(project) {
+                
+                participants.append(profile.picture)
+            }
+        }
+        print(participants)
+        return participants
+    }
+    
+    func dismiss() {
+        self.isShowed = false
+    }
+}
+
 struct CardView: View {
-    var profile = Profile(firstName: "Wei", lastName: "He", bio: "This is bio which is very long.", email: "wei@test.com", title: "student", projects: ["Bowfolio"], interests: ["Climate Change", "ICS"], picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/440px-Image_created_with_a_mobile_phone.png")
+    var profile = Profile(firstName: "Wei", lastName: "He", bio: "This is bio which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long which is very long.", email: "wei@test.com", title: "student", projects: ["Bowfolio"], interests: ["Climate Change", "ICS"], picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/440px-Image_created_with_a_mobile_phone.png")
     var body: some View {
         BrowseProfileView(profile: profile, isShowed: .constant(true))
     }

@@ -14,14 +14,16 @@ struct InterestView: View {
     @EnvironmentObject var profiles: ProfileViewModel
     
     @State var showedProfile: Profile = Profile(firstName: "", lastName: "", bio: "", email: "", title: "", projects: [], interests: [], picture: "")
+    @State var showedProject: Project = Project(name: "", description: "", picture: "", homepage: "", interests: [])
     @State var isShowTapedProfile: Bool = false
+    @State var isShowTapedProject: Bool = false
     @State var interestsArray = InterestsArray().interestsArray
     var body: some View {
         ZStack {
             VStack{
             List{
                 ForEach(self.interestsArray, id: \.self){ sec in
-                    InterestRowView(theInterest: sec, showedProfile: $showedProfile, showTapedProfile: $isShowTapedProfile)
+                    InterestRowView(theInterest: sec, showedProfile: $showedProfile, showTapedProfile: $isShowTapedProfile, showedProject: $showedProject, showTapedProject: $isShowTapedProject)
                 }
                 
             }
@@ -35,6 +37,9 @@ struct InterestView: View {
             
             if isShowTapedProfile {
                 BrowseProfileView(profile: showedProfile, isShowed: $isShowTapedProfile)
+            }
+            if isShowTapedProject {
+                BrowseProjectView(project: showedProject, isShowed: $isShowTapedProject)
             }
         }
     }
