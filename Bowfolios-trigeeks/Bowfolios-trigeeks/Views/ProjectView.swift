@@ -13,17 +13,21 @@ struct ProjectView: View {
     @EnvironmentObject var profiles: ProfileViewModel
     @Binding var forceReload: Bool
     var body: some View {
-        
-        List(self.projects.projects) { project in
-            ProjectRowView(project: project)
-        }.onAppear {
-            self.profiles.fetchData()
-            self.projects.fetchData()
+        ScrollView{
+            LazyVStack{
+                ForEach(self.projects.projects) { project in
+                    ProjectRowView(project: project).padding(.horizontal)
+                    Spacer().frame(height: 12).background(Color("bg5"))
+                }
+            }
+            .onAppear {
+                self.profiles.fetchData()
+                self.projects.fetchData()
+            }
         }
-        
     }
 }
-    
+
 
 
 struct ProjectsView_Previews: PreviewProvider {
