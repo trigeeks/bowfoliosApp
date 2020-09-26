@@ -71,9 +71,6 @@ struct ProjectRowView: View {
                     }
                 }
             }
-            
-            
-            
         }
     }
 }
