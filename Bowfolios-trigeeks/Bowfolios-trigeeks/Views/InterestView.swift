@@ -18,23 +18,23 @@ struct InterestView: View {
     @State var isShowTapedProfile: Bool = false
     @State var isShowTapedProject: Bool = false
     @State var interestsArray = InterestsArray().interestsArray
+    
     var body: some View {
         ZStack {
-            VStack{
-            List{
+            ScrollView{
+            LazyVStack{
+            
                 ForEach(self.interestsArray, id: \.self){ sec in
                     InterestRowView(theInterest: sec, showedProfile: $showedProfile, showTapedProfile: $isShowTapedProfile, showedProject: $showedProject, showTapedProject: $isShowTapedProject)
-                }
+                }.padding(.bottom)
                 
-            }
-                
-               
             
             }.onAppear {
                 self.profiles.fetchData()
                 self.projects.fetchData()
-        }
-            
+            }
+            .padding(.horizontal)
+            }
             if isShowTapedProfile {
                 BrowseProfileView(profile: showedProfile, isShowed: $isShowTapedProfile)
             }
