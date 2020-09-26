@@ -13,12 +13,17 @@ struct ProfileView: View {
     @EnvironmentObject var profiles: ProfileViewModel
     @Binding var forceReload: Bool
     var body: some View {
-        
-        List(self.profiles.profiles) { profile in
-            ProfileRowView(profile: profile)
-        }.onAppear {
-            self.profiles.fetchData()
-            self.projects.fetchData()
+        ScrollView{
+            LazyVStack{
+                ForEach(self.profiles.profiles) { profile in
+                    ProfileRowView(profile: profile).padding(.horizontal)
+                    Spacer().frame(height: 12).background(Color("bg5"))
+                }
+            }
+            .onAppear {
+                self.profiles.fetchData()
+                self.projects.fetchData()
+            }
         }
     }
     

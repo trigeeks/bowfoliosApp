@@ -86,7 +86,7 @@ struct ProfileRowView: View {
                 }
                 
             }
-        }
+        }.padding(.vertical, 10)
     }
 }
 
