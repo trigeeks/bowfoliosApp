@@ -70,7 +70,7 @@ struct ProjectRowView: View {
                         
                     }
                 }
-            }
+            }.padding(.bottom, 10)
         }
     }
 }
