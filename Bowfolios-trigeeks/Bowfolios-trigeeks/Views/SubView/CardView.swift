@@ -77,6 +77,7 @@ struct BrowseProfileView: View {
         .onTapGesture(count: 1, perform: {
             dismiss()
         })
+        .zIndex(.random(in: 1..<2))
         
     }
     
@@ -167,6 +168,7 @@ struct BrowseProjectView: View {
         .onTapGesture(count: 1, perform: {
             dismiss()
         })
+        .zIndex(.random(in: 1..<2))
         
     }
     
