@@ -175,11 +175,12 @@ struct SignUpView: View {
         ZStack {
             VStack {
                 HStack {
-                    VStack() {
+                    Spacer()
+                    VStack(alignment: .trailing) {
                     Text("Create Account")
                         .fontWeight(.heavy)
                         .font(.largeTitle)
-                        .foregroundColor(Color("bg2"))
+                        .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
                     
                     Text("Sign Up to get started")
                         .font(.system(size: 18, weight: .medium))
@@ -194,7 +195,7 @@ struct SignUpView: View {
                         Text("Email")
                             .fontWeight(.semibold)
                             .font(.title)
-                            .foregroundColor(Color("bg2"))
+                            .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
                         TextField("Email address", text: $email)
                             .modifier(TextFieldModifier())
                     }
@@ -207,7 +208,7 @@ struct SignUpView: View {
                         Text("Password")
                             .fontWeight(.semibold)
                             .font(.title)
-                            .foregroundColor(Color("bg2"))
+                            .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
                         HStack {
                             
                             if isVisiable {
@@ -241,10 +242,10 @@ struct SignUpView: View {
                 Button(action: signUp){
                     Text("Sign Up").fontWeight(.semibold)
                         .font(.title2)
-                        .foregroundColor(Color("bg5"))
+                        .foregroundColor(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
                 }.padding().buttonStyle(LongButtonStyle())
                 }.background(
-                    RoundedRectangle(cornerRadius: 15).foregroundColor(Color("bg5"))
+                    RoundedRectangle(cornerRadius: 15).foregroundColor(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
                         .shadow(color: Color.black.opacity(0.2), radius: 10, x: 8, y: 10)
                         .shadow(color: Color.white.opacity(0.7), radius: 10, x: -10, y: -10)
                 )
@@ -254,7 +255,7 @@ struct SignUpView: View {
                 
             }.padding(.horizontal, 32)
                 .padding(.vertical, 50)
-            .background(Color("bg5"))
+            .background(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
             .edgesIgnoringSafeArea(.all)
             
             if showAlert {
