@@ -62,6 +62,7 @@ struct SignInView: View {
                             .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
                         
                         TextField("Enter Your Email", text: $email)
+                            .keyboardType(.emailAddress)
                             .modifier(TextFieldModifier())
                             
                             
@@ -197,6 +198,7 @@ struct SignUpView: View {
                             .font(.title)
                             .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
                         TextField("Email address", text: $email)
+                            .keyboardType(.emailAddress)
                             .modifier(TextFieldModifier())
                     }
                         
