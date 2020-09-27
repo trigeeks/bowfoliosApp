@@ -343,6 +343,11 @@ struct EditProfileView: View {
                 }
             }
         }
+        for eachInt in InterestsArray().interestsArray {
+            if !self.interestsArray.contains(eachInt){
+                self.interestsArray.append(eachInt)
+            }
+        }
     }
     
 }
