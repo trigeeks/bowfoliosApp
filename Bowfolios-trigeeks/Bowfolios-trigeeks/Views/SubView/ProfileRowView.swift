@@ -81,7 +81,8 @@ struct ProfileRowView: View {
                                 
                                 WebImage(url: URL(string: self.getProject(projectName: project).picture))
                                     .renderingMode(.original)
-                                    .resizable().frame(width: 50, height: 50).cornerRadius(50)
+                                    .resizable().frame(width: 50, height: 50)
+                                    .cornerRadius(50)
                                     .onTapGesture {
                                         self.showedProject = self.getProject(projectName: project)
                                         self.isShowTapedProject = true

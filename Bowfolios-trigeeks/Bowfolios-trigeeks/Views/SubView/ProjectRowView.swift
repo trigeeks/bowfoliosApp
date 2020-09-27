@@ -12,18 +12,20 @@ import SDWebImageSwiftUI
 struct ProjectRowView: View {
     @State var project: Project
     @EnvironmentObject var profiles: ProfileViewModel
+    @Binding var showedProfile: Profile
+    @Binding var isShowTapedProfile: Bool
+    
     
     // filter the profileData to get profiles that in the given project
-    func getParticipants(project: String) -> [String] {
+    func getParticipants(project: String) -> [Profile] {
         
-        var participants: [String] = []
+        var participants = [Profile]()
         for profile in profiles.profiles {
             if profile.projects.contains(project) {
                 
-                participants.append(profile.picture)
+                participants.append(profile)
             }
         }
-        print(participants)
         return participants
     }
     
@@ -62,11 +64,15 @@ struct ProjectRowView: View {
                 HStack(spacing: 10) {
                     ForEach(getParticipants(project: project.name) , id: \.self) { participant in
                         
-                        WebImage(url: URL(string: participant ))
+                        WebImage(url: URL(string: participant.picture))
                             .renderingMode(.original)
                             .resizable()
                             .frame(width: 50, height: 50)
                             .cornerRadius(50)
+                            .onTapGesture {
+                                self.showedProfile = participant
+                                self.isShowTapedProfile = true
+                            }
                         
                     }
                 }
