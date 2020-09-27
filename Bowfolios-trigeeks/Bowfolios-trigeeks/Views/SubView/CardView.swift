@@ -73,7 +73,7 @@ struct BrowseProfileView: View {
             .background(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
             .cornerRadius(50)
             
-        }.animation(.spring()).transition(.move(edge: .trailing))
+        }.animation(.spring()).transition(.asymmetric(insertion: .move(edge: .top), removal: .move(edge: .bottom)))
         .onTapGesture(count: 1, perform: {
             dismiss()
         })
@@ -167,7 +167,7 @@ struct BrowseProjectView: View {
             .background(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
             .cornerRadius(50)
             
-        }.animation(.spring()).transition(.move(edge: .trailing))
+        }.animation(.spring()).transition(.asymmetric(insertion: .move(edge: .top), removal: .move(edge: .bottom)))
         .onTapGesture(count: 1, perform: {
             dismiss()
         })
