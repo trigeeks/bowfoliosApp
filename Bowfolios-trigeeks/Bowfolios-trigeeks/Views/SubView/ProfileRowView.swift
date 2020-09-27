@@ -14,7 +14,7 @@ struct ProfileRowView: View {
     @State var profile: Profile
     @EnvironmentObject var projects: ProjectViewModel
     @Binding var showedProject: Project
-    @Binding var isShowTapedProject: Bool
+    @Binding var isShowTappedProject: Bool
     
     func getProject(projectName: String) -> Project {
         for project in projects.projects {
@@ -85,7 +85,7 @@ struct ProfileRowView: View {
                                     .cornerRadius(50)
                                     .onTapGesture {
                                         self.showedProject = self.getProject(projectName: project)
-                                        self.isShowTapedProject = true
+                                        self.isShowTappedProject = true
                                     }
                             }
                         }

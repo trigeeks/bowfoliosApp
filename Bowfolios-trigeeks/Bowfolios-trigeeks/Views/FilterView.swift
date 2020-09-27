@@ -14,7 +14,7 @@ struct FilterView: View {
     @State var selectedArray = Set<String>()
     @State var interestsArray = InterestsArray().interestsArray
     @State var showedProject: Project = Project(name: "", description: "", picture: "", homepage: "", interests: [])
-    @State var isShowTapedProject: Bool = false
+    @State var isShowTappedProject: Bool = false
     @EnvironmentObject var projects: ProjectViewModel
     @EnvironmentObject var profiles: ProfileViewModel
     
@@ -97,7 +97,7 @@ struct FilterView: View {
                             LazyVStack {
                                 ForEach(self.getProfiles(interests: Array(self.selectedArray)), id:\.self) { profile in
                                     
-                                    ProfileRowView(profile: profile, showedProject: $showedProject, isShowTapedProject: $isShowTapedProject).padding()
+                                    ProfileRowView(profile: profile, showedProject: $showedProject, isShowTappedProject: $isShowTappedProject).padding()
                                 }.id(UUID())
                             }
                         }.background(Color.white)
@@ -114,8 +114,8 @@ struct FilterView: View {
                     }
                 }
             } // end of Geometry Reader
-            if isShowTapedProject {
-                BrowseProjectView(project: showedProject, isShowed: $isShowTapedProject)
+            if isShowTappedProject {
+                BrowseProjectView(project: showedProject, isShowed: $isShowTappedProject)
             }
         }
     }

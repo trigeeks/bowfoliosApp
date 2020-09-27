@@ -12,7 +12,7 @@ struct ProfileView: View {
     @EnvironmentObject var projects: ProjectViewModel
     @EnvironmentObject var profiles: ProfileViewModel
     @State var showedProject: Project = Project(name: "", description: "", picture: "", homepage: "", interests: [])
-    @State var isShowTapedProject: Bool = false
+    @State var isShowTappedProject: Bool = false
     @Binding var forceReload: Bool
     
     var body: some View {
@@ -20,7 +20,7 @@ struct ProfileView: View {
             ScrollView{
                 LazyVStack{
                     ForEach(self.profiles.profiles) { profile in
-                        ProfileRowView(profile: profile, showedProject: $showedProject, isShowTapedProject: $isShowTapedProject).padding(.horizontal)
+                        ProfileRowView(profile: profile, showedProject: $showedProject, isShowTappedProject: $isShowTappedProject).padding(.horizontal)
                         Spacer().frame(height: 12).background(Color("bg5"))
                     }
                 }
@@ -29,8 +29,8 @@ struct ProfileView: View {
                     self.projects.fetchData()
                 }
             }
-            if isShowTapedProject {
-                BrowseProjectView(project: showedProject, isShowed: $isShowTapedProject)
+            if isShowTappedProject {
+                BrowseProjectView(project: showedProject, isShowed: $isShowTappedProject)
             }
         }
     }

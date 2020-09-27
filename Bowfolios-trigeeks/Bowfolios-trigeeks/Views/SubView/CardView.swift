@@ -78,6 +78,9 @@ struct BrowseProfileView: View {
             dismiss()
         })
         .zIndex(.random(in: 1..<2))
+        .onDisappear{
+            dismiss()
+        }
         
     }
     
@@ -169,7 +172,9 @@ struct BrowseProjectView: View {
             dismiss()
         })
         .zIndex(.random(in: 1..<2))
-        
+        .onDisappear{
+            dismiss()
+        }
     }
     
     

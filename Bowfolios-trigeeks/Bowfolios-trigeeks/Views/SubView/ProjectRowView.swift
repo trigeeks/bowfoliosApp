@@ -13,7 +13,7 @@ struct ProjectRowView: View {
     @State var project: Project
     @EnvironmentObject var profiles: ProfileViewModel
     @Binding var showedProfile: Profile
-    @Binding var isShowTapedProfile: Bool
+    @Binding var isShowTappedProfile: Bool
     
     
     // filter the profileData to get profiles that in the given project
@@ -71,7 +71,7 @@ struct ProjectRowView: View {
                             .cornerRadius(50)
                             .onTapGesture {
                                 self.showedProfile = participant
-                                self.isShowTapedProfile = true
+                                self.isShowTappedProfile = true
                             }
                         
                     }

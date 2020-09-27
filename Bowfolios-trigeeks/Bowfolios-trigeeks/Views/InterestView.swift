@@ -15,8 +15,8 @@ struct InterestView: View {
     
     @State var showedProfile: Profile = Profile(firstName: "", lastName: "", bio: "", email: "", title: "", projects: [], interests: [], picture: "")
     @State var showedProject: Project = Project(name: "", description: "", picture: "", homepage: "", interests: [])
-    @State var isShowTapedProfile: Bool = false
-    @State var isShowTapedProject: Bool = false
+    @State var isShowTappedProfile: Bool = false
+    @State var isShowTappedProject: Bool = false
     @State var interestsArray = InterestsArray().interestsArray
     
     var body: some View {
@@ -25,7 +25,7 @@ struct InterestView: View {
             LazyVStack{
             
                 ForEach(self.interestsArray, id: \.self){ sec in
-                    InterestRowView(theInterest: sec, showedProfile: $showedProfile, showTapedProfile: $isShowTapedProfile, showedProject: $showedProject, showTapedProject: $isShowTapedProject)
+                    InterestRowView(theInterest: sec, showedProfile: $showedProfile, showTapedProfile: $isShowTappedProfile, showedProject: $showedProject, showTapedProject: $isShowTappedProject)
                 }.padding(.bottom)
                 
             
@@ -35,11 +35,11 @@ struct InterestView: View {
             }
             .padding(.horizontal)
             }
-            if isShowTapedProfile {
-                BrowseProfileView(profile: showedProfile, isShowed: $isShowTapedProfile)
+            if isShowTappedProfile {
+                BrowseProfileView(profile: showedProfile, isShowed: $isShowTappedProfile)
             }
-            if isShowTapedProject {
-                BrowseProjectView(project: showedProject, isShowed: $isShowTapedProject)
+            if isShowTappedProject {
+                BrowseProjectView(project: showedProject, isShowed: $isShowTappedProject)
             }
         }
     }
