@@ -11,18 +11,26 @@ import SwiftUI
 struct ProfileView: View {
     @EnvironmentObject var projects: ProjectViewModel
     @EnvironmentObject var profiles: ProfileViewModel
+    @State var showedProject: Project = Project(name: "", description: "", picture: "", homepage: "", interests: [])
+    @State var isShowTapedProject: Bool = false
     @Binding var forceReload: Bool
+    
     var body: some View {
-        ScrollView{
-            LazyVStack{
-                ForEach(self.profiles.profiles) { profile in
-                    ProfileRowView(profile: profile).padding(.horizontal)
-                    Spacer().frame(height: 12).background(Color("bg5"))
+        ZStack{
+            ScrollView{
+                LazyVStack{
+                    ForEach(self.profiles.profiles) { profile in
+                        ProfileRowView(profile: profile, showedProject: $showedProject, isShowTapedProject: $isShowTapedProject).padding(.horizontal)
+                        Spacer().frame(height: 12).background(Color("bg5"))
+                    }
+                }
+                .onAppear {
+                    self.profiles.fetchData()
+                    self.projects.fetchData()
                 }
             }
-            .onAppear {
-                self.profiles.fetchData()
-                self.projects.fetchData()
+            if isShowTapedProject {
+                BrowseProjectView(project: showedProject, isShowed: $isShowTapedProject)
             }
         }
     }

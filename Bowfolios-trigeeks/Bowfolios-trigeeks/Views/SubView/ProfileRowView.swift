@@ -13,16 +13,17 @@ import SDWebImageSwiftUI
 struct ProfileRowView: View {
     @State var profile: Profile
     @EnvironmentObject var projects: ProjectViewModel
+    @Binding var showedProject: Project
+    @Binding var isShowTapedProject: Bool
     
-    func getProject(projectName: String) -> String {
+    func getProject(projectName: String) -> Project {
         for project in projects.projects {
             if project.name == projectName {
-                return project.picture
+                return project
             }
-            
         }
         print("Error: Can't find that project")
-        return ""
+        return Project(name: "", description: "", picture: "", homepage: "", interests: [])
         
     }
     
@@ -78,8 +79,13 @@ struct ProfileRowView: View {
                         HStack {
                             ForEach(profile.projects, id: \.self) { project in
                                 
-                                WebImage(url: URL(string: self.getProject(projectName: project))).renderingMode(.original)
+                                WebImage(url: URL(string: self.getProject(projectName: project).picture))
+                                    .renderingMode(.original)
                                     .resizable().frame(width: 50, height: 50).cornerRadius(50)
+                                    .onTapGesture {
+                                        self.showedProject = self.getProject(projectName: project)
+                                        self.isShowTapedProject = true
+                                    }
                             }
                         }
                     }

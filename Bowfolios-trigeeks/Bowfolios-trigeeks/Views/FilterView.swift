@@ -13,6 +13,10 @@ struct FilterView: View {
     @State var showSelections: Bool = false
     @State var selectedArray = Set<String>()
     @State var interestsArray = InterestsArray().interestsArray
+    @State var showedProfile: Profile = Profile(firstName: "", lastName: "", bio: "", email: "", title: "", projects: [], interests: [], picture: "")
+    @State var showedProject: Project = Project(name: "", description: "", picture: "", homepage: "", interests: [])
+    @State var isShowTapedProfile: Bool = false
+    @State var isShowTapedProject: Bool = false
     @EnvironmentObject var projects: ProjectViewModel
     @EnvironmentObject var profiles: ProfileViewModel
 
@@ -94,7 +98,7 @@ struct FilterView: View {
                         LazyVStack {
                             ForEach(self.getProfiles(interests: Array(self.selectedArray)), id:\.self) { profile in
                                 
-                                ProfileRowView(profile: profile).padding()
+                                ProfileRowView(profile: profile, showedProject: $showedProject, isShowTapedProject: $isShowTapedProject).padding()
                             }.id(UUID())
                         }
                     }.background(Color.white)
