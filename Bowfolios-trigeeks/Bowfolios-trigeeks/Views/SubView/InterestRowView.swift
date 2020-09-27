@@ -35,7 +35,6 @@ struct InterestRowView: View {
                             WebImage(url: URL(string: prof.picture))
                                 .renderingMode(.original)
                                 .resizable()
-                                .scaledToFit()
                                 .frame(width:50, height: 50)
                                 .clipShape(Circle())
                                 .onTapGesture {
@@ -49,7 +48,11 @@ struct InterestRowView: View {
                     
                     ForEach(self.projects.projects){ proj in
                         if proj.interests.contains(self.theInterest){
-                            WebImage(url: URL(string: proj.picture)).renderingMode(.original).resizable().scaledToFit().frame(width:50, height: 50).clipShape(Circle())
+                            WebImage(url: URL(string: proj.picture))
+                                .renderingMode(.original)
+                                .resizable()
+                                .frame(width:50, height: 50)
+                                .clipShape(Circle())
                                 .onTapGesture {
                                     self.showedProject = proj
                                     self.showTapedProject = true
