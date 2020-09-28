@@ -10,7 +10,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct ProjectRowView: View {
-    @State var project: Project
+    var project: Project
     @EnvironmentObject var profiles: ProfileViewModel
     @Binding var showedProfile: Profile
     @Binding var isShowTappedProfile: Bool
