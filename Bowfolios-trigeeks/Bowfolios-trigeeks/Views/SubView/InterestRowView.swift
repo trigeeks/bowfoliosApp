@@ -18,10 +18,9 @@ struct InterestRowView: View {
     @State var theInterest: String
     @State var thePics: [String] = []
     @Binding var showedProfile: Profile
-    @Binding var showTapedProfile: Bool
+    @Binding var isOpenProfile: Bool
     @Binding var showedProject: Project
-    @Binding var showTapedProject: Bool
-    
+    @Binding var isOpenProject: Bool
     var body: some View {
         VStack{
             Text(theInterest).fontWeight(.semibold)
@@ -39,7 +38,7 @@ struct InterestRowView: View {
                                 .clipShape(Circle())
                                 .onTapGesture {
                                     self.showedProfile = prof
-                                    self.showTapedProfile = true 
+                                    self.isOpenProfile = true
                                 }
                                 .modifier(SmallImageModifier())
                             
@@ -55,7 +54,7 @@ struct InterestRowView: View {
                                 .clipShape(Circle())
                                 .onTapGesture {
                                     self.showedProject = proj
-                                    self.showTapedProject = true
+                                    self.isOpenProject = true
                                 }
                                 .modifier(SmallImageModifier())
                         }

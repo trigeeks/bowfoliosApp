@@ -15,12 +15,19 @@ import FirebaseAuth
 struct HomeView: View {
     
     @EnvironmentObject var session: SessionStore
+    @EnvironmentObject var profiles: ProfileViewModel
+    @EnvironmentObject var projects: ProjectViewModel
     @State var selected = 0
     @State var isExpand = false
     @State var editView: Bool = false
     @State var showAddProject = false
     @State var showSheet = false
     @State var forceReload = false // this var does nothing but forces a reload
+    
+    @State var showedProfile = Profile(firstName: "", lastName: "", bio: "", email: "", title: "", projects: [], interests: [], picture: "")
+    @State var isOpenProfile = false
+    @State var showedProject = Project(name: "", description: "", picture: "", homepage: "", interests: [])
+    @State var isOpenProject = false
     
     var body: some View {
         
@@ -31,7 +38,7 @@ struct HomeView: View {
                 
                 
                 // MARK: - Main Pages View
-                MainView(selected: $selected, forceReload: self.$forceReload)
+                MainView(selected: $selected, forceReload: self.$forceReload, showedProfile: $showedProfile, isOpenProfile: $isOpenProfile, showedProject: $showedProject, isOpenProject: $isOpenProject)
                 
             }.edgesIgnoringSafeArea(.all)
 
@@ -75,6 +82,13 @@ struct HomeView: View {
                     
                 }.transition(.move(edge: .trailing))
             }
+            
+            if isOpenProfile {
+                BrowseProfileView(showedProfile: showedProfile, isShowTappedProfile: $isOpenProfile)
+            }
+            if isOpenProject {
+                BrowseProjectView(project: showedProject, isShowTappedProject: $isOpenProject)
+            }
         }
         .fullScreenCover(isPresented: $showSheet, content:{
             if self.editView {
@@ -83,6 +97,10 @@ struct HomeView: View {
                 AddProjectView(showAddProject: self.$showSheet, showSheet: self.$showSheet, forceReload: self.$forceReload)
             }
         })
+        .onAppear {
+            self.profiles.fetchData()
+            self.projects.fetchData()
+        }
     }
 }
 
@@ -180,15 +198,31 @@ struct TopBar: View {
 struct MainView: View {
     @Binding var selected: Int
     @Binding var forceReload: Bool
-    
+    @Binding var showedProfile: Profile
+    @Binding var isOpenProfile: Bool
+    @Binding var showedProject: Project
+    @Binding var isOpenProject: Bool
     var body: some View {
         
-        Pages(currentPage: $selected, forceReload: $forceReload, hasControl: false) { () -> [AnyView] in
-            ProfileView(forceReload: self.$forceReload).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())
-            ProjectView(forceReload: self.$forceReload).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())
-            InterestView().environmentObject(ProfileViewModel()).environmentObject(ProjectViewModel())
-            FilterView().environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())
+        ZStack {
+            Pages(currentPage: $selected, forceReload: $forceReload, hasControl: false) { () -> [AnyView] in
+                
+                ProfileView(forceReload: self.$forceReload, showedProject: $showedProject, isOpenProject: $isOpenProject)
+                    .environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())
+                
+                ProjectView(forceReload: self.$forceReload, showedProfile: $showedProfile, isOpenProfile: $isOpenProfile)
+                    .environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())
+                
+                InterestView(showedProfile: $showedProfile, isOpenProfile: $isOpenProfile, showedProject: $showedProject, isOpenProject: $isOpenProject)
+                    .environmentObject(ProfileViewModel()).environmentObject(ProjectViewModel())
+                
+                FilterView(showedProject: $showedProject, isOpenProject: $isOpenProject).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())
+            }
+            
+            
         }
 
     }
 }
+
+

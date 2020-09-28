@@ -13,8 +13,6 @@ struct FilterView: View {
     @State var showSelections: Bool = false
     @State var selectedArray = Set<String>()
     @State var interestsArray = InterestsArray().interestsArray
-    @State var showedProject: Project = Project(name: "", description: "", picture: "", homepage: "", interests: [])
-    @State var isShowTappedProject: Bool = false
     @EnvironmentObject var projects: ProjectViewModel
     @EnvironmentObject var profiles: ProfileViewModel
     
@@ -22,6 +20,8 @@ struct FilterView: View {
         return (ExpandList(name: interest, isTitle: false, isSelected: IsSelected(false)))
     }
     
+    @Binding var showedProject: Project
+    @Binding var isOpenProject: Bool
     
     var body: some View {
         ZStack{
@@ -97,7 +97,7 @@ struct FilterView: View {
                             LazyVStack {
                                 ForEach(self.getProfiles(interests: Array(self.selectedArray)), id:\.self) { profile in
                                     
-                                    ProfileRowView(profile: profile, showedProject: $showedProject, isShowTappedProject: $isShowTappedProject).padding()
+                                    ProfileRowView(profile: profile, showedProject: $showedProject, isOpenProject: $isOpenProject).padding()
                                 }.id(UUID())
                             }
                         }.background(Color.white)
@@ -114,9 +114,6 @@ struct FilterView: View {
                     }
                 }
             } // end of Geometry Reader
-            if isShowTappedProject {
-                BrowseProjectView(project: showedProject, isShowed: $isShowTappedProject)
-            }
         }
     }
     
@@ -140,15 +137,6 @@ struct FilterView: View {
     }
     
 }
-
-
-struct FilterView_Previews: PreviewProvider {
-    static var previews: some View {
-        FilterView()
-    }
-}
-
-
 
 // MARK: - Selection List
 // listItem Object
@@ -239,3 +227,10 @@ func generateContent(in g: GeometryProxy, selectedArray: [String]) -> some View 
         }
     }
 }
+
+
+//struct FilterView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FilterView()
+//    }
+//}
