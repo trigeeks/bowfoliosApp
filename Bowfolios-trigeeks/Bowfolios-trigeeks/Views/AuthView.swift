@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+var TextColor = Color("bg1")
 struct SignInView: View {
     
     @State var email: String = ""
@@ -41,7 +42,7 @@ struct SignInView: View {
                     Text("Welcome To Bowfolios!")
                         .fontWeight(.semibold)
                         .font(.largeTitle)
-                        .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
+                        .foregroundColor(TextColor)
                         .multilineTextAlignment(.trailing)
                         .padding(.top, 40)
                         .padding(.leading, 6)
@@ -59,7 +60,7 @@ struct SignInView: View {
                         Text("Email")
                             .fontWeight(.semibold)
                             .font(.title)
-                            .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
+                            .foregroundColor(TextColor)
                         
                         TextField("Enter Your Email", text: $email)
                             .keyboardType(.emailAddress)
@@ -71,7 +72,7 @@ struct SignInView: View {
                         Text("Password")
                             .fontWeight(.semibold)
                             .font(.title)
-                            .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
+                            .foregroundColor(TextColor)
                         
                         HStack {
                             
@@ -126,10 +127,10 @@ struct SignInView: View {
                     HStack {
                         Text("Do not have an account?")
                             .fontWeight(.semibold)
-                            .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
+                            .foregroundColor(TextColor)
                     NavigationLink (destination: SignUpView()) {
                         Text("Register").fontWeight(.semibold)
-                            .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
+                            .foregroundColor(TextColor)
                     }.buttonStyle(ButtonsModifier())
                     }.padding(30)
                     .modifier(SectionModifier())
@@ -181,7 +182,7 @@ struct SignUpView: View {
                     Text("Create Account")
                         .fontWeight(.heavy)
                         .font(.largeTitle)
-                        .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
+                        .foregroundColor(TextColor)
                     
                     Text("Sign Up to get started")
                         .font(.system(size: 18, weight: .medium))
@@ -196,7 +197,7 @@ struct SignUpView: View {
                         Text("Email")
                             .fontWeight(.semibold)
                             .font(.title)
-                            .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
+                            .foregroundColor(TextColor)
                         TextField("Email address", text: $email)
                             .keyboardType(.emailAddress)
                             .modifier(TextFieldModifier())
@@ -210,7 +211,7 @@ struct SignUpView: View {
                         Text("Password")
                             .fontWeight(.semibold)
                             .font(.title)
-                            .foregroundColor(Color(#colorLiteral(red: 0.2013712525, green: 0.433947742, blue: 0.8717361093, alpha: 1)))
+                            .foregroundColor(TextColor)
                         HStack {
                             
                             if isVisiable {

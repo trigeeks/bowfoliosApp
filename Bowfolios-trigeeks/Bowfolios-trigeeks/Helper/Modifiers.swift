@@ -126,12 +126,12 @@ struct LongButtonStyle: ButtonStyle {
             .background(
                 Group {
                     if configuration.isPressed {
-                    RoundedRectangle(cornerRadius: 15).fill(Color(#colorLiteral(red: 0.4437265396, green: 0.6356848478, blue: 1, alpha: 0.5364137414)))
-                        .shadow(color: Color(#colorLiteral(red: 0.3474860191, green: 0.4888443947, blue: 0.8093919754, alpha: 1)), radius: 5, x: 0, y: 0)
+                    RoundedRectangle(cornerRadius: 15).fill(Color("bg1"))
+                        .shadow(color: Color(#colorLiteral(red: 0.2986346781, green: 0.2874504924, blue: 0.3008843064, alpha: 1)), radius: 5, x: 0, y: 0)
                         .shadow(color: Color.white.opacity(0.7), radius: 10, x: 5, y: 5)
                     } else {
-                        RoundedRectangle(cornerRadius: 15).foregroundColor(Color(#colorLiteral(red: 0.4437265396, green: 0.6356848478, blue: 1, alpha: 0.5364137414)))
-                            .shadow(color: Color(#colorLiteral(red: 0.3474860191, green: 0.4888443947, blue: 0.8093919754, alpha: 1)), radius: 10, x: 10, y: 10)
+                        RoundedRectangle(cornerRadius: 15).foregroundColor(Color("bg1"))
+                            .shadow(color: Color(#colorLiteral(red: 0.2986346781, green: 0.2874504924, blue: 0.3008843064, alpha: 1)), radius: 10, x: 10, y: 10)
                             .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
                     }
                 }
@@ -186,7 +186,13 @@ struct TestView: View {
                     .cornerRadius(50)
             }.buttonStyle(RoundButtonStyle())
             
-            
+            Button(action: {}, label: {
+                Text("Login")
+                    .fontWeight(.semibold)
+                    .font(.title2)
+                    .foregroundColor(Color(#colorLiteral(red: 0.8864660859, green: 0.8863860965, blue: 0.9189570546, alpha: 1)))
+            })
+            .buttonStyle(LongButtonStyle())
             
             
             Spacer()
