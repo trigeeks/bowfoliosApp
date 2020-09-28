@@ -11,15 +11,15 @@ import SwiftUI
 struct ProjectView: View {
     @EnvironmentObject var projects: ProjectViewModel
     @EnvironmentObject var profiles: ProfileViewModel
-    @State var showedProfile: Profile = Profile(firstName: "", lastName: "", bio: "", email: "", title: "", projects: [], interests: [], picture: "")
-    @State var isShowTappedProfile: Bool = false
     @Binding var forceReload: Bool
+    @Binding var showedProfile: Profile
+    @Binding var isOpenProfile: Bool
     var body: some View {
         ZStack{
             ScrollView{
                 LazyVStack{
                     ForEach(self.projects.projects) { project in
-                        ProjectRowView(project: project, showedProfile: $showedProfile, isShowTappedProfile: $isShowTappedProfile).padding(.horizontal)
+                        ProjectRowView(project: project, showedProfile: $showedProfile, isOpenProfile: $isOpenProfile).padding(.horizontal)
                         Spacer().frame(height: 12).background(Color("bg5"))
                     }
                 }
@@ -28,17 +28,17 @@ struct ProjectView: View {
                     self.projects.fetchData()
                 }
             }
-            if isShowTappedProfile {
-                BrowseProfileView(profile: showedProfile, isShowed: $isShowTappedProfile)
-            }
         }
     }
 }
 
 
 
-struct ProjectsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProjectView(forceReload: .constant(false)).environmentObject(ProjectViewModel()).environmentObject(ProfileViewModel())
-    }
-}
+//struct ProjectsView_Previews: PreviewProvider {
+//    @State var showedProfile: Profile = Profile(firstName: "", lastName: "", bio: "", email: "", title: "", projects: [], interests: [], picture: "")
+//    static var previews: some View {
+//        ProjectView(showedProfile: $showedProfile, isShowTappedProfile: .constant(false), forceReload: .constant(false))
+//            .environmentObject(ProjectViewModel())
+//            .environmentObject(ProfileViewModel())
+//    }
+//}
