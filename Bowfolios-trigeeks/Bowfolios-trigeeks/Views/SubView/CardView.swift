@@ -97,7 +97,6 @@ struct BrowseProfileView: View {
     
     func dismiss() {
         isShowTappedProfile = false
-        print(isShowTappedProfile)
     }
 }
 
