@@ -1,52 +1,23 @@
 //
-//  ContentView.swift
+//  LaunchView.swift
 //  Bowfolios-trigeeks
 //
-//  Created by weirong he on 9/6/20.
+//  Created by Tianhui Zhou on 9/29/20.
 //  Copyright © 2020 trigeeks. All rights reserved.
 //
 
 import SwiftUI
-import Firebase
-import FirebaseFirestore
-import FirebaseAuth
 
-struct ContentView: View {
-    
-    @EnvironmentObject var session: SessionStore
+struct LaunchView: View {
     @State private var showView = false
     @State private var angle: Double = 360
     @State private var opacity: Double = 1
     @State private var scale: CGFloat = 1
     
-    func getUser(){
-        session.listen()
-        
-    }
-    
     var body: some View {
-        
-        //
         Group{
             if showView {
-                Group{
-                    //judging the current user State with Firebase Auth
-                    if session.session != nil {
-                        
-                        //user already logged in
-                        
-                        HomeView()
-                        
-                    }
-                    else {
-                        // no available loggin state
-                        AuthView()
-                        
-                    }
-                }.onAppear {
-                    self.getUser()
-                    
-                }
+                ContentView()
             } else {
                 ZStack{
                     Color("bg3").edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
@@ -67,10 +38,10 @@ struct ContentView: View {
             }
         }
     }
-    
 }
-struct ContentView_Previews: PreviewProvider {
+
+struct LaunchView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(SessionStore()).environmentObject(ProfileViewModel()).environmentObject(ProfileViewModel())
+        LaunchView()
     }
 }

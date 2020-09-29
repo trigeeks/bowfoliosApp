@@ -59,7 +59,7 @@
 		<key>UIImageName</key>
 		<string>bowfolio</string>
 		<key>Background color</key>
-		<string>bg5</string>
+		<string>bg3</string>
 	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
