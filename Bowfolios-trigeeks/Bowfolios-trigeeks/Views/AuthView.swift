@@ -309,7 +309,7 @@ struct AuthView: View {
                 .edgesIgnoringSafeArea(.all)
                 .background(
                     ZStack{
-                        Rectangle().foregroundColor(Color(#colorLiteral(red: 0.8937863708, green: 0.9039856791, blue: 0.9527032971, alpha: 1))).edgesIgnoringSafeArea(.all)
+                        Rectangle().foregroundColor(Color(#colorLiteral(red: 0.8941176471, green: 0.9058823529, blue: 0.9529411765, alpha: 1))).edgesIgnoringSafeArea(.all)
                         Rectangle().foregroundColor(Color.white).edgesIgnoringSafeArea(.all).rotationEffect(Angle(degrees: 80)).offset(x: 0, y: -80)
                     }
             )
