@@ -50,7 +50,7 @@ struct ContentView: View {
             } else {
                 ZStack{
                     Color("bg6").edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                    Image("icon").rotation3DEffect(
+                    Image("logo-1").rotation3DEffect(
                         .degrees(angle),
                         axis: (x: 0.0, y: 1.0, z: 0.0)
                     ).opacity(opacity).scaleEffect(scale)
