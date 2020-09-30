@@ -57,9 +57,9 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>
-		<string>bg3</string>
+		<string>bg6</string>
 		<key>UIImageName</key>
-		<string>bowfolio</string>
+		<string>icon</string>
 	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
